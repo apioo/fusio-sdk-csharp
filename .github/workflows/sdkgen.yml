@@ -1,0 +1,47 @@
+name: SDKgen
+on:
+  workflow_dispatch:
+    inputs:
+      typehub_message:
+        description: "The TypeHub commit message on commit"
+        required: false
+      typehub_version:
+        description: "The TypeHub version on tag"
+        required: false
+      typehub_changelog:
+        description: "The TypeHub changelog on tag"
+        required: false
+permissions:
+  contents: 'write'
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: apioo/sdkgen-generator-action@v0.2.1
+        with:
+          client_id: '${{ secrets.SDKGEN_CLIENT_ID }}'
+          client_secret: '${{ secrets.SDKGEN_CLIENT_SECRET }}'
+          typehub_message: '${{ inputs.typehub_message }}'
+          typehub_version: '${{ inputs.typehub_version }}'
+          typehub_changelog: '${{ inputs.typehub_changelog }}'
+  publish:
+    if: "${{ inputs.typehub_version != '' }}"
+    needs: generate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.102'
+      - name: Copy csproj
+        run: cp ./project.csproj ./src/Fusio.SDK/Fusio.SDK.csproj
+      - name: Set version
+        run: sed -i 's/0.1.0/${{ inputs.typehub_version }}/g' ./src/Fusio.SDK/Fusio.SDK.csproj
+      - name: Create and push NuGet package
+        working-directory: ./src/Fusio.Sdk
+        run: |
+          dotnet pack -c Release
+          dotnet nuget push bin/Release/*.nupkg --api-key ${{ secrets.NUGET_TOKEN }} --source https://api.nuget.org/v3/index.json --skip-duplicate

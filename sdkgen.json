@@ -1,0 +1,9 @@
+{
+  "type": "client-csharp",
+  "require": {
+    "fusio/sdk": {
+      "target": "./src/Fusio.SDK",
+      "namespace": "Fusio.SDK"
+    }
+  }
+}
