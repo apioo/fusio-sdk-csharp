@@ -10,7 +10,7 @@ public class ConsumerLog
     [JsonPropertyName("id")]
     public int Id { get; set; }
     [JsonPropertyName("appId")]
-    public int? AppId { get; set; }
+    public int AppId { get; set; }
     [JsonPropertyName("ip")]
     public string Ip { get; set; }
     [JsonPropertyName("userAgent")]
