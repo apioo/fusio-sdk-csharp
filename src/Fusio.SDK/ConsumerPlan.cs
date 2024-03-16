@@ -8,15 +8,15 @@ namespace Fusio.SDK;
 public class ConsumerPlan
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
     [JsonPropertyName("description")]
-    public string Description { get; set; }
+    public string? Description { get; set; }
     [JsonPropertyName("price")]
-    public double Price { get; set; }
+    public double? Price { get; set; }
     [JsonPropertyName("points")]
-    public int Points { get; set; }
+    public int? Points { get; set; }
     [JsonPropertyName("metadata")]
-    public CommonMetadata Metadata { get; set; }
+    public CommonMetadata? Metadata { get; set; }
 }

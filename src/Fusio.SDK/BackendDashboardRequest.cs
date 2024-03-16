@@ -8,11 +8,11 @@ namespace Fusio.SDK;
 public class BackendDashboardRequest
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("path")]
-    public string Path { get; set; }
+    public string? Path { get; set; }
     [JsonPropertyName("ip")]
-    public string Ip { get; set; }
+    public string? Ip { get; set; }
     [JsonPropertyName("date")]
-    public DateTime Date { get; set; }
+    public DateTime? Date { get; set; }
 }

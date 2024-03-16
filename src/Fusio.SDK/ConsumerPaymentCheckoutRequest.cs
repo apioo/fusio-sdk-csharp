@@ -8,7 +8,7 @@ namespace Fusio.SDK;
 public class ConsumerPaymentCheckoutRequest
 {
     [JsonPropertyName("planId")]
-    public int PlanId { get; set; }
+    public int? PlanId { get; set; }
     [JsonPropertyName("returnUrl")]
-    public string ReturnUrl { get; set; }
+    public string? ReturnUrl { get; set; }
 }

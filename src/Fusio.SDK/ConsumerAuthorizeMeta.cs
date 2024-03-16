@@ -8,9 +8,9 @@ namespace Fusio.SDK;
 public class ConsumerAuthorizeMeta
 {
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
     [JsonPropertyName("url")]
-    public string Url { get; set; }
+    public string? Url { get; set; }
     [JsonPropertyName("scopes")]
-    public List<ConsumerScope> Scopes { get; set; }
+    public List<ConsumerScope>? Scopes { get; set; }
 }

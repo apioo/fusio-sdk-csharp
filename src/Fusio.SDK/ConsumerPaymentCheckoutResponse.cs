@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class ConsumerPaymentCheckoutResponse
 {
     [JsonPropertyName("approvalUrl")]
-    public string ApprovalUrl { get; set; }
+    public string? ApprovalUrl { get; set; }
 }

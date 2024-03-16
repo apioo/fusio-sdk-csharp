@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class BackendConnectionIndex
 {
     [JsonPropertyName("connections")]
-    public List<BackendConnectionIndexEntry> Connections { get; set; }
+    public List<BackendConnectionIndexEntry>? Connections { get; set; }
 }

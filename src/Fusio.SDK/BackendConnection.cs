@@ -8,13 +8,13 @@ namespace Fusio.SDK;
 public class BackendConnection
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
     [JsonPropertyName("class")]
-    public string Class { get; set; }
+    public string? Class { get; set; }
     [JsonPropertyName("config")]
-    public BackendConnectionConfig Config { get; set; }
+    public BackendConnectionConfig? Config { get; set; }
     [JsonPropertyName("metadata")]
-    public CommonMetadata Metadata { get; set; }
+    public CommonMetadata? Metadata { get; set; }
 }

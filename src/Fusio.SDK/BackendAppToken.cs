@@ -8,17 +8,17 @@ namespace Fusio.SDK;
 public class BackendAppToken
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("status")]
-    public int Status { get; set; }
+    public int? Status { get; set; }
     [JsonPropertyName("token")]
-    public string Token { get; set; }
+    public string? Token { get; set; }
     [JsonPropertyName("scope")]
-    public List<string> Scope { get; set; }
+    public List<string>? Scope { get; set; }
     [JsonPropertyName("ip")]
-    public string Ip { get; set; }
+    public string? Ip { get; set; }
     [JsonPropertyName("expire")]
-    public DateTime Expire { get; set; }
+    public DateTime? Expire { get; set; }
     [JsonPropertyName("date")]
-    public DateTime Date { get; set; }
+    public DateTime? Date { get; set; }
 }

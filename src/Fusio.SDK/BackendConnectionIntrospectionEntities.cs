@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class BackendConnectionIntrospectionEntities
 {
     [JsonPropertyName("entities")]
-    public List<string> Entities { get; set; }
+    public List<string>? Entities { get; set; }
 }

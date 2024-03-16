@@ -8,11 +8,11 @@ namespace Fusio.SDK;
 public class BackendGeneratorProvider
 {
     [JsonPropertyName("path")]
-    public string Path { get; set; }
+    public string? Path { get; set; }
     [JsonPropertyName("scopes")]
-    public List<string> Scopes { get; set; }
+    public List<string>? Scopes { get; set; }
     [JsonPropertyName("public")]
-    public bool Public { get; set; }
+    public bool? Public { get; set; }
     [JsonPropertyName("config")]
-    public BackendGeneratorProviderConfig Config { get; set; }
+    public BackendGeneratorProviderConfig? Config { get; set; }
 }

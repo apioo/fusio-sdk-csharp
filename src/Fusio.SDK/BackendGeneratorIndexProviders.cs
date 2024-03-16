@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class BackendGeneratorIndexProviders
 {
     [JsonPropertyName("providers")]
-    public List<BackendGeneratorIndexProvider> Providers { get; set; }
+    public List<BackendGeneratorIndexProvider>? Providers { get; set; }
 }

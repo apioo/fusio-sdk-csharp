@@ -8,11 +8,11 @@ namespace Fusio.SDK;
 public class BackendRole
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("categoryId")]
-    public int CategoryId { get; set; }
+    public int? CategoryId { get; set; }
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
     [JsonPropertyName("scopes")]
-    public List<string> Scopes { get; set; }
+    public List<string>? Scopes { get; set; }
 }

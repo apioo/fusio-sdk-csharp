@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class BackendSdkResponse
 {
     [JsonPropertyName("types")]
-    public BackendSdkTypes Types { get; set; }
+    public BackendSdkTypes? Types { get; set; }
 }

@@ -8,15 +8,15 @@ namespace Fusio.SDK;
 public class BackendRateAllocation
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("operationId")]
-    public int OperationId { get; set; }
+    public int? OperationId { get; set; }
     [JsonPropertyName("userId")]
-    public int UserId { get; set; }
+    public int? UserId { get; set; }
     [JsonPropertyName("planId")]
-    public int PlanId { get; set; }
+    public int? PlanId { get; set; }
     [JsonPropertyName("appId")]
-    public int AppId { get; set; }
+    public int? AppId { get; set; }
     [JsonPropertyName("authenticated")]
-    public bool Authenticated { get; set; }
+    public bool? Authenticated { get; set; }
 }

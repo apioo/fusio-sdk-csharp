@@ -8,7 +8,7 @@ namespace Fusio.SDK;
 public class CommonFormElementSelectOption
 {
     [JsonPropertyName("key")]
-    public string Key { get; set; }
+    public string? Key { get; set; }
     [JsonPropertyName("value")]
-    public string Value { get; set; }
+    public string? Value { get; set; }
 }

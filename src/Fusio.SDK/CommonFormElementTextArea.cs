@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class CommonFormElementTextArea : CommonFormElement
 {
     [JsonPropertyName("mode")]
-    public string Mode { get; set; }
+    public string? Mode { get; set; }
 }

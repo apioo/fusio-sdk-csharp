@@ -8,13 +8,13 @@ namespace Fusio.SDK;
 public class BackendActionExecuteRequest
 {
     [JsonPropertyName("method")]
-    public string Method { get; set; }
+    public string? Method { get; set; }
     [JsonPropertyName("uriFragments")]
-    public string UriFragments { get; set; }
+    public string? UriFragments { get; set; }
     [JsonPropertyName("parameters")]
-    public string Parameters { get; set; }
+    public string? Parameters { get; set; }
     [JsonPropertyName("headers")]
-    public string Headers { get; set; }
+    public string? Headers { get; set; }
     [JsonPropertyName("body")]
-    public BackendActionExecuteRequestBody Body { get; set; }
+    public BackendActionExecuteRequestBody? Body { get; set; }
 }

@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class BackendUserCreate : BackendUser
 {
     [JsonPropertyName("password")]
-    public string Password { get; set; }
+    public string? Password { get; set; }
 }

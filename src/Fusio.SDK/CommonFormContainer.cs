@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class CommonFormContainer
 {
     [JsonPropertyName("element")]
-    public List<object> Element { get; set; }
+    public List<object>? Element { get; set; }
 }

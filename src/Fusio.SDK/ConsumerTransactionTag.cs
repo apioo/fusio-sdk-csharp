@@ -30,7 +30,7 @@ public class ConsumerTransactionTag : TagAbstract {
 
             List<string> queryStructNames = new List<string>();
 
-            RestRequest request = new RestRequest(this.Parser.Url("/consumer/transaction/$transaction_id<[0-9]+>", pathParams), Method.Get);
+            RestRequest request = new RestRequest(this.Parser.Url("/consumer/transaction/$transaction_id<[0-9]+|^~>", pathParams), Method.Get);
             this.Parser.Query(request, queryParams, queryStructNames);
 
             RestResponse response = await this.HttpClient.ExecuteAsync(request);

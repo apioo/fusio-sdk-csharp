@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class BackendMarketplaceRemoteApp : BackendMarketplaceApp
 {
     [JsonPropertyName("local")]
-    public BackendMarketplaceApp Local { get; set; }
+    public BackendMarketplaceApp? Local { get; set; }
 }

@@ -8,11 +8,11 @@ namespace Fusio.SDK;
 public class ConsumerUserRegister
 {
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
     [JsonPropertyName("email")]
-    public string Email { get; set; }
+    public string? Email { get; set; }
     [JsonPropertyName("password")]
-    public string Password { get; set; }
+    public string? Password { get; set; }
     [JsonPropertyName("captcha")]
-    public string Captcha { get; set; }
+    public string? Captcha { get; set; }
 }

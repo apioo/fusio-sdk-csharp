@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class BackendTrashRestore
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
 }

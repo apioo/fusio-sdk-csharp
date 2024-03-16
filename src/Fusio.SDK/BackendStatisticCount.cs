@@ -8,9 +8,9 @@ namespace Fusio.SDK;
 public class BackendStatisticCount
 {
     [JsonPropertyName("count")]
-    public int Count { get; set; }
+    public int? Count { get; set; }
     [JsonPropertyName("from")]
-    public DateTime From { get; set; }
+    public DateTime? From { get; set; }
     [JsonPropertyName("to")]
-    public DateTime To { get; set; }
+    public DateTime? To { get; set; }
 }

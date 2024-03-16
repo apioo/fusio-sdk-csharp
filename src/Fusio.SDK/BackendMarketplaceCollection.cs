@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class BackendMarketplaceCollection
 {
     [JsonPropertyName("apps")]
-    public BackendMarketplaceCollectionApps Apps { get; set; }
+    public BackendMarketplaceCollectionApps? Apps { get; set; }
 }

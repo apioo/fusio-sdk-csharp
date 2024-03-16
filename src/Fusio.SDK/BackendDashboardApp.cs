@@ -8,9 +8,9 @@ namespace Fusio.SDK;
 public class BackendDashboardApp
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
     [JsonPropertyName("date")]
-    public DateTime Date { get; set; }
+    public DateTime? Date { get; set; }
 }

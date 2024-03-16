@@ -8,21 +8,21 @@ namespace Fusio.SDK;
 public class BackendTransaction
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("userId")]
-    public int UserId { get; set; }
+    public int? UserId { get; set; }
     [JsonPropertyName("planId")]
-    public int PlanId { get; set; }
+    public int? PlanId { get; set; }
     [JsonPropertyName("transactionId")]
-    public string TransactionId { get; set; }
+    public string? TransactionId { get; set; }
     [JsonPropertyName("amount")]
-    public double Amount { get; set; }
+    public double? Amount { get; set; }
     [JsonPropertyName("points")]
-    public double Points { get; set; }
+    public double? Points { get; set; }
     [JsonPropertyName("periodStart")]
-    public DateTime PeriodStart { get; set; }
+    public DateTime? PeriodStart { get; set; }
     [JsonPropertyName("periodEnd")]
-    public DateTime PeriodEnd { get; set; }
+    public DateTime? PeriodEnd { get; set; }
     [JsonPropertyName("insertDate")]
-    public DateTime InsertDate { get; set; }
+    public DateTime? InsertDate { get; set; }
 }

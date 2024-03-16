@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class BackendMarketplaceInstall
 {
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 }

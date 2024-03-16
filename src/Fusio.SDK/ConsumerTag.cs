@@ -42,9 +42,9 @@ public class ConsumerTag : TagAbstract {
         );
     }
 
-    public ConsumerSubscriptionTag Subscription()
+    public ConsumerWebhookTag Webhook()
     {
-        return new ConsumerSubscriptionTag(
+        return new ConsumerWebhookTag(
             this.HttpClient,
             this.Parser
         );

@@ -8,19 +8,19 @@ namespace Fusio.SDK;
 public class BackendAudit
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("app")]
-    public BackendApp App { get; set; }
+    public BackendApp? App { get; set; }
     [JsonPropertyName("user")]
-    public BackendUser User { get; set; }
+    public BackendUser? User { get; set; }
     [JsonPropertyName("event")]
-    public string Event { get; set; }
+    public string? Event { get; set; }
     [JsonPropertyName("ip")]
-    public string Ip { get; set; }
+    public string? Ip { get; set; }
     [JsonPropertyName("message")]
-    public string Message { get; set; }
+    public string? Message { get; set; }
     [JsonPropertyName("content")]
-    public BackendAuditObject Content { get; set; }
+    public BackendAuditObject? Content { get; set; }
     [JsonPropertyName("date")]
-    public DateTime Date { get; set; }
+    public DateTime? Date { get; set; }
 }

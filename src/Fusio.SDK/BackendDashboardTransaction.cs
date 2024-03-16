@@ -8,15 +8,15 @@ namespace Fusio.SDK;
 public class BackendDashboardTransaction
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("status")]
-    public string Status { get; set; }
+    public string? Status { get; set; }
     [JsonPropertyName("provider")]
-    public string Provider { get; set; }
+    public string? Provider { get; set; }
     [JsonPropertyName("transactionId")]
-    public string TransactionId { get; set; }
+    public string? TransactionId { get; set; }
     [JsonPropertyName("amount")]
-    public double Amount { get; set; }
+    public double? Amount { get; set; }
     [JsonPropertyName("date")]
-    public DateTime Date { get; set; }
+    public DateTime? Date { get; set; }
 }

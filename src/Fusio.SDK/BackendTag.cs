@@ -18,6 +18,14 @@ public class BackendTag : TagAbstract {
     {
     }
 
+    public BackendWebhookTag Webhook()
+    {
+        return new BackendWebhookTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public BackendUserTag User()
     {
         return new BackendUserTag(

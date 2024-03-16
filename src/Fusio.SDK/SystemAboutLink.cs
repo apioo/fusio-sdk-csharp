@@ -8,7 +8,7 @@ namespace Fusio.SDK;
 public class SystemAboutLink
 {
     [JsonPropertyName("rel")]
-    public string Rel { get; set; }
+    public string? Rel { get; set; }
     [JsonPropertyName("href")]
-    public string Href { get; set; }
+    public string? Href { get; set; }
 }

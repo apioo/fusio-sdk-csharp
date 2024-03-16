@@ -8,17 +8,17 @@ namespace Fusio.SDK;
 public class BackendRate
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("priority")]
-    public int Priority { get; set; }
+    public int? Priority { get; set; }
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
     [JsonPropertyName("rateLimit")]
-    public int RateLimit { get; set; }
+    public int? RateLimit { get; set; }
     [JsonPropertyName("timespan")]
-    public TimeSpan Timespan { get; set; }
+    public TimeSpan? Timespan { get; set; }
     [JsonPropertyName("allocation")]
-    public List<BackendRateAllocation> Allocation { get; set; }
+    public List<BackendRateAllocation>? Allocation { get; set; }
     [JsonPropertyName("metadata")]
-    public CommonMetadata Metadata { get; set; }
+    public CommonMetadata? Metadata { get; set; }
 }
