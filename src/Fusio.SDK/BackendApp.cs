@@ -30,5 +30,5 @@ public class BackendApp
     [JsonPropertyName("scopes")]
     public List<string>? Scopes { get; set; }
     [JsonPropertyName("tokens")]
-    public List<BackendAppToken>? Tokens { get; set; }
+    public List<BackendToken>? Tokens { get; set; }
 }

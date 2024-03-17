@@ -50,6 +50,14 @@ public class BackendTag : TagAbstract {
         );
     }
 
+    public BackendTokenTag Token()
+    {
+        return new BackendTokenTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public BackendTenantTag Tenant()
     {
         return new BackendTenantTag(

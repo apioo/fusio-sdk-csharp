@@ -50,6 +50,14 @@ public class ConsumerTag : TagAbstract {
         );
     }
 
+    public ConsumerTokenTag Token()
+    {
+        return new ConsumerTokenTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public ConsumerScopeTag Scope()
     {
         return new ConsumerScopeTag(
