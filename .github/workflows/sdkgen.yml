@@ -41,7 +41,7 @@ jobs:
       - name: Set version
         run: sed -i 's/0.1.0/${{ inputs.typehub_version }}/g' ./src/Fusio.SDK/Fusio.SDK.csproj
       - name: Create and push NuGet package
-        working-directory: ./src/Fusio.Sdk
+        working-directory: ./src/Fusio.SDK
         run: |
           dotnet pack -c Release
           dotnet nuget push bin/Release/*.nupkg --api-key ${{ secrets.NUGET_TOKEN }} --source https://api.nuget.org/v3/index.json --skip-duplicate
