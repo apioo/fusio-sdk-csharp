@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class BackendIdentityIndex
 {
     [JsonPropertyName("providers")]
-    public List<BackendIdentityIndexEntry> Providers { get; set; }
+    public List<BackendIdentityIndexEntry>? Providers { get; set; }
 }

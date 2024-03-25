@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class SystemRoute
 {
     [JsonPropertyName("routes")]
-    public SystemRoutePath Routes { get; set; }
+    public SystemRoutePath? Routes { get; set; }
 }

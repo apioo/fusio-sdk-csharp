@@ -8,9 +8,9 @@ namespace Fusio.SDK;
 public class BackendTrashData
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("status")]
-    public int Status { get; set; }
+    public int? Status { get; set; }
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 }

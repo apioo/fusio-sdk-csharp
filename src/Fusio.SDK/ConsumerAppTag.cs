@@ -30,7 +30,7 @@ public class ConsumerAppTag : TagAbstract {
 
             List<string> queryStructNames = new List<string>();
 
-            RestRequest request = new RestRequest(this.Parser.Url("/consumer/app/$app_id<[0-9]+>", pathParams), Method.Delete);
+            RestRequest request = new RestRequest(this.Parser.Url("/consumer/app/$app_id<[0-9]+|^~>", pathParams), Method.Delete);
             this.Parser.Query(request, queryParams, queryStructNames);
 
             RestResponse response = await this.HttpClient.ExecuteAsync(request);
@@ -75,7 +75,7 @@ public class ConsumerAppTag : TagAbstract {
 
             List<string> queryStructNames = new List<string>();
 
-            RestRequest request = new RestRequest(this.Parser.Url("/consumer/app/$app_id<[0-9]+>", pathParams), Method.Put);
+            RestRequest request = new RestRequest(this.Parser.Url("/consumer/app/$app_id<[0-9]+|^~>", pathParams), Method.Put);
             this.Parser.Query(request, queryParams, queryStructNames);
             request.AddJsonBody(JsonSerializer.Serialize(payload));
 
@@ -123,7 +123,7 @@ public class ConsumerAppTag : TagAbstract {
 
             List<string> queryStructNames = new List<string>();
 
-            RestRequest request = new RestRequest(this.Parser.Url("/consumer/app/$app_id<[0-9]+>", pathParams), Method.Get);
+            RestRequest request = new RestRequest(this.Parser.Url("/consumer/app/$app_id<[0-9]+|^~>", pathParams), Method.Get);
             this.Parser.Query(request, queryParams, queryStructNames);
 
             RestResponse response = await this.HttpClient.ExecuteAsync(request);

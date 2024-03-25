@@ -42,9 +42,17 @@ public class ConsumerTag : TagAbstract {
         );
     }
 
-    public ConsumerSubscriptionTag Subscription()
+    public ConsumerWebhookTag Webhook()
     {
-        return new ConsumerSubscriptionTag(
+        return new ConsumerWebhookTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
+    public ConsumerTokenTag Token()
+    {
+        return new ConsumerTokenTag(
             this.HttpClient,
             this.Parser
         );

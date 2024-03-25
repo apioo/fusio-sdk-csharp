@@ -8,9 +8,9 @@ namespace Fusio.SDK;
 public class BackendAccountChangePassword
 {
     [JsonPropertyName("oldPassword")]
-    public string OldPassword { get; set; }
+    public string? OldPassword { get; set; }
     [JsonPropertyName("newPassword")]
-    public string NewPassword { get; set; }
+    public string? NewPassword { get; set; }
     [JsonPropertyName("verifyPassword")]
-    public string VerifyPassword { get; set; }
+    public string? VerifyPassword { get; set; }
 }

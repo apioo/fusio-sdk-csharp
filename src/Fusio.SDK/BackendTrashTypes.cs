@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class BackendTrashTypes
 {
     [JsonPropertyName("types")]
-    public List<string> Types { get; set; }
+    public List<string>? Types { get; set; }
 }

@@ -8,9 +8,9 @@ namespace Fusio.SDK;
 public class ConsumerUserLogin
 {
     [JsonPropertyName("username")]
-    public string Username { get; set; }
+    public string? Username { get; set; }
     [JsonPropertyName("password")]
-    public string Password { get; set; }
+    public string? Password { get; set; }
     [JsonPropertyName("scopes")]
-    public List<string> Scopes { get; set; }
+    public List<string>? Scopes { get; set; }
 }

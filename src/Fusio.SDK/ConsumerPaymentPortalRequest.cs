@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class ConsumerPaymentPortalRequest
 {
     [JsonPropertyName("returnUrl")]
-    public string ReturnUrl { get; set; }
+    public string? ReturnUrl { get; set; }
 }

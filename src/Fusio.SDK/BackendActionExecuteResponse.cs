@@ -8,9 +8,9 @@ namespace Fusio.SDK;
 public class BackendActionExecuteResponse
 {
     [JsonPropertyName("statusCode")]
-    public int StatusCode { get; set; }
+    public int? StatusCode { get; set; }
     [JsonPropertyName("headers")]
-    public BackendActionExecuteResponseHeaders Headers { get; set; }
+    public BackendActionExecuteResponseHeaders? Headers { get; set; }
     [JsonPropertyName("body")]
-    public BackendActionExecuteResponseBody Body { get; set; }
+    public BackendActionExecuteResponseBody? Body { get; set; }
 }

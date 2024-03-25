@@ -8,15 +8,15 @@ namespace Fusio.SDK;
 public class ConsumerAuthorizeRequest
 {
     [JsonPropertyName("responseType")]
-    public string ResponseType { get; set; }
+    public string? ResponseType { get; set; }
     [JsonPropertyName("clientId")]
-    public string ClientId { get; set; }
+    public string? ClientId { get; set; }
     [JsonPropertyName("redirectUri")]
-    public string RedirectUri { get; set; }
+    public string? RedirectUri { get; set; }
     [JsonPropertyName("scope")]
-    public string Scope { get; set; }
+    public string? Scope { get; set; }
     [JsonPropertyName("state")]
-    public string State { get; set; }
+    public string? State { get; set; }
     [JsonPropertyName("allow")]
-    public bool Allow { get; set; }
+    public bool? Allow { get; set; }
 }

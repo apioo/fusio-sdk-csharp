@@ -8,11 +8,11 @@ namespace Fusio.SDK;
 public class CommonFormElement
 {
     [JsonPropertyName("element")]
-    public string Element { get; set; }
+    public string? Element { get; set; }
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
     [JsonPropertyName("title")]
-    public string Title { get; set; }
+    public string? Title { get; set; }
     [JsonPropertyName("help")]
-    public string Help { get; set; }
+    public string? Help { get; set; }
 }

@@ -8,31 +8,31 @@ namespace Fusio.SDK;
 public class SystemAbout
 {
     [JsonPropertyName("apiVersion")]
-    public string ApiVersion { get; set; }
+    public string? ApiVersion { get; set; }
     [JsonPropertyName("title")]
-    public string Title { get; set; }
+    public string? Title { get; set; }
     [JsonPropertyName("description")]
-    public string Description { get; set; }
+    public string? Description { get; set; }
     [JsonPropertyName("termsOfService")]
-    public string TermsOfService { get; set; }
+    public string? TermsOfService { get; set; }
     [JsonPropertyName("contactName")]
-    public string ContactName { get; set; }
+    public string? ContactName { get; set; }
     [JsonPropertyName("contactUrl")]
-    public string ContactUrl { get; set; }
+    public string? ContactUrl { get; set; }
     [JsonPropertyName("contactEmail")]
-    public string ContactEmail { get; set; }
+    public string? ContactEmail { get; set; }
     [JsonPropertyName("licenseName")]
-    public string LicenseName { get; set; }
+    public string? LicenseName { get; set; }
     [JsonPropertyName("licenseUrl")]
-    public string LicenseUrl { get; set; }
+    public string? LicenseUrl { get; set; }
     [JsonPropertyName("paymentCurrency")]
-    public string PaymentCurrency { get; set; }
+    public string? PaymentCurrency { get; set; }
     [JsonPropertyName("categories")]
-    public List<string> Categories { get; set; }
+    public List<string>? Categories { get; set; }
     [JsonPropertyName("scopes")]
-    public List<string> Scopes { get; set; }
+    public List<string>? Scopes { get; set; }
     [JsonPropertyName("apps")]
-    public SystemAboutApps Apps { get; set; }
+    public SystemAboutApps? Apps { get; set; }
     [JsonPropertyName("links")]
-    public List<SystemAboutLink> Links { get; set; }
+    public List<SystemAboutLink>? Links { get; set; }
 }

@@ -8,7 +8,7 @@ namespace Fusio.SDK;
 public class BackendScopeOperation
 {
     [JsonPropertyName("operationId")]
-    public int OperationId { get; set; }
+    public int? OperationId { get; set; }
     [JsonPropertyName("allow")]
-    public bool Allow { get; set; }
+    public bool? Allow { get; set; }
 }

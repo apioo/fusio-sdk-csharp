@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class CommonFormElementInput : CommonFormElement
 {
     [JsonPropertyName("type")]
-    public string Type { get; set; }
+    public string? Type { get; set; }
 }

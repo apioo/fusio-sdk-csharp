@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class BackendSchemaPreviewResponse
 {
     [JsonPropertyName("preview")]
-    public string Preview { get; set; }
+    public string? Preview { get; set; }
 }

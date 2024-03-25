@@ -8,11 +8,11 @@ namespace Fusio.SDK;
 public class BackendCronjobError
 {
     [JsonPropertyName("message")]
-    public string Message { get; set; }
+    public string? Message { get; set; }
     [JsonPropertyName("trace")]
-    public string Trace { get; set; }
+    public string? Trace { get; set; }
     [JsonPropertyName("file")]
-    public string File { get; set; }
+    public string? File { get; set; }
     [JsonPropertyName("line")]
-    public int Line { get; set; }
+    public int? Line { get; set; }
 }

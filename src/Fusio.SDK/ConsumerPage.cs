@@ -8,13 +8,13 @@ namespace Fusio.SDK;
 public class ConsumerPage
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("title")]
-    public string Title { get; set; }
+    public string? Title { get; set; }
     [JsonPropertyName("slug")]
-    public string Slug { get; set; }
+    public string? Slug { get; set; }
     [JsonPropertyName("content")]
-    public string Content { get; set; }
+    public string? Content { get; set; }
     [JsonPropertyName("metadata")]
-    public CommonMetadata Metadata { get; set; }
+    public CommonMetadata? Metadata { get; set; }
 }

@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class ConsumerUserRefresh
 {
     [JsonPropertyName("refresh_token")]
-    public string RefreshToken { get; set; }
+    public string? RefreshToken { get; set; }
 }

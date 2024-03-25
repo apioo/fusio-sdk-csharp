@@ -8,7 +8,7 @@ namespace Fusio.SDK;
 public class BackendIdentityIndexEntry
 {
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
     [JsonPropertyName("class")]
-    public string Class { get; set; }
+    public string? Class { get; set; }
 }

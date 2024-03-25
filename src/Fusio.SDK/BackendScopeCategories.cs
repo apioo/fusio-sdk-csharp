@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class BackendScopeCategories
 {
     [JsonPropertyName("categories")]
-    public List<BackendScopeCategory> Categories { get; set; }
+    public List<BackendScopeCategory>? Categories { get; set; }
 }

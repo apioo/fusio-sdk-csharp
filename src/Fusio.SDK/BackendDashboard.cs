@@ -8,21 +8,21 @@ namespace Fusio.SDK;
 public class BackendDashboard
 {
     [JsonPropertyName("errorsPerOperation")]
-    public BackendStatisticChart ErrorsPerOperation { get; set; }
+    public BackendStatisticChart? ErrorsPerOperation { get; set; }
     [JsonPropertyName("incomingRequests")]
-    public BackendStatisticChart IncomingRequests { get; set; }
+    public BackendStatisticChart? IncomingRequests { get; set; }
     [JsonPropertyName("incomingTransactions")]
-    public BackendStatisticChart IncomingTransactions { get; set; }
+    public BackendStatisticChart? IncomingTransactions { get; set; }
     [JsonPropertyName("mostUsedOperations")]
-    public BackendStatisticChart MostUsedOperations { get; set; }
+    public BackendStatisticChart? MostUsedOperations { get; set; }
     [JsonPropertyName("timePerOperation")]
-    public BackendStatisticChart TimePerOperation { get; set; }
+    public BackendStatisticChart? TimePerOperation { get; set; }
     [JsonPropertyName("latestApps")]
-    public BackendDashboardApps LatestApps { get; set; }
+    public BackendDashboardApps? LatestApps { get; set; }
     [JsonPropertyName("latestRequests")]
-    public BackendDashboardRequests LatestRequests { get; set; }
+    public BackendDashboardRequests? LatestRequests { get; set; }
     [JsonPropertyName("latestUsers")]
-    public BackendDashboardUsers LatestUsers { get; set; }
+    public BackendDashboardUsers? LatestUsers { get; set; }
     [JsonPropertyName("latestTransactions")]
-    public BackendDashboardTransactions LatestTransactions { get; set; }
+    public BackendDashboardTransactions? LatestTransactions { get; set; }
 }

@@ -8,11 +8,11 @@ namespace Fusio.SDK;
 public class ConsumerIdentity
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
     [JsonPropertyName("icon")]
-    public string Icon { get; set; }
+    public string? Icon { get; set; }
     [JsonPropertyName("redirect")]
-    public string Redirect { get; set; }
+    public string? Redirect { get; set; }
 }

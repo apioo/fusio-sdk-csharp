@@ -8,5 +8,5 @@ namespace Fusio.SDK;
 public class BackendActionIndex
 {
     [JsonPropertyName("actions")]
-    public List<BackendActionIndexEntry> Actions { get; set; }
+    public List<BackendActionIndexEntry>? Actions { get; set; }
 }

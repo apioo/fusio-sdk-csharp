@@ -12,5 +12,4 @@ namespace Fusio.SDK;
 /// </summary>
 public class Passthru : Dictionary<string, object>
 {
-
 }

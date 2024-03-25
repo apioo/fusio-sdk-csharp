@@ -8,11 +8,11 @@ namespace Fusio.SDK;
 public class BackendDashboardUser
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("status")]
-    public string Status { get; set; }
+    public string? Status { get; set; }
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
     [JsonPropertyName("date")]
-    public DateTime Date { get; set; }
+    public DateTime? Date { get; set; }
 }

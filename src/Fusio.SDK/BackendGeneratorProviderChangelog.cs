@@ -8,9 +8,9 @@ namespace Fusio.SDK;
 public class BackendGeneratorProviderChangelog
 {
     [JsonPropertyName("schemas")]
-    public List<BackendSchema> Schemas { get; set; }
+    public List<BackendSchema>? Schemas { get; set; }
     [JsonPropertyName("actions")]
-    public List<BackendAction> Actions { get; set; }
+    public List<BackendAction>? Actions { get; set; }
     [JsonPropertyName("operations")]
-    public List<BackendOperation> Operations { get; set; }
+    public List<BackendOperation>? Operations { get; set; }
 }

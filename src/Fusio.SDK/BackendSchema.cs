@@ -8,15 +8,15 @@ namespace Fusio.SDK;
 public class BackendSchema
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName("status")]
-    public int Status { get; set; }
+    public int? Status { get; set; }
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
     [JsonPropertyName("source")]
-    public BackendSchemaSource Source { get; set; }
+    public BackendSchemaSource? Source { get; set; }
     [JsonPropertyName("form")]
-    public BackendSchemaForm Form { get; set; }
+    public BackendSchemaForm? Form { get; set; }
     [JsonPropertyName("metadata")]
-    public CommonMetadata Metadata { get; set; }
+    public CommonMetadata? Metadata { get; set; }
 }
