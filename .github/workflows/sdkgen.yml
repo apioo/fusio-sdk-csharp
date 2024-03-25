@@ -39,7 +39,7 @@ jobs:
       - name: Copy csproj
         run: cp ./project.csproj ./src/Fusio.SDK/Fusio.SDK.csproj
       - name: Set version
-        run: sed -i 's/0.1.0/${{ inputs.typehub_version }}/g' ./src/Fusio.SDK/Fusio.SDK.csproj
+        run: sed -i 's/0.0.0/${{ inputs.typehub_version }}/g' ./src/Fusio.SDK/Fusio.SDK.csproj
       - name: Create and push NuGet package
         working-directory: ./src/Fusio.SDK
         run: |
