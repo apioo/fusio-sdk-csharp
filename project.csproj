@@ -18,7 +18,7 @@
     <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Sdkgen.Client" Version="0.1.5" />
+    <PackageReference Include="Sdkgen.Client" Version="0.1.7" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\logo.png">
