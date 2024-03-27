@@ -13,8 +13,8 @@ public class ConsumerToken
     public int? Status { get; set; }
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-    [JsonPropertyName("scope")]
-    public List<string>? Scope { get; set; }
+    [JsonPropertyName("scopes")]
+    public List<string>? Scopes { get; set; }
     [JsonPropertyName("ip")]
     public string? Ip { get; set; }
     [JsonPropertyName("expire")]
