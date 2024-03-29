@@ -9,8 +9,8 @@ public class ConsumerTokenCreate
 {
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-    [JsonPropertyName("scope")]
-    public List<string>? Scope { get; set; }
+    [JsonPropertyName("scopes")]
+    public List<string>? Scopes { get; set; }
     [JsonPropertyName("expire")]
     public DateTime? Expire { get; set; }
 }
