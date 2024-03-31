@@ -21,189 +21,151 @@ public class SystemMetaTag : TagAbstract {
 
     public async Task<SystemSchema> GetSchema(string name)
     {
-        try
+        Dictionary<string, object> pathParams = new();
+        pathParams.Add("name", name);
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/system/schema/:name", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
         {
-            Dictionary<string, object> pathParams = new Dictionary<string, object>();
-            pathParams.Add("name", name);
-
-            Dictionary<string, object> queryParams = new Dictionary<string, object>();
-
-            List<string> queryStructNames = new List<string>();
-
-            RestRequest request = new RestRequest(this.Parser.Url("/system/schema/:name", pathParams), Method.Get);
-            this.Parser.Query(request, queryParams, queryStructNames);
-
-            RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-            if (response.IsSuccessful)
-            {
-                return this.Parser.Parse<SystemSchema>(response.Content);
-            }
-
-            switch ((int) response.StatusCode)
-            {
-                case 404:
-                    throw new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content));
-                case 410:
-                    throw new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content));
-                case 500:
-                    throw new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content));
-                default:
-                    throw new UnknownStatusCodeException("The server returned an unknown status code");
-            }
+            return this.Parser.Parse<SystemSchema>(response.Content);
         }
-        catch (ClientException e)
+
+        if (response.ErrorException != null)
         {
-            throw e;
+            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
-        catch (System.Exception e)
+
+        throw (int) response.StatusCode switch
         {
-            throw new ClientException("An unknown error occurred: " + e.Message, e);
+            404 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
         }
     }
 
     public async Task<SystemRoute> GetRoutes()
     {
-        try
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/system/route", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
         {
-            Dictionary<string, object> pathParams = new Dictionary<string, object>();
-
-            Dictionary<string, object> queryParams = new Dictionary<string, object>();
-
-            List<string> queryStructNames = new List<string>();
-
-            RestRequest request = new RestRequest(this.Parser.Url("/system/route", pathParams), Method.Get);
-            this.Parser.Query(request, queryParams, queryStructNames);
-
-            RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-            if (response.IsSuccessful)
-            {
-                return this.Parser.Parse<SystemRoute>(response.Content);
-            }
-
-            switch ((int) response.StatusCode)
-            {
-                default:
-                    throw new UnknownStatusCodeException("The server returned an unknown status code");
-            }
+            return this.Parser.Parse<SystemRoute>(response.Content);
         }
-        catch (ClientException e)
+
+        if (response.ErrorException != null)
         {
-            throw e;
+            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
-        catch (System.Exception e)
+
+        throw (int) response.StatusCode switch
         {
-            throw new ClientException("An unknown error occurred: " + e.Message, e);
+            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
         }
     }
 
     public async Task<SystemHealthCheck> GetHealth()
     {
-        try
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/system/health", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
         {
-            Dictionary<string, object> pathParams = new Dictionary<string, object>();
-
-            Dictionary<string, object> queryParams = new Dictionary<string, object>();
-
-            List<string> queryStructNames = new List<string>();
-
-            RestRequest request = new RestRequest(this.Parser.Url("/system/health", pathParams), Method.Get);
-            this.Parser.Query(request, queryParams, queryStructNames);
-
-            RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-            if (response.IsSuccessful)
-            {
-                return this.Parser.Parse<SystemHealthCheck>(response.Content);
-            }
-
-            switch ((int) response.StatusCode)
-            {
-                default:
-                    throw new UnknownStatusCodeException("The server returned an unknown status code");
-            }
+            return this.Parser.Parse<SystemHealthCheck>(response.Content);
         }
-        catch (ClientException e)
+
+        if (response.ErrorException != null)
         {
-            throw e;
+            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
-        catch (System.Exception e)
+
+        throw (int) response.StatusCode switch
         {
-            throw new ClientException("An unknown error occurred: " + e.Message, e);
+            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
         }
     }
 
     public async Task<Passthru> GetDebug(Passthru payload)
     {
-        try
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/system/debug", pathParams), Method.Post);
+        this.Parser.Query(request, queryParams, queryStructNames);
+        request.AddJsonBody(JsonSerializer.Serialize(payload));
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
         {
-            Dictionary<string, object> pathParams = new Dictionary<string, object>();
-
-            Dictionary<string, object> queryParams = new Dictionary<string, object>();
-
-            List<string> queryStructNames = new List<string>();
-
-            RestRequest request = new RestRequest(this.Parser.Url("/system/debug", pathParams), Method.Post);
-            this.Parser.Query(request, queryParams, queryStructNames);
-            request.AddJsonBody(JsonSerializer.Serialize(payload));
-
-            RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-            if (response.IsSuccessful)
-            {
-                return this.Parser.Parse<Passthru>(response.Content);
-            }
-
-            switch ((int) response.StatusCode)
-            {
-                default:
-                    throw new UnknownStatusCodeException("The server returned an unknown status code");
-            }
+            return this.Parser.Parse<Passthru>(response.Content);
         }
-        catch (ClientException e)
+
+        if (response.ErrorException != null)
         {
-            throw e;
+            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
-        catch (System.Exception e)
+
+        throw (int) response.StatusCode switch
         {
-            throw new ClientException("An unknown error occurred: " + e.Message, e);
+            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
         }
     }
 
     public async Task<SystemAbout> GetAbout()
     {
-        try
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/system/about", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
         {
-            Dictionary<string, object> pathParams = new Dictionary<string, object>();
-
-            Dictionary<string, object> queryParams = new Dictionary<string, object>();
-
-            List<string> queryStructNames = new List<string>();
-
-            RestRequest request = new RestRequest(this.Parser.Url("/system/about", pathParams), Method.Get);
-            this.Parser.Query(request, queryParams, queryStructNames);
-
-            RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-            if (response.IsSuccessful)
-            {
-                return this.Parser.Parse<SystemAbout>(response.Content);
-            }
-
-            switch ((int) response.StatusCode)
-            {
-                default:
-                    throw new UnknownStatusCodeException("The server returned an unknown status code");
-            }
+            return this.Parser.Parse<SystemAbout>(response.Content);
         }
-        catch (ClientException e)
+
+        if (response.ErrorException != null)
         {
-            throw e;
+            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
-        catch (System.Exception e)
+
+        throw (int) response.StatusCode switch
         {
-            throw new ClientException("An unknown error occurred: " + e.Message, e);
+            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
         }
     }
 

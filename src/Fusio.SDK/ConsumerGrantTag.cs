@@ -21,89 +21,69 @@ public class ConsumerGrantTag : TagAbstract {
 
     public async Task<CommonMessage> Delete(string grantId)
     {
-        try
+        Dictionary<string, object> pathParams = new();
+        pathParams.Add("grant_id", grantId);
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/consumer/grant/$grant_id<[0-9]+>", pathParams), Method.Delete);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
         {
-            Dictionary<string, object> pathParams = new Dictionary<string, object>();
-            pathParams.Add("grant_id", grantId);
-
-            Dictionary<string, object> queryParams = new Dictionary<string, object>();
-
-            List<string> queryStructNames = new List<string>();
-
-            RestRequest request = new RestRequest(this.Parser.Url("/consumer/grant/$grant_id<[0-9]+>", pathParams), Method.Delete);
-            this.Parser.Query(request, queryParams, queryStructNames);
-
-            RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-            if (response.IsSuccessful)
-            {
-                return this.Parser.Parse<CommonMessage>(response.Content);
-            }
-
-            switch ((int) response.StatusCode)
-            {
-                case 401:
-                    throw new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content));
-                case 404:
-                    throw new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content));
-                case 410:
-                    throw new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content));
-                case 500:
-                    throw new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content));
-                default:
-                    throw new UnknownStatusCodeException("The server returned an unknown status code");
-            }
+            return this.Parser.Parse<CommonMessage>(response.Content);
         }
-        catch (ClientException e)
+
+        if (response.ErrorException != null)
         {
-            throw e;
+            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
-        catch (System.Exception e)
+
+        throw (int) response.StatusCode switch
         {
-            throw new ClientException("An unknown error occurred: " + e.Message, e);
+            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            404 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
         }
     }
 
     public async Task<ConsumerGrantCollection> GetAll(int startIndex, int count, string search)
     {
-        try
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+        queryParams.Add("startIndex", startIndex);
+        queryParams.Add("count", count);
+        queryParams.Add("search", search);
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/consumer/grant", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
         {
-            Dictionary<string, object> pathParams = new Dictionary<string, object>();
-
-            Dictionary<string, object> queryParams = new Dictionary<string, object>();
-            queryParams.Add("startIndex", startIndex);
-            queryParams.Add("count", count);
-            queryParams.Add("search", search);
-
-            List<string> queryStructNames = new List<string>();
-
-            RestRequest request = new RestRequest(this.Parser.Url("/consumer/grant", pathParams), Method.Get);
-            this.Parser.Query(request, queryParams, queryStructNames);
-
-            RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-            if (response.IsSuccessful)
-            {
-                return this.Parser.Parse<ConsumerGrantCollection>(response.Content);
-            }
-
-            switch ((int) response.StatusCode)
-            {
-                case 401:
-                    throw new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content));
-                case 500:
-                    throw new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content));
-                default:
-                    throw new UnknownStatusCodeException("The server returned an unknown status code");
-            }
+            return this.Parser.Parse<ConsumerGrantCollection>(response.Content);
         }
-        catch (ClientException e)
+
+        if (response.ErrorException != null)
         {
-            throw e;
+            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
-        catch (System.Exception e)
+
+        throw (int) response.StatusCode switch
         {
-            throw new ClientException("An unknown error occurred: " + e.Message, e);
+            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
         }
     }
 

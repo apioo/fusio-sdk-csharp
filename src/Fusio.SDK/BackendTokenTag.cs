@@ -21,94 +21,75 @@ public class BackendTokenTag : TagAbstract {
 
     public async Task<BackendToken> Get(string tokenId)
     {
-        try
+        Dictionary<string, object> pathParams = new();
+        pathParams.Add("token_id", tokenId);
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/token/$token_id<[0-9]+>", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
         {
-            Dictionary<string, object> pathParams = new Dictionary<string, object>();
-            pathParams.Add("token_id", tokenId);
-
-            Dictionary<string, object> queryParams = new Dictionary<string, object>();
-
-            List<string> queryStructNames = new List<string>();
-
-            RestRequest request = new RestRequest(this.Parser.Url("/backend/token/$token_id<[0-9]+>", pathParams), Method.Get);
-            this.Parser.Query(request, queryParams, queryStructNames);
-
-            RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-            if (response.IsSuccessful)
-            {
-                return this.Parser.Parse<BackendToken>(response.Content);
-            }
-
-            switch ((int) response.StatusCode)
-            {
-                case 401:
-                    throw new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content));
-                case 404:
-                    throw new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content));
-                case 500:
-                    throw new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content));
-                default:
-                    throw new UnknownStatusCodeException("The server returned an unknown status code");
-            }
+            return this.Parser.Parse<BackendToken>(response.Content);
         }
-        catch (ClientException e)
+
+        if (response.ErrorException != null)
         {
-            throw e;
+            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
-        catch (System.Exception e)
+
+        throw (int) response.StatusCode switch
         {
-            throw new ClientException("An unknown error occurred: " + e.Message, e);
+            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            404 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
         }
     }
 
     public async Task<BackendTokenCollection> GetAll(int startIndex, int count, string search, string from, string to, int appId, int userId, int status, string scope, string ip)
     {
-        try
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+        queryParams.Add("startIndex", startIndex);
+        queryParams.Add("count", count);
+        queryParams.Add("search", search);
+        queryParams.Add("from", from);
+        queryParams.Add("to", to);
+        queryParams.Add("appId", appId);
+        queryParams.Add("userId", userId);
+        queryParams.Add("status", status);
+        queryParams.Add("scope", scope);
+        queryParams.Add("ip", ip);
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/token", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
         {
-            Dictionary<string, object> pathParams = new Dictionary<string, object>();
-
-            Dictionary<string, object> queryParams = new Dictionary<string, object>();
-            queryParams.Add("startIndex", startIndex);
-            queryParams.Add("count", count);
-            queryParams.Add("search", search);
-            queryParams.Add("from", from);
-            queryParams.Add("to", to);
-            queryParams.Add("appId", appId);
-            queryParams.Add("userId", userId);
-            queryParams.Add("status", status);
-            queryParams.Add("scope", scope);
-            queryParams.Add("ip", ip);
-
-            List<string> queryStructNames = new List<string>();
-
-            RestRequest request = new RestRequest(this.Parser.Url("/backend/token", pathParams), Method.Get);
-            this.Parser.Query(request, queryParams, queryStructNames);
-
-            RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-            if (response.IsSuccessful)
-            {
-                return this.Parser.Parse<BackendTokenCollection>(response.Content);
-            }
-
-            switch ((int) response.StatusCode)
-            {
-                case 401:
-                    throw new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content));
-                case 500:
-                    throw new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content));
-                default:
-                    throw new UnknownStatusCodeException("The server returned an unknown status code");
-            }
+            return this.Parser.Parse<BackendTokenCollection>(response.Content);
         }
-        catch (ClientException e)
+
+        if (response.ErrorException != null)
         {
-            throw e;
+            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
-        catch (System.Exception e)
+
+        throw (int) response.StatusCode switch
         {
-            throw new ClientException("An unknown error occurred: " + e.Message, e);
+            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
         }
     }
 
