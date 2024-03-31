@@ -12,5 +12,5 @@ public class ConsumerTokenCreate
     [JsonPropertyName("scopes")]
     public List<string>? Scopes { get; set; }
     [JsonPropertyName("expire")]
-    public DateTime? Expire { get; set; }
+    public DateOnly? Expire { get; set; }
 }
