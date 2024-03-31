@@ -52,7 +52,7 @@ public class BackendConfigTag : TagAbstract {
             410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendConfig> Get(string configId)
@@ -86,7 +86,7 @@ public class BackendConfigTag : TagAbstract {
             410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendConfigCollection> GetAll(int startIndex, int count, string search)
@@ -120,7 +120,7 @@ public class BackendConfigTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
 

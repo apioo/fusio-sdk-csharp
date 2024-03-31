@@ -50,7 +50,7 @@ public class BackendLogTag : TagAbstract {
             410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendLogCollection> GetAll(int startIndex, int count, string search, string from, string to, int routeId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
@@ -95,7 +95,7 @@ public class BackendLogTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendLogError> GetError(string errorId)
@@ -127,7 +127,7 @@ public class BackendLogTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendLogErrorCollection> GetAllErrors(int startIndex, int count, string search)
@@ -161,7 +161,7 @@ public class BackendLogTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
 

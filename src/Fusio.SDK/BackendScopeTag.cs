@@ -51,7 +51,7 @@ public class BackendScopeTag : TagAbstract {
             410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<CommonMessage> Update(string scopeId, BackendScopeUpdate payload)
@@ -87,7 +87,7 @@ public class BackendScopeTag : TagAbstract {
             410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendScope> Get(string scopeId)
@@ -121,7 +121,7 @@ public class BackendScopeTag : TagAbstract {
             410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendScopeCategories> GetCategories()
@@ -152,7 +152,7 @@ public class BackendScopeTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<CommonMessage> Create(BackendScopeCreate payload)
@@ -185,7 +185,7 @@ public class BackendScopeTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendScopeCollection> GetAll(int startIndex, int count, string search)
@@ -219,7 +219,7 @@ public class BackendScopeTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
 

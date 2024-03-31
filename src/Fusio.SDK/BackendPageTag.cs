@@ -50,7 +50,7 @@ public class BackendPageTag : TagAbstract {
             410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<CommonMessage> Update(string pageId, BackendPageUpdate payload)
@@ -86,7 +86,7 @@ public class BackendPageTag : TagAbstract {
             410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendPage> Get(string pageId)
@@ -120,7 +120,7 @@ public class BackendPageTag : TagAbstract {
             410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<CommonMessage> Create(BackendPageCreate payload)
@@ -153,7 +153,7 @@ public class BackendPageTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendPageCollection> GetAll(int startIndex, int count, string search)
@@ -187,7 +187,7 @@ public class BackendPageTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
 

@@ -48,7 +48,7 @@ public class ConsumerIdentityTag : TagAbstract {
             400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<Passthru> Exchange(string identity)
@@ -80,7 +80,7 @@ public class ConsumerIdentityTag : TagAbstract {
             400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<ConsumerIdentityCollection> GetAll(int appId)
@@ -112,7 +112,7 @@ public class ConsumerIdentityTag : TagAbstract {
             400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
 

@@ -49,7 +49,7 @@ public class SystemMetaTag : TagAbstract {
             410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<SystemRoute> GetRoutes()
@@ -78,7 +78,7 @@ public class SystemMetaTag : TagAbstract {
         throw (int) response.StatusCode switch
         {
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<SystemHealthCheck> GetHealth()
@@ -107,7 +107,7 @@ public class SystemMetaTag : TagAbstract {
         throw (int) response.StatusCode switch
         {
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<Passthru> GetDebug(Passthru payload)
@@ -137,7 +137,7 @@ public class SystemMetaTag : TagAbstract {
         throw (int) response.StatusCode switch
         {
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<SystemAbout> GetAbout()
@@ -166,7 +166,7 @@ public class SystemMetaTag : TagAbstract {
         throw (int) response.StatusCode switch
         {
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
 

@@ -46,7 +46,7 @@ public class SystemConnectionTag : TagAbstract {
         throw (int) response.StatusCode switch
         {
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
 

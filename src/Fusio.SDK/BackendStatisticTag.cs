@@ -61,7 +61,7 @@ public class BackendStatisticTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendStatisticChart> GetTimePerOperation(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
@@ -106,7 +106,7 @@ public class BackendStatisticTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendStatisticChart> GetTimeAverage(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
@@ -151,7 +151,7 @@ public class BackendStatisticTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendStatisticChart> GetMostUsedOperations(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
@@ -196,7 +196,7 @@ public class BackendStatisticTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendStatisticChart> GetMostUsedApps(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
@@ -241,7 +241,7 @@ public class BackendStatisticTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendStatisticChart> GetIssuedTokens(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
@@ -286,7 +286,7 @@ public class BackendStatisticTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendStatisticChart> GetIncomingTransactions(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
@@ -331,7 +331,7 @@ public class BackendStatisticTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendStatisticChart> GetIncomingRequests(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
@@ -376,7 +376,7 @@ public class BackendStatisticTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendStatisticChart> GetErrorsPerOperation(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
@@ -421,7 +421,7 @@ public class BackendStatisticTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
     public async Task<BackendStatisticCount> GetCountRequests(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
@@ -466,7 +466,7 @@ public class BackendStatisticTag : TagAbstract {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
 

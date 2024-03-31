@@ -47,7 +47,7 @@ public class SystemPaymentTag : TagAbstract {
         {
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        }
+        };
     }
 
 
