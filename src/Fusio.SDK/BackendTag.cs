@@ -170,6 +170,14 @@ public class BackendTag : TagAbstract {
         );
     }
 
+    public BackendBackupTag Backup()
+    {
+        return new BackendBackupTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public BackendEventTag Event()
     {
         return new BackendEventTag(
