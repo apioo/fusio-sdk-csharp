@@ -46,6 +46,7 @@ public class BackendGeneratorTag : TagAbstract {
 
         throw (int) response.StatusCode switch
         {
+            400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
@@ -79,6 +80,7 @@ public class BackendGeneratorTag : TagAbstract {
 
         throw (int) response.StatusCode switch
         {
+            400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
@@ -111,6 +113,7 @@ public class BackendGeneratorTag : TagAbstract {
 
         throw (int) response.StatusCode switch
         {
+            400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
             _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
