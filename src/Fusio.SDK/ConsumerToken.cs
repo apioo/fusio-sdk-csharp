@@ -18,7 +18,7 @@ public class ConsumerToken
     [JsonPropertyName("ip")]
     public string? Ip { get; set; }
     [JsonPropertyName("expire")]
-    public DateTime? Expire { get; set; }
+    public DateOnly? Expire { get; set; }
     [JsonPropertyName("date")]
     public DateTime? Date { get; set; }
 }

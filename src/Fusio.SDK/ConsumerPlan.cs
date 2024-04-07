@@ -17,6 +17,8 @@ public class ConsumerPlan
     public double? Price { get; set; }
     [JsonPropertyName("points")]
     public int? Points { get; set; }
+    [JsonPropertyName("period")]
+    public int? Period { get; set; }
     [JsonPropertyName("metadata")]
     public CommonMetadata? Metadata { get; set; }
 }

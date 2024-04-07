@@ -10,5 +10,5 @@ public class ConsumerTokenUpdate
     [JsonPropertyName("name")]
     public string? Name { get; set; }
     [JsonPropertyName("expire")]
-    public DateTime? Expire { get; set; }
+    public DateOnly? Expire { get; set; }
 }
