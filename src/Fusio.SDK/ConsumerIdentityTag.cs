@@ -83,12 +83,13 @@ public class ConsumerIdentityTag : TagAbstract {
         };
     }
 
-    public async Task<ConsumerIdentityCollection> GetAll(int appId)
+    public async Task<ConsumerIdentityCollection> GetAll(int appId, string appKey)
     {
         Dictionary<string, object> pathParams = new();
 
         Dictionary<string, object> queryParams = new();
         queryParams.Add("appId", appId);
+        queryParams.Add("appKey", appKey);
 
         List<string> queryStructNames = new();
 
