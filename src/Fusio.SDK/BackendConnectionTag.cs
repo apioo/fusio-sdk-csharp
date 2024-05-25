@@ -76,7 +76,7 @@ public class BackendConnectionTag : TagAbstract {
         };
     }
 
-    public async Task<CommonMessage> GetRedirect(string connectionId)
+    public async Task<BackendConnectionRedirectResponse> GetRedirect(string connectionId)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("connection_id", connectionId);
@@ -92,7 +92,7 @@ public class BackendConnectionTag : TagAbstract {
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<CommonMessage>(response.Content);
+            return this.Parser.Parse<BackendConnectionRedirectResponse>(response.Content);
         }
 
         throw (int) response.StatusCode switch
