@@ -39,11 +39,6 @@ public class BackendAppTag : TagAbstract {
             return this.Parser.Parse<CommonMessage>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -71,11 +66,6 @@ public class BackendAppTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<CommonMessage>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch
@@ -108,11 +98,6 @@ public class BackendAppTag : TagAbstract {
             return this.Parser.Parse<CommonMessage>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -141,11 +126,6 @@ public class BackendAppTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<BackendApp>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch
@@ -177,11 +157,6 @@ public class BackendAppTag : TagAbstract {
             return this.Parser.Parse<CommonMessage>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -210,11 +185,6 @@ public class BackendAppTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<BackendAppCollection>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch

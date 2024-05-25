@@ -38,11 +38,6 @@ public class BackendTokenTag : TagAbstract {
             return this.Parser.Parse<BackendToken>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -78,11 +73,6 @@ public class BackendTokenTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<BackendTokenCollection>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch

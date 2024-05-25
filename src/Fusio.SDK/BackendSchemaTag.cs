@@ -38,11 +38,6 @@ public class BackendSchemaTag : TagAbstract {
             return this.Parser.Parse<CommonMessage>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -71,11 +66,6 @@ public class BackendSchemaTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<CommonMessage>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch
@@ -108,11 +98,6 @@ public class BackendSchemaTag : TagAbstract {
             return this.Parser.Parse<BackendSchema>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -141,11 +126,6 @@ public class BackendSchemaTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<CommonMessage>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch
@@ -178,11 +158,6 @@ public class BackendSchemaTag : TagAbstract {
             return this.Parser.Parse<BackendSchemaPreviewResponse>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -208,11 +183,6 @@ public class BackendSchemaTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<CommonMessage>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch
@@ -243,11 +213,6 @@ public class BackendSchemaTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<BackendSchemaCollection>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch

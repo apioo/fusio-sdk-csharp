@@ -39,11 +39,6 @@ public class BackendGeneratorTag : TagAbstract {
             return this.Parser.Parse<BackendGeneratorProviderChangelog>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -71,11 +66,6 @@ public class BackendGeneratorTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<CommonMessage>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch
@@ -106,11 +96,6 @@ public class BackendGeneratorTag : TagAbstract {
             return this.Parser.Parse<CommonFormContainer>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -136,11 +121,6 @@ public class BackendGeneratorTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<BackendGeneratorIndexProviders>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch

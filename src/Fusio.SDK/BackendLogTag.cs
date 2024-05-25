@@ -38,11 +38,6 @@ public class BackendLogTag : TagAbstract {
             return this.Parser.Parse<BackendLog>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -85,11 +80,6 @@ public class BackendLogTag : TagAbstract {
             return this.Parser.Parse<BackendLogCollection>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -115,11 +105,6 @@ public class BackendLogTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<BackendLogError>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch
@@ -149,11 +134,6 @@ public class BackendLogTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<BackendLogErrorCollection>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch

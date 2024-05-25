@@ -13,6 +13,8 @@ public class BackendConnection
     public string? Name { get; set; }
     [JsonPropertyName("class")]
     public string? Class { get; set; }
+    [JsonPropertyName("oauth2")]
+    public bool? Oauth { get; set; }
     [JsonPropertyName("config")]
     public BackendConnectionConfig? Config { get; set; }
     [JsonPropertyName("metadata")]

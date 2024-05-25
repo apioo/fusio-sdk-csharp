@@ -40,11 +40,6 @@ public class ConsumerEventTag : TagAbstract {
             return this.Parser.Parse<ConsumerEventCollection>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),

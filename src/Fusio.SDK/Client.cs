@@ -54,8 +54,8 @@ public class Client : ClientAbstract
 
 
 
-    public static Client Build(string clientId, string clientSecret, ITokenStore tokenStore, List<string> scopes)
+    public static Client Build()
     {
-        return new Client("https://api.typehub.cloud/", new OAuth2(clientId, clientSecret, "https://api.typehub.cloud/authorization/token", "", tokenStore, scopes));
+        return new Client("https://api.sdkgen.app/", new Anonymous());
     }
 }

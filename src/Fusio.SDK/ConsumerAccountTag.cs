@@ -38,11 +38,6 @@ public class ConsumerAccountTag : TagAbstract {
             return this.Parser.Parse<CommonMessage>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -69,11 +64,6 @@ public class ConsumerAccountTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<CommonMessage>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch
@@ -104,11 +94,6 @@ public class ConsumerAccountTag : TagAbstract {
             return this.Parser.Parse<CommonMessage>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -136,11 +121,6 @@ public class ConsumerAccountTag : TagAbstract {
             return this.Parser.Parse<ConsumerUserJWT>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -166,11 +146,6 @@ public class ConsumerAccountTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<ConsumerUserJWT>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch
@@ -201,11 +176,6 @@ public class ConsumerAccountTag : TagAbstract {
             return this.Parser.Parse<ConsumerAuthorizeResponse>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -231,11 +201,6 @@ public class ConsumerAccountTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<ConsumerAuthorizeMeta>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch
@@ -266,11 +231,6 @@ public class ConsumerAccountTag : TagAbstract {
             return this.Parser.Parse<CommonMessage>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -296,11 +256,6 @@ public class ConsumerAccountTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<CommonMessage>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch
@@ -331,11 +286,6 @@ public class ConsumerAccountTag : TagAbstract {
             return this.Parser.Parse<CommonMessage>(response.Content);
         }
 
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
-        }
-
         throw (int) response.StatusCode switch
         {
             400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
@@ -363,11 +313,6 @@ public class ConsumerAccountTag : TagAbstract {
         if (response.IsSuccessful)
         {
             return this.Parser.Parse<ConsumerUserAccount>(response.Content);
-        }
-
-        if (response.ErrorException != null)
-        {
-            throw new ClientException("An unknown error occurred: " + response.ErrorException.Message, response.ErrorException);
         }
 
         throw (int) response.StatusCode switch
