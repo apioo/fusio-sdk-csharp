@@ -186,6 +186,14 @@ public class BackendTag : TagAbstract {
         );
     }
 
+    public BackendDatabaseTag Database()
+    {
+        return new BackendDatabaseTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public BackendDashboardTag Dashboard()
     {
         return new BackendDashboardTag(
