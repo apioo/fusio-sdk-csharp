@@ -136,13 +136,21 @@ public class BackendDatabaseTag : TagAbstract {
         };
     }
 
-    public async Task<BackendDatabaseRows> GetRows(string connectionId, string tableName)
+    public async Task<BackendDatabaseRows> GetRows(string connectionId, string tableName, int startIndex, int count, string filterBy, string filterOp, string filterValue, string sortBy, string sortOrder, string columns)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("connection_id", connectionId);
         pathParams.Add("table_name", tableName);
 
         Dictionary<string, object> queryParams = new();
+        queryParams.Add("startIndex", startIndex);
+        queryParams.Add("count", count);
+        queryParams.Add("filterBy", filterBy);
+        queryParams.Add("filterOp", filterOp);
+        queryParams.Add("filterValue", filterValue);
+        queryParams.Add("sortBy", sortBy);
+        queryParams.Add("sortOrder", sortOrder);
+        queryParams.Add("columns", columns);
 
         List<string> queryStructNames = new();
 
