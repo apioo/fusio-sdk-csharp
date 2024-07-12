@@ -54,8 +54,8 @@ public class Client : ClientAbstract
 
 
 
-    public static Client Build()
+    public static Client Build(string clientId, string clientSecret, ITokenStore tokenStore, List<string> scopes)
     {
-        return new Client("https://api.sdkgen.app/", new Anonymous());
+        return new Client("http://127.0.0.1/", new OAuth2(clientId, clientSecret, "http://127.0.0.1/authorization/token", "", tokenStore, scopes));
     }
 }
