@@ -58,6 +58,14 @@ public class BackendTag : TagAbstract {
         );
     }
 
+    public BackendTestTag Test()
+    {
+        return new BackendTestTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public BackendTenantTag Tenant()
     {
         return new BackendTenantTag(
