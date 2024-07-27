@@ -139,6 +139,32 @@ public class BackendStatisticTag : TagAbstract {
         };
     }
 
+    public async Task<BackendStatisticChart> GetTestCoverage()
+    {
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/statistic/test_coverage", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            return this.Parser.Parse<BackendStatisticChart>(response.Content);
+        }
+
+        throw (int) response.StatusCode switch
+        {
+            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
+        };
+    }
+
     public async Task<BackendStatisticChart> GetMostUsedOperations(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
