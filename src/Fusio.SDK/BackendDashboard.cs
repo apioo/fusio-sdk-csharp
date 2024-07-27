@@ -17,12 +17,12 @@ public class BackendDashboard
     public BackendStatisticChart? MostUsedOperations { get; set; }
     [JsonPropertyName("timePerOperation")]
     public BackendStatisticChart? TimePerOperation { get; set; }
+    [JsonPropertyName("testCoverage")]
+    public BackendStatisticChart? TestCoverage { get; set; }
     [JsonPropertyName("latestApps")]
     public BackendDashboardApps? LatestApps { get; set; }
     [JsonPropertyName("latestRequests")]
     public BackendDashboardRequests? LatestRequests { get; set; }
     [JsonPropertyName("latestUsers")]
     public BackendDashboardUsers? LatestUsers { get; set; }
-    [JsonPropertyName("latestTransactions")]
-    public BackendDashboardTransactions? LatestTransactions { get; set; }
 }
