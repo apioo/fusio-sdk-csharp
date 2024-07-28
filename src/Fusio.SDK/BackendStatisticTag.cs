@@ -525,7 +525,7 @@ public class BackendStatisticTag : TagAbstract {
         };
     }
 
-    public async Task<BackendStatisticCount> GetActivitiesPerUser(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
+    public async Task<BackendStatisticChart> GetActivitiesPerUser(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
 
@@ -554,7 +554,7 @@ public class BackendStatisticTag : TagAbstract {
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<BackendStatisticCount>(response.Content);
+            return this.Parser.Parse<BackendStatisticChart>(response.Content);
         }
 
         throw (int) response.StatusCode switch
