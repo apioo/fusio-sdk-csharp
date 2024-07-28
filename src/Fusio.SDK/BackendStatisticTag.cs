@@ -19,6 +19,46 @@ public class BackendStatisticTag : TagAbstract {
     }
 
 
+    public async Task<BackendStatisticChart> GetUserRegistrations(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
+    {
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+        queryParams.Add("startIndex", startIndex);
+        queryParams.Add("count", count);
+        queryParams.Add("search", search);
+        queryParams.Add("from", from);
+        queryParams.Add("to", to);
+        queryParams.Add("operationId", operationId);
+        queryParams.Add("appId", appId);
+        queryParams.Add("userId", userId);
+        queryParams.Add("ip", ip);
+        queryParams.Add("userAgent", userAgent);
+        queryParams.Add("method", method);
+        queryParams.Add("path", path);
+        queryParams.Add("header", header);
+        queryParams.Add("body", body);
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/statistic/user_registrations", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            return this.Parser.Parse<BackendStatisticChart>(response.Content);
+        }
+
+        throw (int) response.StatusCode switch
+        {
+            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
+        };
+    }
+
     public async Task<BackendStatisticChart> GetUsedPoints(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -245,6 +285,46 @@ public class BackendStatisticTag : TagAbstract {
         };
     }
 
+    public async Task<BackendStatisticChart> GetMostUsedActivities(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
+    {
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+        queryParams.Add("startIndex", startIndex);
+        queryParams.Add("count", count);
+        queryParams.Add("search", search);
+        queryParams.Add("from", from);
+        queryParams.Add("to", to);
+        queryParams.Add("operationId", operationId);
+        queryParams.Add("appId", appId);
+        queryParams.Add("userId", userId);
+        queryParams.Add("ip", ip);
+        queryParams.Add("userAgent", userAgent);
+        queryParams.Add("method", method);
+        queryParams.Add("path", path);
+        queryParams.Add("header", header);
+        queryParams.Add("body", body);
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/statistic/most_used_activities", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            return this.Parser.Parse<BackendStatisticChart>(response.Content);
+        }
+
+        throw (int) response.StatusCode switch
+        {
+            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
+        };
+    }
+
     public async Task<BackendStatisticChart> GetIssuedTokens(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -428,6 +508,46 @@ public class BackendStatisticTag : TagAbstract {
         List<string> queryStructNames = new();
 
         RestRequest request = new(this.Parser.Url("/backend/statistic/count_requests", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            return this.Parser.Parse<BackendStatisticCount>(response.Content);
+        }
+
+        throw (int) response.StatusCode switch
+        {
+            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
+            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
+        };
+    }
+
+    public async Task<BackendStatisticCount> GetActivitiesPerUser(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
+    {
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+        queryParams.Add("startIndex", startIndex);
+        queryParams.Add("count", count);
+        queryParams.Add("search", search);
+        queryParams.Add("from", from);
+        queryParams.Add("to", to);
+        queryParams.Add("operationId", operationId);
+        queryParams.Add("appId", appId);
+        queryParams.Add("userId", userId);
+        queryParams.Add("ip", ip);
+        queryParams.Add("userAgent", userAgent);
+        queryParams.Add("method", method);
+        queryParams.Add("path", path);
+        queryParams.Add("header", header);
+        queryParams.Add("body", body);
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/statistic/activities_per_user", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
