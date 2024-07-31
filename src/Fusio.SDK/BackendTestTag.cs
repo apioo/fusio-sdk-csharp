@@ -19,7 +19,7 @@ public class BackendTestTag : TagAbstract {
     }
 
 
-    public async Task<CommonMessage> Update(string testId, BackendTestConfig payload)
+    public async Task<CommonMessage> Update(string testId, BackendTest payload)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("test_id", testId);
