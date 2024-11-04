@@ -4,13 +4,19 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class ConsumerGrant
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("app")]
     public ConsumerApp? App { get; set; }
+
     [JsonPropertyName("createDate")]
-    public DateTime? CreateDate { get; set; }
+    public System.DateTime? CreateDate { get; set; }
+
 }
+

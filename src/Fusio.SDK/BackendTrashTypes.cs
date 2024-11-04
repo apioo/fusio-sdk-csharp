@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendTrashTypes
 {
     [JsonPropertyName("types")]
-    public List<string>? Types { get; set; }
+    public System.Collections.Generic.List<string>? Types { get; set; }
+
 }
+

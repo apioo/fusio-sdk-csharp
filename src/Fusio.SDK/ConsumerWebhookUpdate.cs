@@ -4,13 +4,19 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class ConsumerWebhookUpdate
 {
     [JsonPropertyName("event")]
     public string? Event { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("endpoint")]
     public string? Endpoint { get; set; }
+
 }
+

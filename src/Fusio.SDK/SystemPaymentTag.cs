@@ -31,18 +31,25 @@ public class SystemPaymentTag : TagAbstract {
         RestRequest request = new(this.Parser.Url("/system/payment/:provider/webhook", pathParams), Method.Post);
         this.Parser.Query(request, queryParams, queryStructNames);
 
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<CommonMessage>(response.Content);
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 500)
         {
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
 
 

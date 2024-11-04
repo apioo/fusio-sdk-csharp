@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class ConsumerPaymentPortalRequest
 {
     [JsonPropertyName("returnUrl")]
     public string? ReturnUrl { get; set; }
+
 }
+

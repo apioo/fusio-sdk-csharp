@@ -33,19 +33,32 @@ public class ConsumerEventTag : TagAbstract {
         RestRequest request = new(this.Parser.Url("/consumer/event", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<ConsumerEventCollection>(response.Content);
+            var data = this.Parser.Parse<ConsumerEventCollection>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 401)
         {
-            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
 
 

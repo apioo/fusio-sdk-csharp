@@ -4,13 +4,19 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class ConsumerTokenCreate
 {
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("scopes")]
-    public List<string>? Scopes { get; set; }
+    public System.Collections.Generic.List<string>? Scopes { get; set; }
+
     [JsonPropertyName("expire")]
-    public DateOnly? Expire { get; set; }
+    public System.DateOnly? Expire { get; set; }
+
 }
+

@@ -4,17 +4,25 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendEvent
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("description")]
     public string? Description { get; set; }
+
     [JsonPropertyName("schema")]
     public string? Schema { get; set; }
+
     [JsonPropertyName("metadata")]
     public CommonMetadata? Metadata { get; set; }
+
 }
+

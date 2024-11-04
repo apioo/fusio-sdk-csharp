@@ -4,15 +4,22 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class ConsumerWebhookResponse
 {
     [JsonPropertyName("status")]
     public int? Status { get; set; }
+
     [JsonPropertyName("code")]
     public int? Code { get; set; }
+
     [JsonPropertyName("attempts")]
     public string? Attempts { get; set; }
+
     [JsonPropertyName("executeDate")]
     public string? ExecuteDate { get; set; }
+
 }
+

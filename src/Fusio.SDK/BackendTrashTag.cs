@@ -32,22 +32,41 @@ public class BackendTrashTag : TagAbstract {
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<CommonMessage>(response.Content);
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 400)
         {
-            400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 401)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<BackendTrashDataCollection> GetAllByType(string type, int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -63,21 +82,33 @@ public class BackendTrashTag : TagAbstract {
         RestRequest request = new(this.Parser.Url("/backend/trash/:type", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<BackendTrashDataCollection>(response.Content);
+            var data = this.Parser.Parse<BackendTrashDataCollection>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 401)
         {
-            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<BackendTrashTypes> GetTypes()
     {
         Dictionary<string, object> pathParams = new();
@@ -89,19 +120,32 @@ public class BackendTrashTag : TagAbstract {
         RestRequest request = new(this.Parser.Url("/backend/trash", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<BackendTrashTypes>(response.Content);
+            var data = this.Parser.Parse<BackendTrashTypes>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 401)
         {
-            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
 
 

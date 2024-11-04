@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendGeneratorIndexProviders
 {
     [JsonPropertyName("providers")]
-    public List<BackendGeneratorIndexProvider>? Providers { get; set; }
+    public System.Collections.Generic.List<BackendGeneratorIndexProvider>? Providers { get; set; }
+
 }
+

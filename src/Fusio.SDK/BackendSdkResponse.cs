@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendSdkResponse
 {
     [JsonPropertyName("types")]
     public BackendSdkTypes? Types { get; set; }
+
 }
+

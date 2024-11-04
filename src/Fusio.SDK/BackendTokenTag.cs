@@ -31,22 +31,40 @@ public class BackendTokenTag : TagAbstract {
         RestRequest request = new(this.Parser.Url("/backend/token/$token_id<[0-9]+>", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<BackendToken>(response.Content);
+            var data = this.Parser.Parse<BackendToken>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 401)
         {
-            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            404 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 404)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<BackendTokenCollection> GetAll(int startIndex, int count, string search, string from, string to, int appId, int userId, int status, string scope, string ip)
     {
         Dictionary<string, object> pathParams = new();
@@ -68,19 +86,32 @@ public class BackendTokenTag : TagAbstract {
         RestRequest request = new(this.Parser.Url("/backend/token", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<BackendTokenCollection>(response.Content);
+            var data = this.Parser.Parse<BackendTokenCollection>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 401)
         {
-            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
 
 

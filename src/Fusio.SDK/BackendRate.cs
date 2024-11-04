@@ -4,21 +4,31 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendRate
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("priority")]
     public int? Priority { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("rateLimit")]
     public int? RateLimit { get; set; }
+
     [JsonPropertyName("timespan")]
-    public TimeSpan? Timespan { get; set; }
+    public string? Timespan { get; set; }
+
     [JsonPropertyName("allocation")]
-    public List<BackendRateAllocation>? Allocation { get; set; }
+    public System.Collections.Generic.List<BackendRateAllocation>? Allocation { get; set; }
+
     [JsonPropertyName("metadata")]
     public CommonMetadata? Metadata { get; set; }
+
 }
+

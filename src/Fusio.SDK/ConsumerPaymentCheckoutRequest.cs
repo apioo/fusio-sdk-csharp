@@ -4,11 +4,16 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class ConsumerPaymentCheckoutRequest
 {
     [JsonPropertyName("planId")]
     public int? PlanId { get; set; }
+
     [JsonPropertyName("returnUrl")]
     public string? ReturnUrl { get; set; }
+
 }
+

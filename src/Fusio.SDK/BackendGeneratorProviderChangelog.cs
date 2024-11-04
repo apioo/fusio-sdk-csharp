@@ -4,13 +4,19 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendGeneratorProviderChangelog
 {
     [JsonPropertyName("schemas")]
-    public List<BackendSchema>? Schemas { get; set; }
+    public System.Collections.Generic.List<BackendSchema>? Schemas { get; set; }
+
     [JsonPropertyName("actions")]
-    public List<BackendAction>? Actions { get; set; }
+    public System.Collections.Generic.List<BackendAction>? Actions { get; set; }
+
     [JsonPropertyName("operations")]
-    public List<BackendOperation>? Operations { get; set; }
+    public System.Collections.Generic.List<BackendOperation>? Operations { get; set; }
+
 }
+

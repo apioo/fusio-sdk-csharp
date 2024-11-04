@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendUserCreate : BackendUser
 {
     [JsonPropertyName("password")]
     public string? Password { get; set; }
+
 }
+

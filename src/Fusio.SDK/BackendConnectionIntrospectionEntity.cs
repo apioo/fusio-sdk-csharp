@@ -4,13 +4,19 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendConnectionIntrospectionEntity
 {
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("headers")]
-    public List<string>? Headers { get; set; }
+    public System.Collections.Generic.List<string>? Headers { get; set; }
+
     [JsonPropertyName("rows")]
-    public List<BackendConnectionIntrospectionEntityRow>? Rows { get; set; }
+    public System.Collections.Generic.List<BackendConnectionIntrospectionEntityRow>? Rows { get; set; }
+
 }
+

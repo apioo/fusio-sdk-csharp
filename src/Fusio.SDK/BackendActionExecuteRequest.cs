@@ -4,17 +4,25 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendActionExecuteRequest
 {
     [JsonPropertyName("method")]
     public string? Method { get; set; }
+
     [JsonPropertyName("uriFragments")]
     public string? UriFragments { get; set; }
+
     [JsonPropertyName("parameters")]
     public string? Parameters { get; set; }
+
     [JsonPropertyName("headers")]
     public string? Headers { get; set; }
+
     [JsonPropertyName("body")]
     public BackendActionExecuteRequestBody? Body { get; set; }
+
 }
+

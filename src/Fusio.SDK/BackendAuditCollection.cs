@@ -4,7 +4,10 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendAuditCollection : CommonCollection<BackendAudit>
 {
 }
+

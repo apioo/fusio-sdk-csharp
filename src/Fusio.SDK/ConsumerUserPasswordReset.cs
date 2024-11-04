@@ -4,11 +4,16 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class ConsumerUserPasswordReset
 {
     [JsonPropertyName("token")]
     public string? Token { get; set; }
+
     [JsonPropertyName("newPassword")]
     public string? NewPassword { get; set; }
+
 }
+

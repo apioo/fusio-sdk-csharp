@@ -4,17 +4,25 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendConfig
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("type")]
     public int? Type { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("description")]
     public string? Description { get; set; }
+
     [JsonPropertyName("value")]
     public object? Value { get; set; }
+
 }
+

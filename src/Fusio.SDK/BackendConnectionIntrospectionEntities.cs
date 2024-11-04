@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendConnectionIntrospectionEntities
 {
     [JsonPropertyName("entities")]
-    public List<string>? Entities { get; set; }
+    public System.Collections.Generic.List<string>? Entities { get; set; }
+
 }
+

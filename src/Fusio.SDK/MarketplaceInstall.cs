@@ -4,9 +4,16 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
+/// <summary>
+/// Installs an object from the marketplace
+/// </summary>
 public class MarketplaceInstall
 {
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
 }
+

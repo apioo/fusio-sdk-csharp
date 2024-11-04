@@ -4,21 +4,31 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendAction
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("status")]
     public int? Status { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("class")]
     public string? Class { get; set; }
+
     [JsonPropertyName("async")]
     public bool? Async { get; set; }
+
     [JsonPropertyName("config")]
     public BackendActionConfig? Config { get; set; }
+
     [JsonPropertyName("metadata")]
     public CommonMetadata? Metadata { get; set; }
+
 }
+

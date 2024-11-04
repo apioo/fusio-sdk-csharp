@@ -4,11 +4,16 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class SystemSchema
 {
     [JsonPropertyName("schema")]
     public SystemSchemaTypeSchema? Schema { get; set; }
+
     [JsonPropertyName("form")]
     public SystemSchemaForm? Form { get; set; }
+
 }
+

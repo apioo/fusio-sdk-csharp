@@ -4,11 +4,16 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class MarketplaceAction : MarketplaceObject
 {
     [JsonPropertyName("class")]
     public string? Class { get; set; }
+
     [JsonPropertyName("config")]
     public MarketplaceActionConfig? Config { get; set; }
+
 }
+

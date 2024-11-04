@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendConnectionIntrospectionEntityRow
 {
     [JsonPropertyName("values")]
-    public List<string>? Values { get; set; }
+    public System.Collections.Generic.List<string>? Values { get; set; }
+
 }
+

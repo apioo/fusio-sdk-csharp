@@ -4,17 +4,25 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendDatabaseTable
 {
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("columns")]
-    public List<BackendDatabaseTableColumn>? Columns { get; set; }
+    public System.Collections.Generic.List<BackendDatabaseTableColumn>? Columns { get; set; }
+
     [JsonPropertyName("primaryKey")]
     public string? PrimaryKey { get; set; }
+
     [JsonPropertyName("indexes")]
-    public List<BackendDatabaseTableIndex>? Indexes { get; set; }
+    public System.Collections.Generic.List<BackendDatabaseTableIndex>? Indexes { get; set; }
+
     [JsonPropertyName("foreignKeys")]
-    public List<BackendDatabaseTableForeignKeyConstraint>? ForeignKeys { get; set; }
+    public System.Collections.Generic.List<BackendDatabaseTableForeignKeyConstraint>? ForeignKeys { get; set; }
+
 }
+

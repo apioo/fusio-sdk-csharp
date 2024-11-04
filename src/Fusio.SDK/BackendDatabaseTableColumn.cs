@@ -4,29 +4,43 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendDatabaseTableColumn
 {
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("type")]
     public string? Type { get; set; }
+
     [JsonPropertyName("length")]
     public int? Length { get; set; }
+
     [JsonPropertyName("precision")]
     public int? Precision { get; set; }
+
     [JsonPropertyName("scale")]
     public int? Scale { get; set; }
+
     [JsonPropertyName("unsigned")]
     public bool? Unsigned { get; set; }
+
     [JsonPropertyName("fixed")]
     public bool? Fixed { get; set; }
+
     [JsonPropertyName("notNull")]
     public bool? NotNull { get; set; }
+
     [JsonPropertyName("autoIncrement")]
     public bool? AutoIncrement { get; set; }
+
     [JsonPropertyName("default")]
     public object? Default { get; set; }
+
     [JsonPropertyName("comment")]
     public string? Comment { get; set; }
+
 }
+

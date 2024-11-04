@@ -4,8 +4,10 @@
  */
 
 using System.Text.Json.Serialization;
-using System.Collections.Generic;
+
 namespace Fusio.SDK;
-public class SystemRoutePath : Dictionary<string, SystemRouteMethod>
+
+public class SystemRoutePath
 {
 }
+

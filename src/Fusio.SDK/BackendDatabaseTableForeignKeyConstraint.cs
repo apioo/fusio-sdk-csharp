@@ -4,15 +4,22 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendDatabaseTableForeignKeyConstraint
 {
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("foreignTable")]
     public string? ForeignTable { get; set; }
+
     [JsonPropertyName("localColumnNames")]
-    public List<string>? LocalColumnNames { get; set; }
+    public System.Collections.Generic.List<string>? LocalColumnNames { get; set; }
+
     [JsonPropertyName("foreignColumnNames")]
-    public List<string>? ForeignColumnNames { get; set; }
+    public System.Collections.Generic.List<string>? ForeignColumnNames { get; set; }
+
 }
+

@@ -4,11 +4,16 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendSdkGenerate
 {
     [JsonPropertyName("format")]
     public string? Format { get; set; }
+
     [JsonPropertyName("config")]
     public string? Config { get; set; }
+
 }
+

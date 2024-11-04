@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class SystemRoute
 {
     [JsonPropertyName("routes")]
     public SystemRoutePath? Routes { get; set; }
+
 }
+

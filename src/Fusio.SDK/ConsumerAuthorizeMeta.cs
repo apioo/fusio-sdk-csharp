@@ -4,13 +4,19 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class ConsumerAuthorizeMeta
 {
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("url")]
     public string? Url { get; set; }
+
     [JsonPropertyName("scopes")]
-    public List<ConsumerScope>? Scopes { get; set; }
+    public System.Collections.Generic.List<ConsumerScope>? Scopes { get; set; }
+
 }
+

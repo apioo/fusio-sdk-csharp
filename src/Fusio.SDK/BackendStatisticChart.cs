@@ -4,13 +4,19 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendStatisticChart
 {
     [JsonPropertyName("labels")]
-    public List<string>? Labels { get; set; }
+    public System.Collections.Generic.List<string>? Labels { get; set; }
+
     [JsonPropertyName("data")]
-    public List<BackendStatisticChartData>? Data { get; set; }
+    public System.Collections.Generic.List<BackendStatisticChartData>? Data { get; set; }
+
     [JsonPropertyName("series")]
-    public List<string>? Series { get; set; }
+    public System.Collections.Generic.List<string>? Series { get; set; }
+
 }
+

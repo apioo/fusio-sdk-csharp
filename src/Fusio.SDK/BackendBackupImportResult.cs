@@ -4,13 +4,19 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendBackupImportResult
 {
     [JsonPropertyName("success")]
     public bool? Success { get; set; }
+
     [JsonPropertyName("message")]
     public string? Message { get; set; }
+
     [JsonPropertyName("logs")]
-    public List<string>? Logs { get; set; }
+    public System.Collections.Generic.List<string>? Logs { get; set; }
+
 }
+

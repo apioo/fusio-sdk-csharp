@@ -31,17 +31,18 @@ public class SystemConnectionTag : TagAbstract {
         RestRequest request = new(this.Parser.Url("/system/connection/:name/callback", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<CommonMessage>(response.Content);
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
-        {
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
+        var statusCode = (int) response.StatusCode;
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
 
 

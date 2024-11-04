@@ -4,8 +4,10 @@
  */
 
 using System.Text.Json.Serialization;
-using System.Collections.Generic;
+
 namespace Fusio.SDK;
-public class SystemAboutApps : Dictionary<string, string>
+
+public class SystemAboutApps
 {
 }
+

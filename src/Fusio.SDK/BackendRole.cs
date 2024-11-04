@@ -4,15 +4,22 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendRole
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("categoryId")]
     public int? CategoryId { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("scopes")]
-    public List<string>? Scopes { get; set; }
+    public System.Collections.Generic.List<string>? Scopes { get; set; }
+
 }
+

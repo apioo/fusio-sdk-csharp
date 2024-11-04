@@ -4,13 +4,19 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendSdkMessage
 {
     [JsonPropertyName("success")]
     public bool? Success { get; set; }
+
     [JsonPropertyName("message")]
     public string? Message { get; set; }
+
     [JsonPropertyName("link")]
     public string? Link { get; set; }
+
 }
+
