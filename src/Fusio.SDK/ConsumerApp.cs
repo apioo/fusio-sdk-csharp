@@ -4,27 +4,40 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class ConsumerApp
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("userId")]
     public int? UserId { get; set; }
+
     [JsonPropertyName("status")]
     public int? Status { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("url")]
     public string? Url { get; set; }
+
     [JsonPropertyName("appKey")]
     public string? AppKey { get; set; }
+
     [JsonPropertyName("appSecret")]
     public string? AppSecret { get; set; }
+
     [JsonPropertyName("date")]
     public string? Date { get; set; }
+
     [JsonPropertyName("scopes")]
-    public List<string>? Scopes { get; set; }
+    public System.Collections.Generic.List<string>? Scopes { get; set; }
+
     [JsonPropertyName("metadata")]
     public CommonMetadata? Metadata { get; set; }
+
 }
+

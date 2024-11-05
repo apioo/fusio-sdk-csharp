@@ -4,15 +4,22 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class CommonCollection<T>
 {
     [JsonPropertyName("totalResults")]
     public int? TotalResults { get; set; }
+
     [JsonPropertyName("startIndex")]
     public int? StartIndex { get; set; }
+
     [JsonPropertyName("itemsPerPage")]
     public int? ItemsPerPage { get; set; }
+
     [JsonPropertyName("entry")]
-    public List<T>? Entry { get; set; }
+    public System.Collections.Generic.List<T>? Entry { get; set; }
+
 }
+

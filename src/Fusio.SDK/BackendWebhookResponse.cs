@@ -4,19 +4,28 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendWebhookResponse
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("status")]
     public int? Status { get; set; }
+
     [JsonPropertyName("code")]
     public int? Code { get; set; }
+
     [JsonPropertyName("attempts")]
     public int? Attempts { get; set; }
+
     [JsonPropertyName("error")]
     public string? Error { get; set; }
+
     [JsonPropertyName("executeDate")]
-    public DateTime? ExecuteDate { get; set; }
+    public System.DateTime? ExecuteDate { get; set; }
+
 }
+

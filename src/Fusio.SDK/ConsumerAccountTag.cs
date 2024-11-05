@@ -31,22 +31,41 @@ public class ConsumerAccountTag : TagAbstract {
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<CommonMessage>(response.Content);
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 400)
         {
-            400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            404 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 404)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<CommonMessage> RequestPasswordReset(ConsumerUserEmail payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -59,22 +78,41 @@ public class ConsumerAccountTag : TagAbstract {
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<CommonMessage>(response.Content);
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 400)
         {
-            400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            404 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 404)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<CommonMessage> Register(ConsumerUserRegister payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -87,21 +125,34 @@ public class ConsumerAccountTag : TagAbstract {
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<CommonMessage>(response.Content);
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 400)
         {
-            400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<ConsumerUserJWT> Refresh(ConsumerUserRefresh payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -114,21 +165,34 @@ public class ConsumerAccountTag : TagAbstract {
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<ConsumerUserJWT>(response.Content);
+            var data = this.Parser.Parse<ConsumerUserJWT>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 400)
         {
-            400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<ConsumerUserJWT> Login(ConsumerUserLogin payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -141,22 +205,41 @@ public class ConsumerAccountTag : TagAbstract {
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<ConsumerUserJWT>(response.Content);
+            var data = this.Parser.Parse<ConsumerUserJWT>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 400)
         {
-            400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 401)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<ConsumerAuthorizeResponse> Authorize(ConsumerAuthorizeRequest payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -169,22 +252,41 @@ public class ConsumerAccountTag : TagAbstract {
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<ConsumerAuthorizeResponse>(response.Content);
+            var data = this.Parser.Parse<ConsumerAuthorizeResponse>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 400)
         {
-            400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 401)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<ConsumerAuthorizeMeta> GetApp()
     {
         Dictionary<string, object> pathParams = new();
@@ -196,22 +298,40 @@ public class ConsumerAccountTag : TagAbstract {
         RestRequest request = new(this.Parser.Url("/consumer/authorize", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<ConsumerAuthorizeMeta>(response.Content);
+            var data = this.Parser.Parse<ConsumerAuthorizeMeta>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 401)
         {
-            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 410)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<CommonMessage> Activate(ConsumerUserActivate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -224,21 +344,34 @@ public class ConsumerAccountTag : TagAbstract {
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<CommonMessage>(response.Content);
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 400)
         {
-            400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<CommonMessage> ChangePassword(BackendAccountChangePassword payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -251,22 +384,41 @@ public class ConsumerAccountTag : TagAbstract {
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<CommonMessage>(response.Content);
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 400)
         {
-            400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 401)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<CommonMessage> Update(ConsumerUserAccount payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -279,24 +431,55 @@ public class ConsumerAccountTag : TagAbstract {
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<CommonMessage>(response.Content);
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 400)
         {
-            400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            404 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 401)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 404)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 410)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<ConsumerUserAccount> Get()
     {
         Dictionary<string, object> pathParams = new();
@@ -308,21 +491,46 @@ public class ConsumerAccountTag : TagAbstract {
         RestRequest request = new(this.Parser.Url("/consumer/account", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<ConsumerUserAccount>(response.Content);
+            var data = this.Parser.Parse<ConsumerUserAccount>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 401)
         {
-            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            404 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 404)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 410)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
 
 

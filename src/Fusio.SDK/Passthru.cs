@@ -4,12 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
-using System.Collections.Generic;
+
 namespace Fusio.SDK;
 
 /// <summary>
 /// No schema information available
 /// </summary>
-public class Passthru : Dictionary<string, object>
+public class Passthru
 {
 }
+

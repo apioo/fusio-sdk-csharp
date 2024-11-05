@@ -4,15 +4,22 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class ConsumerIdentity
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("icon")]
     public string? Icon { get; set; }
+
     [JsonPropertyName("redirect")]
     public string? Redirect { get; set; }
+
 }
+

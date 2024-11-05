@@ -4,27 +4,43 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
+/// <summary>
+/// Base class of all objects on the marketplace
+/// </summary>
 public class MarketplaceObject
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("author")]
     public MarketplaceUser? Author { get; set; }
+
     [JsonPropertyName("version")]
     public string? Version { get; set; }
+
     [JsonPropertyName("icon")]
     public string? Icon { get; set; }
+
     [JsonPropertyName("summary")]
     public string? Summary { get; set; }
+
     [JsonPropertyName("description")]
     public string? Description { get; set; }
+
     [JsonPropertyName("cost")]
     public int? Cost { get; set; }
+
     [JsonPropertyName("updateDate")]
-    public DateTime? UpdateDate { get; set; }
+    public System.DateTime? UpdateDate { get; set; }
+
     [JsonPropertyName("insertDate")]
-    public DateTime? InsertDate { get; set; }
+    public System.DateTime? InsertDate { get; set; }
+
 }
+

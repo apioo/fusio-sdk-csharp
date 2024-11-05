@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class CommonFormElementTextArea : CommonFormElement
 {
     [JsonPropertyName("mode")]
     public string? Mode { get; set; }
+
 }
+

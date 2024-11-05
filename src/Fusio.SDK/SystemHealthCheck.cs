@@ -4,11 +4,16 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class SystemHealthCheck
 {
     [JsonPropertyName("healthy")]
     public bool? Healthy { get; set; }
+
     [JsonPropertyName("error")]
     public string? Error { get; set; }
+
 }
+

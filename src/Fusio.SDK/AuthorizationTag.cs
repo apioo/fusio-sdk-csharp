@@ -30,20 +30,26 @@ public class AuthorizationTag : TagAbstract {
         RestRequest request = new(this.Parser.Url("/authorization/whoami", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<BackendUser>(response.Content);
+            var data = this.Parser.Parse<BackendUser>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 500)
         {
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<CommonMessage> Revoke()
     {
         Dictionary<string, object> pathParams = new();
@@ -55,19 +61,32 @@ public class AuthorizationTag : TagAbstract {
         RestRequest request = new(this.Parser.Url("/authorization/revoke", pathParams), Method.Post);
         this.Parser.Query(request, queryParams, queryStructNames);
 
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<CommonMessage>(response.Content);
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 400)
         {
-            400 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
 
 

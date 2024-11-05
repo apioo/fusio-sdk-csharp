@@ -4,11 +4,16 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class ConsumerTokenUpdate
 {
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("expire")]
-    public DateOnly? Expire { get; set; }
+    public System.DateOnly? Expire { get; set; }
+
 }
+

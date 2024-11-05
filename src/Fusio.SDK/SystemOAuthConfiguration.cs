@@ -4,19 +4,28 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class SystemOAuthConfiguration
 {
     [JsonPropertyName("issuer")]
     public string? Issuer { get; set; }
+
     [JsonPropertyName("token_endpoint")]
     public string? TokenEndpoint { get; set; }
+
     [JsonPropertyName("token_endpoint_auth_methods_supported")]
-    public List<string>? TokenEndpointAuthMethodsSupported { get; set; }
+    public System.Collections.Generic.List<string>? TokenEndpointAuthMethodsSupported { get; set; }
+
     [JsonPropertyName("userinfo_endpoint")]
     public string? UserinfoEndpoint { get; set; }
+
     [JsonPropertyName("scopes_supported")]
-    public List<string>? ScopesSupported { get; set; }
+    public System.Collections.Generic.List<string>? ScopesSupported { get; set; }
+
     [JsonPropertyName("claims_supported")]
-    public List<string>? ClaimsSupported { get; set; }
+    public System.Collections.Generic.List<string>? ClaimsSupported { get; set; }
+
 }
+

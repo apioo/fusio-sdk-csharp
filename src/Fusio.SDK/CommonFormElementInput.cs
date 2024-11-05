@@ -4,9 +4,10 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class CommonFormElementInput : CommonFormElement
 {
-    [JsonPropertyName("type")]
-    public string? Type { get; set; }
 }
+

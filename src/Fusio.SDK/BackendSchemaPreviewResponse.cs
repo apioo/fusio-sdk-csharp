@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendSchemaPreviewResponse
 {
     [JsonPropertyName("preview")]
     public string? Preview { get; set; }
+
 }
+

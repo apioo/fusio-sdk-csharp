@@ -31,23 +31,47 @@ public class BackendAuditTag : TagAbstract {
         RestRequest request = new(this.Parser.Url("/backend/audit/$audit_id<[0-9]+>", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<BackendAudit>(response.Content);
+            var data = this.Parser.Parse<BackendAudit>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 401)
         {
-            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            404 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            410 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
-    }
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 404)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 410)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<BackendAuditCollection> GetAll(int startIndex, int count, string search, string from, string to, int appId, int userId, string _event, string ip, string message)
     {
         Dictionary<string, object> pathParams = new();
@@ -69,19 +93,32 @@ public class BackendAuditTag : TagAbstract {
         RestRequest request = new(this.Parser.Url("/backend/audit", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
+
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return this.Parser.Parse<BackendAuditCollection>(response.Content);
+            var data = this.Parser.Parse<BackendAuditCollection>(response.Content);
+
+            return data;
         }
 
-        throw (int) response.StatusCode switch
+        var statusCode = (int) response.StatusCode;
+        if (statusCode == 401)
         {
-            401 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            500 => new CommonMessageException(this.Parser.Parse<CommonMessage>(response.Content)),
-            _ => throw new UnknownStatusCodeException("The server returned an unknown status code"),
-        };
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        if (statusCode == 500)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
 
 

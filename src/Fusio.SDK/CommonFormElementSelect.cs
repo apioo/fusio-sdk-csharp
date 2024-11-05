@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class CommonFormElementSelect : CommonFormElement
 {
     [JsonPropertyName("options")]
-    public List<CommonFormElementSelectOption>? Options { get; set; }
+    public System.Collections.Generic.List<CommonFormElementSelectOption>? Options { get; set; }
+
 }
+

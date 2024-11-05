@@ -4,23 +4,34 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendIdentity
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("appId")]
     public int? AppId { get; set; }
+
     [JsonPropertyName("roleId")]
     public int? RoleId { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("icon")]
     public string? Icon { get; set; }
+
     [JsonPropertyName("class")]
     public string? Class { get; set; }
+
     [JsonPropertyName("config")]
     public BackendIdentityConfig? Config { get; set; }
+
     [JsonPropertyName("allowCreate")]
     public bool? AllowCreate { get; set; }
+
 }
+

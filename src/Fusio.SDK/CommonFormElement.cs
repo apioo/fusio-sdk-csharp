@@ -4,15 +4,25 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class CommonFormElement
 {
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
+
     [JsonPropertyName("element")]
     public string? Element { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("title")]
     public string? Title { get; set; }
+
     [JsonPropertyName("help")]
     public string? Help { get; set; }
+
 }
+

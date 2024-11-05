@@ -4,13 +4,19 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class CommonMessage
 {
     [JsonPropertyName("success")]
     public bool? Success { get; set; }
+
     [JsonPropertyName("message")]
     public string? Message { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
+
 }
+

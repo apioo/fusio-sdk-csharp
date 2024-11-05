@@ -4,8 +4,10 @@
  */
 
 using System.Text.Json.Serialization;
-using System.Collections.Generic;
+
 namespace Fusio.SDK;
-public class BackendIdentityConfig : Dictionary<string, object>
+
+public class BackendIdentityConfig
 {
 }
+

@@ -4,17 +4,25 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendLogError
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("message")]
     public int? Message { get; set; }
+
     [JsonPropertyName("trace")]
     public string? Trace { get; set; }
+
     [JsonPropertyName("file")]
     public string? File { get; set; }
+
     [JsonPropertyName("line")]
     public int? Line { get; set; }
+
 }
+

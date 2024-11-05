@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendConnectionRedirectResponse
 {
     [JsonPropertyName("redirectUri")]
     public string? RedirectUri { get; set; }
+
 }
+

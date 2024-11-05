@@ -4,13 +4,19 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendStatisticCount
 {
     [JsonPropertyName("count")]
     public int? Count { get; set; }
+
     [JsonPropertyName("from")]
-    public DateTime? From { get; set; }
+    public System.DateTime? From { get; set; }
+
     [JsonPropertyName("to")]
-    public DateTime? To { get; set; }
+    public System.DateTime? To { get; set; }
+
 }
+

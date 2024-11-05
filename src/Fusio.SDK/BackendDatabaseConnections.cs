@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendDatabaseConnections
 {
     [JsonPropertyName("connections")]
-    public List<string>? Connections { get; set; }
+    public System.Collections.Generic.List<string>? Connections { get; set; }
+
 }
+

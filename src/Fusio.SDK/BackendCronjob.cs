@@ -4,23 +4,34 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendCronjob
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("cron")]
     public string? Cron { get; set; }
+
     [JsonPropertyName("action")]
     public string? Action { get; set; }
+
     [JsonPropertyName("executeDate")]
-    public DateTime? ExecuteDate { get; set; }
+    public System.DateTime? ExecuteDate { get; set; }
+
     [JsonPropertyName("exitCode")]
     public int? ExitCode { get; set; }
+
     [JsonPropertyName("metadata")]
     public CommonMetadata? Metadata { get; set; }
+
     [JsonPropertyName("errors")]
-    public List<BackendCronjobError>? Errors { get; set; }
+    public System.Collections.Generic.List<BackendCronjobError>? Errors { get; set; }
+
 }
+

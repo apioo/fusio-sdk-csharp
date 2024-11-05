@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class ConsumerUserActivate
 {
     [JsonPropertyName("token")]
     public string? Token { get; set; }
+
 }
+

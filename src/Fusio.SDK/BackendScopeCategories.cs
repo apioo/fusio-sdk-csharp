@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendScopeCategories
 {
     [JsonPropertyName("categories")]
-    public List<BackendScopeCategory>? Categories { get; set; }
+    public System.Collections.Generic.List<BackendScopeCategory>? Categories { get; set; }
+
 }
+

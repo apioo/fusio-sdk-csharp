@@ -4,19 +4,28 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendPage
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("status")]
     public int? Status { get; set; }
+
     [JsonPropertyName("title")]
     public string? Title { get; set; }
+
     [JsonPropertyName("slug")]
     public string? Slug { get; set; }
+
     [JsonPropertyName("content")]
     public string? Content { get; set; }
+
     [JsonPropertyName("metadata")]
     public CommonMetadata? Metadata { get; set; }
+
 }
+

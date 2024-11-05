@@ -54,7 +54,8 @@ public class Client : ClientAbstract
 
 
 
-    public static Client Build(string baseUrl)
+
+    public static Client BuildAnonymous(string baseUrl)
     {
         return new Client(baseUrl, new Anonymous());
     }

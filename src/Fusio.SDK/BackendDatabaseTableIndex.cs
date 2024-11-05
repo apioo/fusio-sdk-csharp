@@ -4,13 +4,19 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendDatabaseTableIndex
 {
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("unique")]
     public bool? Unique { get; set; }
+
     [JsonPropertyName("columns")]
-    public List<string>? Columns { get; set; }
+    public System.Collections.Generic.List<string>? Columns { get; set; }
+
 }
+

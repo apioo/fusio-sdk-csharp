@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class CommonFormContainer
 {
     [JsonPropertyName("element")]
-    public List<object>? Element { get; set; }
+    public System.Collections.Generic.List<CommonFormElement>? Element { get; set; }
+
 }
+

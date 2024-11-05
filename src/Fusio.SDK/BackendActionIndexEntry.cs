@@ -4,11 +4,16 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendActionIndexEntry
 {
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("class")]
     public string? Class { get; set; }
+
 }
+

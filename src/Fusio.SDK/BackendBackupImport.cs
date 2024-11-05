@@ -4,9 +4,13 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendBackupImport
 {
     [JsonPropertyName("import")]
     public string? Import { get; set; }
+
 }
+

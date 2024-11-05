@@ -4,21 +4,31 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class ConsumerPlan
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("description")]
     public string? Description { get; set; }
+
     [JsonPropertyName("price")]
     public double? Price { get; set; }
+
     [JsonPropertyName("points")]
     public int? Points { get; set; }
+
     [JsonPropertyName("period")]
     public int? Period { get; set; }
+
     [JsonPropertyName("metadata")]
     public CommonMetadata? Metadata { get; set; }
+
 }
+

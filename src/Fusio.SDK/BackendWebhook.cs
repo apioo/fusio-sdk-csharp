@@ -4,19 +4,28 @@
  */
 
 using System.Text.Json.Serialization;
+
 namespace Fusio.SDK;
+
 public class BackendWebhook
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
+
     [JsonPropertyName("eventId")]
     public int? EventId { get; set; }
+
     [JsonPropertyName("userId")]
     public int? UserId { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     [JsonPropertyName("endpoint")]
     public string? Endpoint { get; set; }
+
     [JsonPropertyName("responses")]
-    public List<BackendWebhookResponse>? Responses { get; set; }
+    public System.Collections.Generic.List<BackendWebhookResponse>? Responses { get; set; }
+
 }
+
