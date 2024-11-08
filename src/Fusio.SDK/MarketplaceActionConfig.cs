@@ -4,10 +4,11 @@
  */
 
 using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
-public class MarketplaceActionConfig
+public class MarketplaceActionConfig : Dictionary<string, object>
 {
 }
 

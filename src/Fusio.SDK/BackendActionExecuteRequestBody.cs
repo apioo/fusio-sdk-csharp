@@ -4,10 +4,11 @@
  */
 
 using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
-public class BackendActionExecuteRequestBody
+public class BackendActionExecuteRequestBody : Dictionary<string, object>
 {
 }
 

@@ -4,13 +4,14 @@
  */
 
 using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
 /// <summary>
 /// A key value object containing the changes
 /// </summary>
-public class BackendAuditObject
+public class BackendAuditObject : Dictionary<string, object>
 {
 }
 

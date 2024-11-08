@@ -4,13 +4,14 @@
  */
 
 using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
 /// <summary>
 /// Contains a UI vocabulary to describe the UI of the schema
 /// </summary>
-public class BackendSchemaForm
+public class BackendSchemaForm : Dictionary<string, object>
 {
 }
 

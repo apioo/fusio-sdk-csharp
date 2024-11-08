@@ -4,13 +4,14 @@
  */
 
 using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
 /// <summary>
 /// Contains the TypeSchema specification
 /// </summary>
-public class BackendSchemaSource
+public class BackendSchemaSource : Dictionary<string, object>
 {
 }
 

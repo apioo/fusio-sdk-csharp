@@ -4,10 +4,11 @@
  */
 
 using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
-public class SystemSchemaTypeSchema
+public class SystemSchemaTypeSchema : Dictionary<string, object>
 {
 }
 
