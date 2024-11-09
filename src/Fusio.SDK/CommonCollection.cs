@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Base collection
+/// </summary>
 public class CommonCollection<T>
 {
     [JsonPropertyName("totalResults")]

@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Common error message
+/// </summary>
 public class CommonMessage
 {
     [JsonPropertyName("success")]
