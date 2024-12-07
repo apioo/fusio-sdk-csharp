@@ -19,16 +19,15 @@ public class SystemMetaTag : TagAbstract {
     }
 
 
-    public async Task<SystemSchema> GetSchema(string name)
+    public async Task<SystemAbout> GetAbout()
     {
         Dictionary<string, object> pathParams = new();
-        pathParams.Add("name", name);
 
         Dictionary<string, object> queryParams = new();
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/system/schema/:name", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/system/about", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -36,27 +35,108 @@ public class SystemMetaTag : TagAbstract {
 
         if (response.IsSuccessful)
         {
-            var data = this.Parser.Parse<SystemSchema>(response.Content);
+            var data = this.Parser.Parse<SystemAbout>(response.Content);
 
             return data;
         }
 
         var statusCode = (int) response.StatusCode;
-        if (statusCode == 404)
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 
             throw new CommonMessageException(data);
         }
 
-        if (statusCode == 410)
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    public async Task<Passthru> GetDebug(Passthru payload)
+    {
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/system/debug", pathParams), Method.Post);
+        this.Parser.Query(request, queryParams, queryStructNames);
+        request.AddJsonBody(JsonSerializer.Serialize(payload));
+
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<Passthru>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 
             throw new CommonMessageException(data);
         }
 
-        if (statusCode == 500)
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    public async Task<SystemHealthCheck> GetHealth()
+    {
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/system/health", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<SystemHealthCheck>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    public async Task<SystemOAuthConfiguration> GetOAuthConfiguration()
+    {
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/system/oauth-authorization-server", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<SystemOAuthConfiguration>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 
@@ -87,17 +167,25 @@ public class SystemMetaTag : TagAbstract {
         }
 
         var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
-    public async Task<SystemOAuthConfiguration> GetOAuthConfiguration()
+    public async Task<SystemSchema> GetSchema(string name)
     {
         Dictionary<string, object> pathParams = new();
+        pathParams.Add("name", name);
 
         Dictionary<string, object> queryParams = new();
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/system/oauth-authorization-server", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/system/schema/:name", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -105,86 +193,19 @@ public class SystemMetaTag : TagAbstract {
 
         if (response.IsSuccessful)
         {
-            var data = this.Parser.Parse<SystemOAuthConfiguration>(response.Content);
+            var data = this.Parser.Parse<SystemSchema>(response.Content);
 
             return data;
         }
 
         var statusCode = (int) response.StatusCode;
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
-    public async Task<SystemHealthCheck> GetHealth()
-    {
-        Dictionary<string, object> pathParams = new();
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/system/health", pathParams), Method.Get);
-        this.Parser.Query(request, queryParams, queryStructNames);
-
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
+        if (statusCode >= 0 && statusCode <= 999)
         {
-            var data = this.Parser.Parse<SystemHealthCheck>(response.Content);
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
-            return data;
+            throw new CommonMessageException(data);
         }
 
-        var statusCode = (int) response.StatusCode;
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
-    public async Task<Passthru> GetDebug(Passthru payload)
-    {
-        Dictionary<string, object> pathParams = new();
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/system/debug", pathParams), Method.Post);
-        this.Parser.Query(request, queryParams, queryStructNames);
-        request.AddJsonBody(JsonSerializer.Serialize(payload));
-
-        request.AddOrUpdateHeader("Content-Type", "application/json");
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<Passthru>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
-    public async Task<SystemAbout> GetAbout()
-    {
-        Dictionary<string, object> pathParams = new();
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/system/about", pathParams), Method.Get);
-        this.Parser.Query(request, queryParams, queryStructNames);
-
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<SystemAbout>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
 

@@ -19,19 +19,19 @@ public class BackendAppTag : TagAbstract {
     }
 
 
-    public async Task<CommonMessage> DeleteToken(string appId, string tokenId)
+    public async Task<CommonMessage> Create(BackendAppCreate payload)
     {
         Dictionary<string, object> pathParams = new();
-        pathParams.Add("app_id", appId);
-        pathParams.Add("token_id", tokenId);
 
         Dictionary<string, object> queryParams = new();
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/app/$app_id<[0-9]+>/token/:token_id", pathParams), Method.Delete);
+        RestRequest request = new(this.Parser.Url("/backend/app", pathParams), Method.Post);
         this.Parser.Query(request, queryParams, queryStructNames);
+        request.AddJsonBody(JsonSerializer.Serialize(payload));
 
+        request.AddOrUpdateHeader("Content-Type", "application/json");
 
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
@@ -43,28 +43,7 @@ public class BackendAppTag : TagAbstract {
         }
 
         var statusCode = (int) response.StatusCode;
-        if (statusCode == 401)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 404)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 410)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 500)
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 
@@ -96,28 +75,7 @@ public class BackendAppTag : TagAbstract {
         }
 
         var statusCode = (int) response.StatusCode;
-        if (statusCode == 401)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 404)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 410)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 500)
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 
@@ -126,20 +84,19 @@ public class BackendAppTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
-    public async Task<CommonMessage> Update(string appId, BackendAppUpdate payload)
+    public async Task<CommonMessage> DeleteToken(string appId, string tokenId)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("app_id", appId);
+        pathParams.Add("token_id", tokenId);
 
         Dictionary<string, object> queryParams = new();
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/app/$app_id<[0-9]+|^~>", pathParams), Method.Put);
+        RestRequest request = new(this.Parser.Url("/backend/app/$app_id<[0-9]+>/token/:token_id", pathParams), Method.Delete);
         this.Parser.Query(request, queryParams, queryStructNames);
-        request.AddJsonBody(JsonSerializer.Serialize(payload));
 
-        request.AddOrUpdateHeader("Content-Type", "application/json");
 
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
@@ -151,35 +108,7 @@ public class BackendAppTag : TagAbstract {
         }
 
         var statusCode = (int) response.StatusCode;
-        if (statusCode == 400)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 401)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 404)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 410)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 500)
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 
@@ -211,75 +140,7 @@ public class BackendAppTag : TagAbstract {
         }
 
         var statusCode = (int) response.StatusCode;
-        if (statusCode == 404)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 401)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 410)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 500)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
-    public async Task<CommonMessage> Create(BackendAppCreate payload)
-    {
-        Dictionary<string, object> pathParams = new();
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/backend/app", pathParams), Method.Post);
-        this.Parser.Query(request, queryParams, queryStructNames);
-        request.AddJsonBody(JsonSerializer.Serialize(payload));
-
-        request.AddOrUpdateHeader("Content-Type", "application/json");
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode == 400)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 401)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 500)
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 
@@ -313,14 +174,41 @@ public class BackendAppTag : TagAbstract {
         }
 
         var statusCode = (int) response.StatusCode;
-        if (statusCode == 401)
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 
             throw new CommonMessageException(data);
         }
 
-        if (statusCode == 500)
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    public async Task<CommonMessage> Update(string appId, BackendAppUpdate payload)
+    {
+        Dictionary<string, object> pathParams = new();
+        pathParams.Add("app_id", appId);
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/app/$app_id<[0-9]+|^~>", pathParams), Method.Put);
+        this.Parser.Query(request, queryParams, queryStructNames);
+        request.AddJsonBody(JsonSerializer.Serialize(payload));
+
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 

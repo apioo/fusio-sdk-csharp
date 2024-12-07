@@ -18,17 +18,17 @@ public class BackendMarketplaceTag : TagAbstract {
     {
     }
 
-    public BackendMarketplaceAppTag App()
+    public BackendMarketplaceActionTag Action()
     {
-        return new BackendMarketplaceAppTag(
+        return new BackendMarketplaceActionTag(
             this.HttpClient,
             this.Parser
         );
     }
 
-    public BackendMarketplaceActionTag Action()
+    public BackendMarketplaceAppTag App()
     {
-        return new BackendMarketplaceActionTag(
+        return new BackendMarketplaceAppTag(
             this.HttpClient,
             this.Parser
         );

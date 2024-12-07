@@ -19,6 +19,39 @@ public class ConsumerWebhookTag : TagAbstract {
     }
 
 
+    public async Task<CommonMessage> Create(ConsumerWebhookCreate payload)
+    {
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/consumer/webhook", pathParams), Method.Post);
+        this.Parser.Query(request, queryParams, queryStructNames);
+        request.AddJsonBody(JsonSerializer.Serialize(payload));
+
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
     public async Task<CommonMessage> Delete(string webhookId)
     {
         Dictionary<string, object> pathParams = new();
@@ -42,90 +75,7 @@ public class ConsumerWebhookTag : TagAbstract {
         }
 
         var statusCode = (int) response.StatusCode;
-        if (statusCode == 401)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 404)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 410)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 500)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
-    public async Task<CommonMessage> Update(string webhookId, ConsumerWebhookUpdate payload)
-    {
-        Dictionary<string, object> pathParams = new();
-        pathParams.Add("webhook_id", webhookId);
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/consumer/webhook/$webhook_id<[0-9]+|^~>", pathParams), Method.Put);
-        this.Parser.Query(request, queryParams, queryStructNames);
-        request.AddJsonBody(JsonSerializer.Serialize(payload));
-
-        request.AddOrUpdateHeader("Content-Type", "application/json");
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode == 400)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 401)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 404)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 410)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 500)
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 
@@ -157,75 +107,7 @@ public class ConsumerWebhookTag : TagAbstract {
         }
 
         var statusCode = (int) response.StatusCode;
-        if (statusCode == 401)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 404)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 410)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 500)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
-    public async Task<CommonMessage> Create(ConsumerWebhookCreate payload)
-    {
-        Dictionary<string, object> pathParams = new();
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/consumer/webhook", pathParams), Method.Post);
-        this.Parser.Query(request, queryParams, queryStructNames);
-        request.AddJsonBody(JsonSerializer.Serialize(payload));
-
-        request.AddOrUpdateHeader("Content-Type", "application/json");
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode == 400)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 401)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 500)
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 
@@ -259,14 +141,41 @@ public class ConsumerWebhookTag : TagAbstract {
         }
 
         var statusCode = (int) response.StatusCode;
-        if (statusCode == 401)
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 
             throw new CommonMessageException(data);
         }
 
-        if (statusCode == 500)
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    public async Task<CommonMessage> Update(string webhookId, ConsumerWebhookUpdate payload)
+    {
+        Dictionary<string, object> pathParams = new();
+        pathParams.Add("webhook_id", webhookId);
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/consumer/webhook/$webhook_id<[0-9]+|^~>", pathParams), Method.Put);
+        this.Parser.Query(request, queryParams, queryStructNames);
+        request.AddJsonBody(JsonSerializer.Serialize(payload));
+
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 

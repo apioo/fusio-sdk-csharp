@@ -19,45 +19,6 @@ public class ConsumerIdentityTag : TagAbstract {
     }
 
 
-    public async Task<Passthru> Redirect(string identity)
-    {
-        Dictionary<string, object> pathParams = new();
-        pathParams.Add("identity", identity);
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/consumer/identity/:identity/redirect", pathParams), Method.Get);
-        this.Parser.Query(request, queryParams, queryStructNames);
-
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<Passthru>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode == 400)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 500)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
     public async Task<Passthru> Exchange(string identity)
     {
         Dictionary<string, object> pathParams = new();
@@ -81,14 +42,7 @@ public class ConsumerIdentityTag : TagAbstract {
         }
 
         var statusCode = (int) response.StatusCode;
-        if (statusCode == 400)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 500)
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 
@@ -121,14 +75,39 @@ public class ConsumerIdentityTag : TagAbstract {
         }
 
         var statusCode = (int) response.StatusCode;
-        if (statusCode == 400)
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 
             throw new CommonMessageException(data);
         }
 
-        if (statusCode == 500)
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    public async Task<Passthru> Redirect(string identity)
+    {
+        Dictionary<string, object> pathParams = new();
+        pathParams.Add("identity", identity);
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/consumer/identity/:identity/redirect", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<Passthru>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
         {
             var data = this.Parser.Parse<CommonMessage>(response.Content);
 

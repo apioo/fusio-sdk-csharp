@@ -19,67 +19,6 @@ public class BackendMarketplaceActionTag : TagAbstract {
     }
 
 
-    public async Task<CommonMessage> Upgrade(string user, string name)
-    {
-        Dictionary<string, object> pathParams = new();
-        pathParams.Add("user", user);
-        pathParams.Add("name", name);
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/backend/marketplace/action/:user/:name", pathParams), Method.Put);
-        this.Parser.Query(request, queryParams, queryStructNames);
-
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode == 400)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 401)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 404)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 410)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        if (statusCode == 500)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
     public async Task<MarketplaceAction> Get(string user, string name)
     {
         Dictionary<string, object> pathParams = new();
@@ -104,79 +43,11 @@ public class BackendMarketplaceActionTag : TagAbstract {
         }
 
         var statusCode = (int) response.StatusCode;
-        if (statusCode == 401)
+        if (statusCode >= 0 && statusCode <= 999)
         {
-            var data = this.Parser.Parse<MarketplaceMessage>(response.Content);
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
-            throw new MarketplaceMessageException(data);
-        }
-
-        if (statusCode == 404)
-        {
-            var data = this.Parser.Parse<MarketplaceMessage>(response.Content);
-
-            throw new MarketplaceMessageException(data);
-        }
-
-        if (statusCode == 410)
-        {
-            var data = this.Parser.Parse<MarketplaceMessage>(response.Content);
-
-            throw new MarketplaceMessageException(data);
-        }
-
-        if (statusCode == 500)
-        {
-            var data = this.Parser.Parse<MarketplaceMessage>(response.Content);
-
-            throw new MarketplaceMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
-    public async Task<MarketplaceMessage> Install(MarketplaceInstall payload)
-    {
-        Dictionary<string, object> pathParams = new();
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/backend/marketplace/action", pathParams), Method.Post);
-        this.Parser.Query(request, queryParams, queryStructNames);
-        request.AddJsonBody(JsonSerializer.Serialize(payload));
-
-        request.AddOrUpdateHeader("Content-Type", "application/json");
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<MarketplaceMessage>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode == 400)
-        {
-            var data = this.Parser.Parse<MarketplaceMessage>(response.Content);
-
-            throw new MarketplaceMessageException(data);
-        }
-
-        if (statusCode == 401)
-        {
-            var data = this.Parser.Parse<MarketplaceMessage>(response.Content);
-
-            throw new MarketplaceMessageException(data);
-        }
-
-        if (statusCode == 500)
-        {
-            var data = this.Parser.Parse<MarketplaceMessage>(response.Content);
-
-            throw new MarketplaceMessageException(data);
+            throw new CommonMessageException(data);
         }
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
@@ -205,18 +76,77 @@ public class BackendMarketplaceActionTag : TagAbstract {
         }
 
         var statusCode = (int) response.StatusCode;
-        if (statusCode == 401)
+        if (statusCode >= 0 && statusCode <= 999)
         {
-            var data = this.Parser.Parse<MarketplaceMessage>(response.Content);
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
 
-            throw new MarketplaceMessageException(data);
+            throw new CommonMessageException(data);
         }
 
-        if (statusCode == 500)
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    public async Task<MarketplaceMessage> Install(MarketplaceInstall payload)
+    {
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/marketplace/action", pathParams), Method.Post);
+        this.Parser.Query(request, queryParams, queryStructNames);
+        request.AddJsonBody(JsonSerializer.Serialize(payload));
+
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
         {
             var data = this.Parser.Parse<MarketplaceMessage>(response.Content);
 
-            throw new MarketplaceMessageException(data);
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    public async Task<CommonMessage> Upgrade(string user, string name)
+    {
+        Dictionary<string, object> pathParams = new();
+        pathParams.Add("user", user);
+        pathParams.Add("name", name);
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/marketplace/action/:user/:name", pathParams), Method.Put);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
         }
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);

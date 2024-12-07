@@ -18,9 +18,9 @@ public class SystemTag : TagAbstract {
     {
     }
 
-    public SystemPaymentTag Payment()
+    public SystemConnectionTag Connection()
     {
-        return new SystemPaymentTag(
+        return new SystemConnectionTag(
             this.HttpClient,
             this.Parser
         );
@@ -34,9 +34,9 @@ public class SystemTag : TagAbstract {
         );
     }
 
-    public SystemConnectionTag Connection()
+    public SystemPaymentTag Payment()
     {
-        return new SystemConnectionTag(
+        return new SystemPaymentTag(
             this.HttpClient,
             this.Parser
         );

@@ -18,6 +18,38 @@ public class ConsumerTag : TagAbstract {
     {
     }
 
+    public ConsumerAccountTag Account()
+    {
+        return new ConsumerAccountTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
+    public ConsumerAppTag App()
+    {
+        return new ConsumerAppTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
+    public ConsumerEventTag Event()
+    {
+        return new ConsumerEventTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
+    public ConsumerGrantTag Grant()
+    {
+        return new ConsumerGrantTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public ConsumerIdentityTag Identity()
     {
         return new ConsumerIdentityTag(
@@ -26,9 +58,49 @@ public class ConsumerTag : TagAbstract {
         );
     }
 
-    public ConsumerAccountTag Account()
+    public ConsumerLogTag Log()
     {
-        return new ConsumerAccountTag(
+        return new ConsumerLogTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
+    public ConsumerPageTag Page()
+    {
+        return new ConsumerPageTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
+    public ConsumerPaymentTag Payment()
+    {
+        return new ConsumerPaymentTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
+    public ConsumerPlanTag Plan()
+    {
+        return new ConsumerPlanTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
+    public ConsumerScopeTag Scope()
+    {
+        return new ConsumerScopeTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
+    public ConsumerTokenTag Token()
+    {
+        return new ConsumerTokenTag(
             this.HttpClient,
             this.Parser
         );
@@ -45,78 +117,6 @@ public class ConsumerTag : TagAbstract {
     public ConsumerWebhookTag Webhook()
     {
         return new ConsumerWebhookTag(
-            this.HttpClient,
-            this.Parser
-        );
-    }
-
-    public ConsumerTokenTag Token()
-    {
-        return new ConsumerTokenTag(
-            this.HttpClient,
-            this.Parser
-        );
-    }
-
-    public ConsumerScopeTag Scope()
-    {
-        return new ConsumerScopeTag(
-            this.HttpClient,
-            this.Parser
-        );
-    }
-
-    public ConsumerPlanTag Plan()
-    {
-        return new ConsumerPlanTag(
-            this.HttpClient,
-            this.Parser
-        );
-    }
-
-    public ConsumerPaymentTag Payment()
-    {
-        return new ConsumerPaymentTag(
-            this.HttpClient,
-            this.Parser
-        );
-    }
-
-    public ConsumerPageTag Page()
-    {
-        return new ConsumerPageTag(
-            this.HttpClient,
-            this.Parser
-        );
-    }
-
-    public ConsumerLogTag Log()
-    {
-        return new ConsumerLogTag(
-            this.HttpClient,
-            this.Parser
-        );
-    }
-
-    public ConsumerGrantTag Grant()
-    {
-        return new ConsumerGrantTag(
-            this.HttpClient,
-            this.Parser
-        );
-    }
-
-    public ConsumerEventTag Event()
-    {
-        return new ConsumerEventTag(
-            this.HttpClient,
-            this.Parser
-        );
-    }
-
-    public ConsumerAppTag App()
-    {
-        return new ConsumerAppTag(
             this.HttpClient,
             this.Parser
         );
