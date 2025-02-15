@@ -24,6 +24,9 @@ public class BackendSchema
     [JsonPropertyName("form")]
     public BackendSchemaForm? Form { get; set; }
 
+    [JsonPropertyName("readonly")]
+    public bool? Readonly { get; set; }
+
     [JsonPropertyName("metadata")]
     public CommonMetadata? Metadata { get; set; }
 

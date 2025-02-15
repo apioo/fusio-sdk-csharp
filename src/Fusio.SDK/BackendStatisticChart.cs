@@ -13,7 +13,7 @@ public class BackendStatisticChart
     public System.Collections.Generic.List<string>? Labels { get; set; }
 
     [JsonPropertyName("data")]
-    public System.Collections.Generic.List<BackendStatisticChartData>? Data { get; set; }
+    public System.Collections.Generic.List<Array>? Data { get; set; }
 
     [JsonPropertyName("series")]
     public System.Collections.Generic.List<string>? Series { get; set; }
