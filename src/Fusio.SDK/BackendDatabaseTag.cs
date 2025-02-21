@@ -155,37 +155,6 @@ public class BackendDatabaseTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
-    public async Task<BackendDatabaseConnections> GetConnections()
-    {
-        Dictionary<string, object> pathParams = new();
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/backend/database", pathParams), Method.Get);
-        this.Parser.Query(request, queryParams, queryStructNames);
-
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<BackendDatabaseConnections>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode >= 0 && statusCode <= 999)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
     public async Task<BackendDatabaseRow> GetRow(string connectionId, string tableName, string id)
     {
         Dictionary<string, object> pathParams = new();
@@ -220,7 +189,7 @@ public class BackendDatabaseTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
-    public async Task<BackendDatabaseRows> GetRows(string connectionId, string tableName, int startIndex, int count, string filterBy, string filterOp, string filterValue, string sortBy, string sortOrder, string columns)
+    public async Task<BackendDatabaseRowCollection> GetRows(string connectionId, string tableName, int startIndex, int count, string filterBy, string filterOp, string filterValue, string sortBy, string sortOrder, string columns)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("connection_id", connectionId);
@@ -246,7 +215,7 @@ public class BackendDatabaseTag : TagAbstract {
 
         if (response.IsSuccessful)
         {
-            var data = this.Parser.Parse<BackendDatabaseRows>(response.Content);
+            var data = this.Parser.Parse<BackendDatabaseRowCollection>(response.Content);
 
             return data;
         }
@@ -294,7 +263,7 @@ public class BackendDatabaseTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
-    public async Task<BackendDatabaseTables> GetTables(string connectionId)
+    public async Task<BackendDatabaseTableCollection> GetTables(string connectionId)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("connection_id", connectionId);
@@ -311,7 +280,7 @@ public class BackendDatabaseTag : TagAbstract {
 
         if (response.IsSuccessful)
         {
-            var data = this.Parser.Parse<BackendDatabaseTables>(response.Content);
+            var data = this.Parser.Parse<BackendDatabaseTableCollection>(response.Content);
 
             return data;
         }

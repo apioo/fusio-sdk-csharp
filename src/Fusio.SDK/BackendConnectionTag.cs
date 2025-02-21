@@ -116,7 +116,7 @@ public class BackendConnectionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
-    public async Task<BackendConnectionCollection> GetAll(int startIndex, int count, string search)
+    public async Task<BackendConnectionCollection> GetAll(int startIndex, int count, string search, string _class)
     {
         Dictionary<string, object> pathParams = new();
 
@@ -124,6 +124,7 @@ public class BackendConnectionTag : TagAbstract {
         queryParams.Add("startIndex", startIndex);
         queryParams.Add("count", count);
         queryParams.Add("search", search);
+        queryParams.Add("class", _class);
 
         List<string> queryStructNames = new();
 
@@ -199,71 +200,6 @@ public class BackendConnectionTag : TagAbstract {
         if (response.IsSuccessful)
         {
             var data = this.Parser.Parse<CommonFormContainer>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode >= 0 && statusCode <= 999)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
-    public async Task<BackendConnectionIntrospectionEntities> GetIntrospection(string connectionId)
-    {
-        Dictionary<string, object> pathParams = new();
-        pathParams.Add("connection_id", connectionId);
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/backend/connection/$connection_id<[0-9]+|^~>/introspection", pathParams), Method.Get);
-        this.Parser.Query(request, queryParams, queryStructNames);
-
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<BackendConnectionIntrospectionEntities>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode >= 0 && statusCode <= 999)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
-    public async Task<BackendConnectionIntrospectionEntity> GetIntrospectionForEntity(string connectionId, string entity)
-    {
-        Dictionary<string, object> pathParams = new();
-        pathParams.Add("connection_id", connectionId);
-        pathParams.Add("entity", entity);
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/backend/connection/$connection_id<[0-9]+|^~>/introspection/:entity", pathParams), Method.Get);
-        this.Parser.Query(request, queryParams, queryStructNames);
-
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<BackendConnectionIntrospectionEntity>(response.Content);
 
             return data;
         }
