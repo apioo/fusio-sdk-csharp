@@ -12,8 +12,11 @@ public class BackendLogError
     [JsonPropertyName("id")]
     public int? Id { get; set; }
 
+    [JsonPropertyName("logId")]
+    public int? LogId { get; set; }
+
     [JsonPropertyName("message")]
-    public int? Message { get; set; }
+    public string? Message { get; set; }
 
     [JsonPropertyName("trace")]
     public string? Trace { get; set; }
@@ -23,6 +26,9 @@ public class BackendLogError
 
     [JsonPropertyName("line")]
     public int? Line { get; set; }
+
+    [JsonPropertyName("insertDate")]
+    public System.DateTime? InsertDate { get; set; }
 
 }
 
