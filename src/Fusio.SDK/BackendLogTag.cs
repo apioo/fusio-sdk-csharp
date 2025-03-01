@@ -51,7 +51,7 @@ public class BackendLogTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
-    public async Task<BackendLogCollection> GetAll(int startIndex, int count, string search, string from, string to, int routeId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
+    public async Task<BackendLogCollection> GetAll(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
 
@@ -61,7 +61,7 @@ public class BackendLogTag : TagAbstract {
         queryParams.Add("search", search);
         queryParams.Add("from", from);
         queryParams.Add("to", to);
-        queryParams.Add("routeId", routeId);
+        queryParams.Add("operationId", operationId);
         queryParams.Add("appId", appId);
         queryParams.Add("userId", userId);
         queryParams.Add("ip", ip);
