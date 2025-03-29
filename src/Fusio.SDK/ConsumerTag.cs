@@ -42,6 +42,14 @@ public class ConsumerTag : TagAbstract {
         );
     }
 
+    public ConsumerFormTag Form()
+    {
+        return new ConsumerFormTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public ConsumerGrantTag Grant()
     {
         return new ConsumerGrantTag(

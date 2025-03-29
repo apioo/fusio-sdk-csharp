@@ -114,6 +114,14 @@ public class BackendTag : TagAbstract {
         );
     }
 
+    public BackendFormTag Form()
+    {
+        return new BackendFormTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public BackendGeneratorTag Generator()
     {
         return new BackendGeneratorTag(
