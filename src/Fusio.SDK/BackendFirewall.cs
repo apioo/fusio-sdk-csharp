@@ -21,9 +21,6 @@ public class BackendFirewall
     [JsonPropertyName("ip")]
     public string? Ip { get; set; }
 
-    [JsonPropertyName("mask")]
-    public int? Mask { get; set; }
-
     [JsonPropertyName("expire")]
     public System.DateTime? Expire { get; set; }
 
