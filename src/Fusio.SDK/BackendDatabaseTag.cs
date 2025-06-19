@@ -263,12 +263,14 @@ public class BackendDatabaseTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
-    public async Task<BackendDatabaseTableCollection> GetTables(string connectionId)
+    public async Task<BackendDatabaseTableCollection> GetTables(string connectionId, int startIndex, int count)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("connection_id", connectionId);
 
         Dictionary<string, object> queryParams = new();
+        queryParams.Add("startIndex", startIndex);
+        queryParams.Add("count", count);
 
         List<string> queryStructNames = new();
 
