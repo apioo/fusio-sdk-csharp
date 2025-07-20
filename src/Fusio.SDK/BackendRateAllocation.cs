@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a rate allocation, in case a request matches it gets assigned to the attached rate
+/// </summary>
 public class BackendRateAllocation
 {
     [JsonPropertyName("id")]

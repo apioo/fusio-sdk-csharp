@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// A paginated collection of category objects
+/// </summary>
 public class BackendCategoryCollection : CommonCollection<BackendCategory>
 {
 }

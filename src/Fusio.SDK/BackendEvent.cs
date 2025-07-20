@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents an event which can be triggered by an action
+/// </summary>
 public class BackendEvent
 {
     [JsonPropertyName("id")]

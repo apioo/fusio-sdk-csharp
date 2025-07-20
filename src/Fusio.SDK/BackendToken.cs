@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a token, this an access token which was requested by a user
+/// </summary>
 public class BackendToken
 {
     [JsonPropertyName("id")]

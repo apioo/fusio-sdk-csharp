@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a plan, a plan allows users to obtain points or in general subscribe to your app
+/// </summary>
 public class BackendPlan
 {
     [JsonPropertyName("id")]

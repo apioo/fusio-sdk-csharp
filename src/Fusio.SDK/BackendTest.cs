@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a test. A test helps to verify that all operations work as expected
+/// </summary>
 public class BackendTest
 {
     [JsonPropertyName("id")]

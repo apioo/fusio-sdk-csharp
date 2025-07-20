@@ -19,6 +19,9 @@ public class BackendPageTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new page
+     */
     public async Task<CommonMessage> Create(BackendPageCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendPageTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing page
+     */
     public async Task<CommonMessage> Delete(string pageId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendPageTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific page
+     */
     public async Task<BackendPage> Get(string pageId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendPageTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of pages
+     */
     public async Task<BackendPageCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class BackendPageTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing page
+     */
     public async Task<CommonMessage> Update(string pageId, BackendPageUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

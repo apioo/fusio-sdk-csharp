@@ -19,6 +19,9 @@ public class BackendDashboardTag : TagAbstract {
     }
 
 
+    /**
+     * Returns all available dashboard widgets
+     */
     public async Task<BackendDashboard> GetAll()
     {
         Dictionary<string, object> pathParams = new();

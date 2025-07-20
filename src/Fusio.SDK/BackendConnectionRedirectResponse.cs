@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Redirect response to initiate an OAuth2 flow
+/// </summary>
 public class BackendConnectionRedirectResponse
 {
     [JsonPropertyName("redirectUri")]

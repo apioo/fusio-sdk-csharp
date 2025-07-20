@@ -19,6 +19,9 @@ public class ConsumerFormTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a specific form for the authenticated user
+     */
     public async Task<ConsumerForm> Get(string formId)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class ConsumerFormTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of forms which are relevant to the authenticated user
+     */
     public async Task<ConsumerFormCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();

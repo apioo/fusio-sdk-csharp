@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// A paginated collection of plan objects
+/// </summary>
 public class BackendPlanCollection : CommonCollection<BackendPlan>
 {
 }

@@ -8,6 +8,9 @@ using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// The action configuration which contains arbitrary key-value entries
+/// </summary>
 public class BackendActionConfig : Dictionary<string, object>
 {
 }

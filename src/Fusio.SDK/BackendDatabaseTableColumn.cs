@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a column at a relation table
+/// </summary>
 public class BackendDatabaseTableColumn
 {
     [JsonPropertyName("name")]

@@ -19,6 +19,9 @@ public class BackendConfigTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a specific config
+     */
     public async Task<BackendConfig> Get(string configId)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class BackendConfigTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of configuration values
+     */
     public async Task<BackendConfigCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -85,6 +91,9 @@ public class BackendConfigTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing config value
+     */
     public async Task<CommonMessage> Update(string configId, BackendConfigUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

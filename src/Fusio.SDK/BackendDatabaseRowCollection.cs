@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// A paginated collection of database rows
+/// </summary>
 public class BackendDatabaseRowCollection : CommonCollection<BackendDatabaseRow>
 {
 }

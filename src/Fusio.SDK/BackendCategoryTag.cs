@@ -19,6 +19,9 @@ public class BackendCategoryTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new category
+     */
     public async Task<CommonMessage> Create(BackendCategoryCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendCategoryTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing category
+     */
     public async Task<CommonMessage> Delete(string categoryId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendCategoryTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific category
+     */
     public async Task<BackendCategory> Get(string categoryId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendCategoryTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of categories
+     */
     public async Task<BackendCategoryCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class BackendCategoryTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing category
+     */
     public async Task<CommonMessage> Update(string categoryId, BackendCategoryUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

@@ -19,6 +19,9 @@ public class AuthorizationTag : TagAbstract {
     }
 
 
+    /**
+     * Returns user data of the current authenticated user
+     */
     public async Task<BackendUser> GetWhoami()
     {
         Dictionary<string, object> pathParams = new();
@@ -50,6 +53,9 @@ public class AuthorizationTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Revoke the access token of the current authenticated user
+     */
     public async Task<CommonMessage> Revoke()
     {
         Dictionary<string, object> pathParams = new();

@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a connection to an external system like i.e. a database, message-queue or client-sdk
+/// </summary>
 public class BackendConnection
 {
     [JsonPropertyName("id")]

@@ -12,11 +12,14 @@ public class ConsumerAuthorizeResponse
     [JsonPropertyName("type")]
     public string? Type { get; set; }
 
-    [JsonPropertyName("token")]
-    public ConsumerAuthorizeResponseToken? Token { get; set; }
-
     [JsonPropertyName("code")]
     public string? Code { get; set; }
+
+    [JsonPropertyName("error")]
+    public string? Error { get; set; }
+
+    [JsonPropertyName("state")]
+    public string? State { get; set; }
 
     [JsonPropertyName("redirectUri")]
     public string? RedirectUri { get; set; }

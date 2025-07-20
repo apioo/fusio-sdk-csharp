@@ -19,6 +19,9 @@ public class BackendWebhookTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new webhook
+     */
     public async Task<CommonMessage> Create(BackendWebhookCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendWebhookTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing webhook
+     */
     public async Task<CommonMessage> Delete(string webhookId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendWebhookTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific webhook
+     */
     public async Task<BackendWebhook> Get(string webhookId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendWebhookTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of webhooks
+     */
     public async Task<BackendWebhookCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class BackendWebhookTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing webhook
+     */
     public async Task<CommonMessage> Update(string webhookId, BackendWebhookUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

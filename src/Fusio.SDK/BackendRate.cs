@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a rate limitation, which allows to limit the requests which a user can send
+/// </summary>
 public class BackendRate
 {
     [JsonPropertyName("id")]

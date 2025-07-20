@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a role, every user is assigned to a role and all scopes of the role are automatically attached to the user
+/// </summary>
 public class BackendRole
 {
     [JsonPropertyName("id")]

@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents an audit which is created every time something was changed at the system
+/// </summary>
 public class BackendAudit
 {
     [JsonPropertyName("id")]

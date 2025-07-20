@@ -19,6 +19,9 @@ public class BackendMarketplaceAppTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a specific marketplace app
+     */
     public async Task<MarketplaceApp> Get(string user, string name)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendMarketplaceAppTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of marketplace apps
+     */
     public async Task<MarketplaceAppCollection> GetAll(int startIndex, string query)
     {
         Dictionary<string, object> pathParams = new();

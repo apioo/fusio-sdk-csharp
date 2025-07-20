@@ -19,6 +19,9 @@ public class BackendConnectionTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new connection
+     */
     public async Task<CommonMessage> Create(BackendConnectionCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendConnectionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing connection
+     */
     public async Task<CommonMessage> Delete(string connectionId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendConnectionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific connection
+     */
     public async Task<BackendConnection> Get(string connectionId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendConnectionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of connections
+     */
     public async Task<BackendConnectionCollection> GetAll(int startIndex, int count, string search, string _class)
     {
         Dictionary<string, object> pathParams = new();
@@ -151,6 +163,9 @@ public class BackendConnectionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns all available connection classes
+     */
     public async Task<BackendConnectionIndex> GetClasses()
     {
         Dictionary<string, object> pathParams = new();
@@ -182,6 +197,9 @@ public class BackendConnectionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns the connection config form
+     */
     public async Task<CommonFormContainer> GetForm(string _class)
     {
         Dictionary<string, object> pathParams = new();
@@ -214,6 +232,9 @@ public class BackendConnectionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a redirect url to start the OAuth2 authorization flow for the given connection
+     */
     public async Task<BackendConnectionRedirectResponse> GetRedirect(string connectionId)
     {
         Dictionary<string, object> pathParams = new();
@@ -246,6 +267,9 @@ public class BackendConnectionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing connection
+     */
     public async Task<CommonMessage> Update(string connectionId, BackendConnectionUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

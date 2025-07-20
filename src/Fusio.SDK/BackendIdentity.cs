@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents an identity which allows to authenticate with a remote identity provider
+/// </summary>
 public class BackendIdentity
 {
     [JsonPropertyName("id")]

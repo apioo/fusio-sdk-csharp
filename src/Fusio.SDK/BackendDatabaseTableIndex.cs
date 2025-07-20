@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a table index on a relational database
+/// </summary>
 public class BackendDatabaseTableIndex
 {
     [JsonPropertyName("name")]

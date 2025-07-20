@@ -19,6 +19,9 @@ public class ConsumerScopeTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a paginated list of scopes which are assigned to the authenticated user
+     */
     public async Task<ConsumerScopeCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -53,6 +56,9 @@ public class ConsumerScopeTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns all scopes by category
+     */
     public async Task<ConsumerScopeCategories> GetCategories()
     {
         Dictionary<string, object> pathParams = new();

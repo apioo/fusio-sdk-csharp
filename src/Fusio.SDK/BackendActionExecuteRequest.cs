@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Represents a request to execute an action
+/// </summary>
 public class BackendActionExecuteRequest
 {
     [JsonPropertyName("method")]

@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a webhook, a webhook is called in case a specific event was triggered
+/// </summary>
 public class BackendWebhook
 {
     [JsonPropertyName("id")]

@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a system configuration
+/// </summary>
 public class BackendConfig
 {
     [JsonPropertyName("id")]

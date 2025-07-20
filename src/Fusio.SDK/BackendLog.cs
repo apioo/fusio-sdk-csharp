@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a log entry. Every HTTP requests to the system generates such a log entry.
+/// </summary>
 public class BackendLog
 {
     [JsonPropertyName("id")]

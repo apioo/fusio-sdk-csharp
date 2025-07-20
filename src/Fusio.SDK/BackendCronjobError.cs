@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Represents an error which occurred on cronjob execution
+/// </summary>
 public class BackendCronjobError
 {
     [JsonPropertyName("message")]

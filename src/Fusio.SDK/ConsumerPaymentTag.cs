@@ -19,6 +19,9 @@ public class ConsumerPaymentTag : TagAbstract {
     }
 
 
+    /**
+     * Start the checkout process for a specific plan
+     */
     public async Task<ConsumerPaymentCheckoutResponse> Checkout(string provider, ConsumerPaymentCheckoutRequest payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -53,6 +56,9 @@ public class ConsumerPaymentTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Generates a payment portal link for the authenticated user
+     */
     public async Task<ConsumerPaymentPortalResponse> Portal(string provider, ConsumerPaymentPortalRequest payload)
     {
         Dictionary<string, object> pathParams = new();

@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Contains all possible classes which can be used at an generator as class
+/// </summary>
 public class BackendGeneratorIndexProviders
 {
     [JsonPropertyName("providers")]

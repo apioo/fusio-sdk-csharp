@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a scope. A scope is assigned to a user and is required to access operations
+/// </summary>
 public class BackendScope
 {
     [JsonPropertyName("id")]

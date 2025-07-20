@@ -8,6 +8,9 @@ using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Represents a request body
+/// </summary>
 public class BackendActionExecuteRequestBody : Dictionary<string, object>
 {
 }

@@ -19,6 +19,9 @@ public class BackendStatisticTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a statistic containing the activities per user
+     */
     public async Task<BackendStatisticChart> GetActivitiesPerUser(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -64,6 +67,9 @@ public class BackendStatisticTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a statistic containing the request count
+     */
     public async Task<BackendStatisticCount> GetCountRequests(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -109,6 +115,9 @@ public class BackendStatisticTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a statistic containing the errors per operation
+     */
     public async Task<BackendStatisticChart> GetErrorsPerOperation(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -154,6 +163,9 @@ public class BackendStatisticTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a statistic containing the incoming requests
+     */
     public async Task<BackendStatisticChart> GetIncomingRequests(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -199,6 +211,9 @@ public class BackendStatisticTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a statistic containing the incoming transactions
+     */
     public async Task<BackendStatisticChart> GetIncomingTransactions(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -244,6 +259,9 @@ public class BackendStatisticTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a statistic containing the issues tokens
+     */
     public async Task<BackendStatisticChart> GetIssuedTokens(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -289,6 +307,9 @@ public class BackendStatisticTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a statistic containing the most used activities
+     */
     public async Task<BackendStatisticChart> GetMostUsedActivities(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -334,6 +355,9 @@ public class BackendStatisticTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a statistic containing the most used apps
+     */
     public async Task<BackendStatisticChart> GetMostUsedApps(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -379,6 +403,9 @@ public class BackendStatisticTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a statistic containing the most used operations
+     */
     public async Task<BackendStatisticChart> GetMostUsedOperations(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -424,6 +451,9 @@ public class BackendStatisticTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a statistic containing the test coverage
+     */
     public async Task<BackendStatisticChart> GetTestCoverage()
     {
         Dictionary<string, object> pathParams = new();
@@ -455,6 +485,9 @@ public class BackendStatisticTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a statistic containing the time average
+     */
     public async Task<BackendStatisticChart> GetTimeAverage(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -500,6 +533,9 @@ public class BackendStatisticTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a statistic containing the time per operation
+     */
     public async Task<BackendStatisticChart> GetTimePerOperation(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -545,6 +581,9 @@ public class BackendStatisticTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a statistic containing the used points
+     */
     public async Task<BackendStatisticChart> GetUsedPoints(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -590,6 +629,9 @@ public class BackendStatisticTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a statistic containing the user registrations
+     */
     public async Task<BackendStatisticChart> GetUserRegistrations(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();

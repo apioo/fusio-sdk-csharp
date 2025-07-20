@@ -8,6 +8,9 @@ using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Represents a map of headers
+/// </summary>
 public class BackendActionExecuteResponseHeaders : Dictionary<string, string>
 {
 }

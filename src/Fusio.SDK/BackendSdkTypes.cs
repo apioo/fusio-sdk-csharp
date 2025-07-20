@@ -8,6 +8,9 @@ using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Represents available SDK type which can be generated
+/// </summary>
 public class BackendSdkTypes : Dictionary<string, string>
 {
 }

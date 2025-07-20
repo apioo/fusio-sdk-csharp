@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Export of the complete system configuration
+/// </summary>
 public class BackendBackupExport
 {
     [JsonPropertyName("export")]

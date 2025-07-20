@@ -19,6 +19,9 @@ public class BackendPlanTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new plan
+     */
     public async Task<CommonMessage> Create(BackendPlanCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendPlanTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing plan
+     */
     public async Task<CommonMessage> Delete(string planId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendPlanTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific plan
+     */
     public async Task<BackendPlan> Get(string planId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendPlanTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of plans
+     */
     public async Task<BackendPlanCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class BackendPlanTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing plan
+     */
     public async Task<CommonMessage> Update(string planId, BackendPlanUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

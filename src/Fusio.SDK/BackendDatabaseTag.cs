@@ -19,6 +19,9 @@ public class BackendDatabaseTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new row at a table on a database
+     */
     public async Task<CommonMessage> CreateRow(string connectionId, string tableName, BackendDatabaseRow payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -54,6 +57,9 @@ public class BackendDatabaseTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Creates a new table on a database
+     */
     public async Task<CommonMessage> CreateTable(string connectionId, BackendDatabaseTable payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -88,6 +94,9 @@ public class BackendDatabaseTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing row at a table on a database
+     */
     public async Task<CommonMessage> DeleteRow(string connectionId, string tableName, string id)
     {
         Dictionary<string, object> pathParams = new();
@@ -122,6 +131,9 @@ public class BackendDatabaseTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing table on a database
+     */
     public async Task<CommonMessage> DeleteTable(string connectionId, string tableName)
     {
         Dictionary<string, object> pathParams = new();
@@ -155,6 +167,9 @@ public class BackendDatabaseTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific row at a table on a database
+     */
     public async Task<BackendDatabaseRow> GetRow(string connectionId, string tableName, string id)
     {
         Dictionary<string, object> pathParams = new();
@@ -189,6 +204,9 @@ public class BackendDatabaseTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns paginated rows at a table on a database
+     */
     public async Task<BackendDatabaseRowCollection> GetRows(string connectionId, string tableName, int startIndex, int count, string filterBy, string filterOp, string filterValue, string sortBy, string sortOrder, string columns)
     {
         Dictionary<string, object> pathParams = new();
@@ -230,6 +248,9 @@ public class BackendDatabaseTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns the schema of a specific table on a database
+     */
     public async Task<BackendDatabaseTable> GetTable(string connectionId, string tableName)
     {
         Dictionary<string, object> pathParams = new();
@@ -263,6 +284,9 @@ public class BackendDatabaseTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns all available tables on a database
+     */
     public async Task<BackendDatabaseTableCollection> GetTables(string connectionId, int startIndex, int count)
     {
         Dictionary<string, object> pathParams = new();
@@ -297,6 +321,9 @@ public class BackendDatabaseTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing row at a table on a database
+     */
     public async Task<CommonMessage> UpdateRow(string connectionId, string tableName, string id, BackendDatabaseRow payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -333,6 +360,9 @@ public class BackendDatabaseTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing table on a database
+     */
     public async Task<CommonMessage> UpdateTable(string connectionId, string tableName, BackendDatabaseTable payload)
     {
         Dictionary<string, object> pathParams = new();

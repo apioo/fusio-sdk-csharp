@@ -19,6 +19,9 @@ public class BackendFormTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new form
+     */
     public async Task<CommonMessage> Create(BackendFormCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendFormTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing form
+     */
     public async Task<CommonMessage> Delete(string formId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendFormTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific form
+     */
     public async Task<BackendForm> Get(string formId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendFormTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of forms
+     */
     public async Task<BackendFormCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class BackendFormTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing form
+     */
     public async Task<CommonMessage> Update(string formId, BackendFormUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

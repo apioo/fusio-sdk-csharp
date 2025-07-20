@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// A paginated collection of audit objects
+/// </summary>
 public class BackendAuditCollection : CommonCollection<BackendAudit>
 {
 }

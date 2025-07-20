@@ -19,6 +19,9 @@ public class ConsumerEventTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a specific event for the authenticated user
+     */
     public async Task<ConsumerEvent> Get(string eventId)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class ConsumerEventTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of apps which are assigned to the authenticated user
+     */
     public async Task<ConsumerEventCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();

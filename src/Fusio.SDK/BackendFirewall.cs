@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a firewall rule which blocks specific IP addresses
+/// </summary>
 public class BackendFirewall
 {
     [JsonPropertyName("id")]

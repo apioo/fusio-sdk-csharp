@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a cronjob which can invoke an action at a specific interval
+/// </summary>
 public class BackendCronjob
 {
     [JsonPropertyName("id")]

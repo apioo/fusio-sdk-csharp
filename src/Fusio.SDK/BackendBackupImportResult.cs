@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Result of a backup import operation
+/// </summary>
 public class BackendBackupImportResult
 {
     [JsonPropertyName("success")]

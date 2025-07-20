@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents an app to access the API on-behalf of a user
+/// </summary>
 public class BackendApp
 {
     [JsonPropertyName("id")]

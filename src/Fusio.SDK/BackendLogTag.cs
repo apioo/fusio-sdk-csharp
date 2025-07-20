@@ -19,6 +19,9 @@ public class BackendLogTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a specific log
+     */
     public async Task<BackendLog> Get(string logId)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class BackendLogTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of logs
+     */
     public async Task<BackendLogCollection> GetAll(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
     {
         Dictionary<string, object> pathParams = new();
@@ -96,6 +102,9 @@ public class BackendLogTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of log errors
+     */
     public async Task<BackendLogErrorCollection> GetAllErrors(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();

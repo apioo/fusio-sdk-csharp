@@ -19,6 +19,9 @@ public class BackendAppTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new app
+     */
     public async Task<CommonMessage> Create(BackendAppCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendAppTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing app
+     */
     public async Task<CommonMessage> Delete(string appId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendAppTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing token from an app
+     */
     public async Task<CommonMessage> DeleteToken(string appId, string tokenId)
     {
         Dictionary<string, object> pathParams = new();
@@ -117,6 +126,9 @@ public class BackendAppTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific app
+     */
     public async Task<BackendApp> Get(string appId)
     {
         Dictionary<string, object> pathParams = new();
@@ -149,6 +161,9 @@ public class BackendAppTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of apps
+     */
     public async Task<BackendAppCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -183,6 +198,9 @@ public class BackendAppTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing app
+     */
     public async Task<CommonMessage> Update(string appId, BackendAppUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

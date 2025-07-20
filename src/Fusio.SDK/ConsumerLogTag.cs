@@ -19,6 +19,9 @@ public class ConsumerLogTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a specific log for the authenticated user
+     */
     public async Task<ConsumerLog> Get(string logId)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class ConsumerLogTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of logs which are assigned to the authenticated user
+     */
     public async Task<ConsumerLogCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();

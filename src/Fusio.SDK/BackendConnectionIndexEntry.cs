@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Represents a concrete connection class
+/// </summary>
 public class BackendConnectionIndexEntry
 {
     [JsonPropertyName("name")]

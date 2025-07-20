@@ -19,6 +19,9 @@ public class ConsumerIdentityTag : TagAbstract {
     }
 
 
+    /**
+     * Identity callback endpoint to exchange an access token
+     */
     public async Task<Passthru> Exchange(string identity)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class ConsumerIdentityTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of identities which are relevant to the authenticated user
+     */
     public async Task<ConsumerIdentityCollection> GetAll(int appId, string appKey)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class ConsumerIdentityTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Redirect the user to the configured identity provider
+     */
     public async Task<Passthru> Redirect(string identity)
     {
         Dictionary<string, object> pathParams = new();

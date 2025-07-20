@@ -19,6 +19,9 @@ public class BackendTestTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a specific test
+     */
     public async Task<BackendTest> Get(string testId)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class BackendTestTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of tests
+     */
     public async Task<BackendTestCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -85,6 +91,9 @@ public class BackendTestTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Refresh all tests
+     */
     public async Task<CommonMessage> Refresh()
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendTestTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Run all tests
+     */
     public async Task<CommonMessage> Run()
     {
         Dictionary<string, object> pathParams = new();
@@ -147,6 +159,9 @@ public class BackendTestTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing test
+     */
     public async Task<CommonMessage> Update(string testId, BackendTest payload)
     {
         Dictionary<string, object> pathParams = new();

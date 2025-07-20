@@ -19,6 +19,9 @@ public class SystemConnectionTag : TagAbstract {
     }
 
 
+    /**
+     * Connection OAuth2 callback to authorize a connection
+     */
     public async Task<CommonMessage> Callback(string name)
     {
         Dictionary<string, object> pathParams = new();

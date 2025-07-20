@@ -19,6 +19,9 @@ public class ConsumerTransactionTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a specific transaction for the authenticated user
+     */
     public async Task<ConsumerTransaction> Get(string transactionId)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class ConsumerTransactionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of transactions which are assigned to the authenticated user
+     */
     public async Task<ConsumerTransactionCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();

@@ -19,6 +19,9 @@ public class BackendTokenTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a specific token
+     */
     public async Task<BackendToken> Get(string tokenId)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class BackendTokenTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of tokens
+     */
     public async Task<BackendTokenCollection> GetAll(int startIndex, int count, string search, string from, string to, int appId, int userId, int status, string scope, string ip)
     {
         Dictionary<string, object> pathParams = new();

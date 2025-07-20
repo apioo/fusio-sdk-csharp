@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Represents an object containing all widget data for the dashboard
+/// </summary>
 public class BackendDashboard
 {
     [JsonPropertyName("errorsPerOperation")]

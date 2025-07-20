@@ -19,6 +19,9 @@ public class BackendAuditTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a specific audit
+     */
     public async Task<BackendAudit> Get(string auditId)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class BackendAuditTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of audits
+     */
     public async Task<BackendAuditCollection> GetAll(int startIndex, int count, string search, string from, string to, int appId, int userId, string _event, string ip, string message)
     {
         Dictionary<string, object> pathParams = new();

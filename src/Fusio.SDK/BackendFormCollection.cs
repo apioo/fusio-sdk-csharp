@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// A paginated collection of form objects
+/// </summary>
 public class BackendFormCollection : CommonCollection<BackendForm>
 {
 }

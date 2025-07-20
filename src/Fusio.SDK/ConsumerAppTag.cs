@@ -19,6 +19,9 @@ public class ConsumerAppTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new app for the authenticated user
+     */
     public async Task<CommonMessage> Create(ConsumerAppCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class ConsumerAppTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing app for the authenticated user
+     */
     public async Task<CommonMessage> Delete(string appId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class ConsumerAppTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific app for the authenticated user
+     */
     public async Task<ConsumerApp> Get(string appId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class ConsumerAppTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of apps which are assigned to the authenticated user
+     */
     public async Task<ConsumerAppCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class ConsumerAppTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing app for the authenticated user
+     */
     public async Task<CommonMessage> Update(string appId, ConsumerAppUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

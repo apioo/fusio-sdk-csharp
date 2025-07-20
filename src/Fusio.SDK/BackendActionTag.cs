@@ -19,6 +19,9 @@ public class BackendActionTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new action
+     */
     public async Task<CommonMessage> Create(BackendActionCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendActionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing action
+     */
     public async Task<CommonMessage> Delete(string actionId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendActionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Executes a specific action
+     */
     public async Task<BackendActionExecuteResponse> Execute(string actionId, BackendActionExecuteRequest payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -118,6 +127,9 @@ public class BackendActionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific action
+     */
     public async Task<BackendAction> Get(string actionId)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class BackendActionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of actions
+     */
     public async Task<BackendActionCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -184,6 +199,9 @@ public class BackendActionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns all available action classes
+     */
     public async Task<BackendActionIndex> GetClasses()
     {
         Dictionary<string, object> pathParams = new();
@@ -215,6 +233,9 @@ public class BackendActionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns the action config form
+     */
     public async Task<CommonFormContainer> GetForm(string _class)
     {
         Dictionary<string, object> pathParams = new();
@@ -247,6 +268,9 @@ public class BackendActionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing action
+     */
     public async Task<CommonMessage> Update(string actionId, BackendActionUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

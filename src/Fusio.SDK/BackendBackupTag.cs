@@ -19,6 +19,9 @@ public class BackendBackupTag : TagAbstract {
     }
 
 
+    /**
+     * Generates an backup of the current system
+     */
     public async Task<BackendBackupExport> Export()
     {
         Dictionary<string, object> pathParams = new();
@@ -50,6 +53,9 @@ public class BackendBackupTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Imports an backup to the current system
+     */
     public async Task<BackendBackupImportResult> Import(BackendBackupImport payload)
     {
         Dictionary<string, object> pathParams = new();

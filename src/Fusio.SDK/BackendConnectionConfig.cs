@@ -8,6 +8,9 @@ using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// The connection configuration which contains arbitrary key-value entries
+/// </summary>
 public class BackendConnectionConfig : Dictionary<string, object>
 {
 }

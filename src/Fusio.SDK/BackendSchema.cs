@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a schema to describe a JSON payload
+/// </summary>
 public class BackendSchema
 {
     [JsonPropertyName("id")]
@@ -20,12 +23,6 @@ public class BackendSchema
 
     [JsonPropertyName("source")]
     public BackendSchemaSource? Source { get; set; }
-
-    [JsonPropertyName("form")]
-    public BackendSchemaForm? Form { get; set; }
-
-    [JsonPropertyName("readonly")]
-    public bool? Readonly { get; set; }
 
     [JsonPropertyName("metadata")]
     public CommonMetadata? Metadata { get; set; }

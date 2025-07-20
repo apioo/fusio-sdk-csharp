@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Contains all possible classes which can be used at an action as class
+/// </summary>
 public class BackendActionIndex
 {
     [JsonPropertyName("actions")]

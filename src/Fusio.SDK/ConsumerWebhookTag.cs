@@ -19,6 +19,9 @@ public class ConsumerWebhookTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new webhook for the authenticated user
+     */
     public async Task<CommonMessage> Create(ConsumerWebhookCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class ConsumerWebhookTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing webhook for the authenticated user
+     */
     public async Task<CommonMessage> Delete(string webhookId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class ConsumerWebhookTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific webhook for the authenticated user
+     */
     public async Task<ConsumerWebhook> Get(string webhookId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class ConsumerWebhookTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of webhooks which are assigned to the authenticated user
+     */
     public async Task<ConsumerWebhookCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class ConsumerWebhookTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing webhook for the authenticated user
+     */
     public async Task<CommonMessage> Update(string webhookId, ConsumerWebhookUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

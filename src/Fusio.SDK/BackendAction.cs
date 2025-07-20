@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents the business logic which can be executed either through an operation or cronjob
+/// </summary>
 public class BackendAction
 {
     [JsonPropertyName("id")]

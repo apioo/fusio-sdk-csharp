@@ -19,6 +19,9 @@ public class BackendTransactionTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a specific transaction
+     */
     public async Task<BackendTransaction> Get(string transactionId)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class BackendTransactionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of transactions
+     */
     public async Task<BackendTransactionCollection> GetAll(int startIndex, int count, string search, string from, string to, int planId, int userId, int appId, string status, string provider)
     {
         Dictionary<string, object> pathParams = new();

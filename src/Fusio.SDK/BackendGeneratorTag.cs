@@ -87,6 +87,9 @@ public class BackendGeneratorTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns all available generator classes
+     */
     public async Task<BackendGeneratorIndexProviders> GetClasses()
     {
         Dictionary<string, object> pathParams = new();
@@ -118,6 +121,9 @@ public class BackendGeneratorTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns the generator config form
+     */
     public async Task<CommonFormContainer> GetForm(string provider)
     {
         Dictionary<string, object> pathParams = new();

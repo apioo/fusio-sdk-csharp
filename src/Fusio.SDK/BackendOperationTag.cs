@@ -19,6 +19,9 @@ public class BackendOperationTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new operation
+     */
     public async Task<CommonMessage> Create(BackendOperationCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendOperationTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing operation
+     */
     public async Task<CommonMessage> Delete(string operationId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendOperationTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific operation
+     */
     public async Task<BackendOperation> Get(string operationId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendOperationTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of operations
+     */
     public async Task<BackendOperationCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class BackendOperationTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing operation
+     */
     public async Task<CommonMessage> Update(string operationId, BackendOperationUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

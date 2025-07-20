@@ -19,6 +19,9 @@ public class BackendAccountTag : TagAbstract {
     }
 
 
+    /**
+     * Changes the password of the authenticated user
+     */
     public async Task<CommonMessage> ChangePassword(BackendAccountChangePassword payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendAccountTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns user data of the authenticated user
+     */
     public async Task<BackendUser> Get()
     {
         Dictionary<string, object> pathParams = new();
@@ -83,6 +89,9 @@ public class BackendAccountTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates user data of the authenticated user
+     */
     public async Task<CommonMessage> Update(BackendUserUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

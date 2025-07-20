@@ -19,6 +19,9 @@ public class BackendRateTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new rate limitation
+     */
     public async Task<CommonMessage> Create(BackendRateCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendRateTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing rate
+     */
     public async Task<CommonMessage> Delete(string rateId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendRateTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific rate
+     */
     public async Task<BackendRate> Get(string rateId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendRateTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of rate limitations
+     */
     public async Task<BackendRateCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class BackendRateTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing rate
+     */
     public async Task<CommonMessage> Update(string rateId, BackendRateUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

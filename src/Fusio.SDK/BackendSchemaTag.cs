@@ -19,6 +19,9 @@ public class BackendSchemaTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new schema
+     */
     public async Task<CommonMessage> Create(BackendSchemaCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendSchemaTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing schema
+     */
     public async Task<CommonMessage> Delete(string schemaId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendSchemaTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific schema
+     */
     public async Task<BackendSchema> Get(string schemaId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendSchemaTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of schemas
+     */
     public async Task<BackendSchemaCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -182,6 +194,9 @@ public class BackendSchemaTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing schema
+     */
     public async Task<CommonMessage> Update(string schemaId, BackendSchemaUpdate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -192,40 +207,6 @@ public class BackendSchemaTag : TagAbstract {
         List<string> queryStructNames = new();
 
         RestRequest request = new(this.Parser.Url("/backend/schema/$schema_id<[0-9]+|^~>", pathParams), Method.Put);
-        this.Parser.Query(request, queryParams, queryStructNames);
-        request.AddJsonBody(JsonSerializer.Serialize(payload));
-
-        request.AddOrUpdateHeader("Content-Type", "application/json");
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode >= 0 && statusCode <= 999)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
-    public async Task<CommonMessage> UpdateForm(string schemaId, BackendSchemaForm payload)
-    {
-        Dictionary<string, object> pathParams = new();
-        pathParams.Add("schema_id", schemaId);
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/backend/schema/form/$schema_id<[0-9]+>", pathParams), Method.Put);
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 

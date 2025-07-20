@@ -19,6 +19,9 @@ public class ConsumerPlanTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a specific plan for the authenticated user
+     */
     public async Task<ConsumerPlan> Get(string planId)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class ConsumerPlanTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of plans which are relevant to the authenticated user
+     */
     public async Task<ConsumerPlanCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();

@@ -19,6 +19,9 @@ public class BackendIdentityTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new identity
+     */
     public async Task<CommonMessage> Create(BackendIdentityCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendIdentityTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing identity
+     */
     public async Task<CommonMessage> Delete(string identityId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendIdentityTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific identity
+     */
     public async Task<BackendIdentity> Get(string identityId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendIdentityTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of identities
+     */
     public async Task<BackendIdentityCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class BackendIdentityTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns all available identity classes
+     */
     public async Task<BackendIdentityIndex> GetClasses()
     {
         Dictionary<string, object> pathParams = new();
@@ -181,6 +196,9 @@ public class BackendIdentityTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns the identity config form
+     */
     public async Task<CommonFormContainer> GetForm(string _class)
     {
         Dictionary<string, object> pathParams = new();
@@ -213,6 +231,9 @@ public class BackendIdentityTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing identity
+     */
     public async Task<CommonMessage> Update(string identityId, BackendIdentityUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

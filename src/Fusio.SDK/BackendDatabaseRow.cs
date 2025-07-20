@@ -8,6 +8,9 @@ using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a row on a relational table
+/// </summary>
 public class BackendDatabaseRow : Dictionary<string, object>
 {
 }

@@ -19,6 +19,9 @@ public class ConsumerPageTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a specific page for the authenticated user
+     */
     public async Task<ConsumerPage> Get(string pageId)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class ConsumerPageTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of pages which are relevant to the authenticated user
+     */
     public async Task<ConsumerPageCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();

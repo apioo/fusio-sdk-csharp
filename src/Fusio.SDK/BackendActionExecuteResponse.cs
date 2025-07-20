@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Represents an action execution response
+/// </summary>
 public class BackendActionExecuteResponse
 {
     [JsonPropertyName("statusCode")]

@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a form which helps to dynamically generate a form at a frontend app
+/// </summary>
 public class BackendForm
 {
     [JsonPropertyName("id")]

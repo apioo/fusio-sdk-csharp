@@ -19,6 +19,9 @@ public class BackendSdkTag : TagAbstract {
     }
 
 
+    /**
+     * Generates a specific SDK
+     */
     public async Task<BackendSdkMessage> Generate(BackendSdkGenerate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendSdkTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of SDKs
+     */
     public async Task<BackendSdkResponse> GetAll()
     {
         Dictionary<string, object> pathParams = new();

@@ -19,6 +19,9 @@ public class BackendTrashTag : TagAbstract {
     }
 
 
+    /**
+     * Returns all deleted records by trash type
+     */
     public async Task<BackendTrashDataCollection> GetAllByType(string type, int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -54,6 +57,9 @@ public class BackendTrashTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns all trash types
+     */
     public async Task<BackendTrashTypes> GetTypes()
     {
         Dictionary<string, object> pathParams = new();
@@ -85,6 +91,9 @@ public class BackendTrashTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Restores a previously deleted record
+     */
     public async Task<CommonMessage> Restore(string type, BackendTrashRestore payload)
     {
         Dictionary<string, object> pathParams = new();

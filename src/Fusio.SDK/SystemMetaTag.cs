@@ -19,6 +19,9 @@ public class SystemMetaTag : TagAbstract {
     }
 
 
+    /**
+     * Returns meta information and links about the current installed Fusio version
+     */
     public async Task<SystemAbout> GetAbout()
     {
         Dictionary<string, object> pathParams = new();
@@ -50,37 +53,9 @@ public class SystemMetaTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
-    public async Task<SystemAPICatalog> GetAPICatalog()
-    {
-        Dictionary<string, object> pathParams = new();
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/system/api-catalog", pathParams), Method.Get);
-        this.Parser.Query(request, queryParams, queryStructNames);
-
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<SystemAPICatalog>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode >= 0 && statusCode <= 999)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
+    /**
+     * Debug endpoint which returns the provided data
+     */
     public async Task<Passthru> GetDebug(Passthru payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -114,6 +89,9 @@ public class SystemMetaTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Health check endpoint which returns information about the health status of the system
+     */
     public async Task<SystemHealthCheck> GetHealth()
     {
         Dictionary<string, object> pathParams = new();
@@ -145,37 +123,9 @@ public class SystemMetaTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
-    public async Task<SystemOAuthConfiguration> GetOAuthConfiguration()
-    {
-        Dictionary<string, object> pathParams = new();
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/system/oauth-authorization-server", pathParams), Method.Get);
-        this.Parser.Query(request, queryParams, queryStructNames);
-
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<SystemOAuthConfiguration>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode >= 0 && statusCode <= 999)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
+    /**
+     * Returns all available routes
+     */
     public async Task<SystemRoute> GetRoutes()
     {
         Dictionary<string, object> pathParams = new();
@@ -207,6 +157,9 @@ public class SystemMetaTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns details of a specific schema
+     */
     public async Task<SystemSchema> GetSchema(string name)
     {
         Dictionary<string, object> pathParams = new();

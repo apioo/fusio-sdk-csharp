@@ -19,6 +19,9 @@ public class BackendTenantTag : TagAbstract {
     }
 
 
+    /**
+     * Removes an existing tenant
+     */
     public async Task<CommonMessage> Remove(string tenantId)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class BackendTenantTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Setup a new tenant
+     */
     public async Task<CommonMessage> Setup(string tenantId)
     {
         Dictionary<string, object> pathParams = new();

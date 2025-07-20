@@ -19,6 +19,9 @@ public class ConsumerTokenTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new token for the authenticated user
+     */
     public async Task<ConsumerTokenAccessToken> Create(ConsumerTokenCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class ConsumerTokenTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing token for the authenticated user
+     */
     public async Task<CommonMessage> Delete(string tokenId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class ConsumerTokenTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific token for the authenticated user
+     */
     public async Task<ConsumerToken> Get(string tokenId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class ConsumerTokenTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of tokens which are assigned to the authenticated user
+     */
     public async Task<ConsumerTokenCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class ConsumerTokenTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing token for the authenticated user
+     */
     public async Task<ConsumerTokenAccessToken> Update(string tokenId, ConsumerTokenUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

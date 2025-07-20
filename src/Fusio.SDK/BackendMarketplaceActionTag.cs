@@ -19,6 +19,9 @@ public class BackendMarketplaceActionTag : TagAbstract {
     }
 
 
+    /**
+     * Returns a specific marketplace action
+     */
     public async Task<MarketplaceAction> Get(string user, string name)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendMarketplaceActionTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of marketplace actions
+     */
     public async Task<MarketplaceActionCollection> GetAll(int startIndex, string query)
     {
         Dictionary<string, object> pathParams = new();

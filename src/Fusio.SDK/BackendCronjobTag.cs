@@ -19,6 +19,9 @@ public class BackendCronjobTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new cronjob
+     */
     public async Task<CommonMessage> Create(BackendCronjobCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendCronjobTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing cronjob
+     */
     public async Task<CommonMessage> Delete(string cronjobId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendCronjobTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific cronjob
+     */
     public async Task<BackendCronjob> Get(string cronjobId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendCronjobTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of cronjobs
+     */
     public async Task<BackendCronjobCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class BackendCronjobTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing cronjob
+     */
     public async Task<CommonMessage> Update(string cronjobId, BackendCronjobUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

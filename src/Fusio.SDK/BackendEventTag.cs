@@ -19,6 +19,9 @@ public class BackendEventTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new event
+     */
     public async Task<CommonMessage> Create(BackendEventCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendEventTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing event
+     */
     public async Task<CommonMessage> Delete(string eventId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendEventTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific event
+     */
     public async Task<BackendEvent> Get(string eventId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendEventTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of events
+     */
     public async Task<BackendEventCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class BackendEventTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing event
+     */
     public async Task<CommonMessage> Update(string eventId, BackendEventUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

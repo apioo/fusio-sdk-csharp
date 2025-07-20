@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a page at the developer portal
+/// </summary>
 public class BackendPage
 {
     [JsonPropertyName("id")]

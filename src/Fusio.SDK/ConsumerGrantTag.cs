@@ -19,6 +19,9 @@ public class ConsumerGrantTag : TagAbstract {
     }
 
 
+    /**
+     * Deletes an existing grant for an app which was created by the authenticated user
+     */
     public async Task<CommonMessage> Delete(string grantId)
     {
         Dictionary<string, object> pathParams = new();
@@ -51,6 +54,9 @@ public class ConsumerGrantTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of grants which are assigned to the authenticated user
+     */
     public async Task<ConsumerGrantCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();

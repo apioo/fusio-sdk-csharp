@@ -19,6 +19,9 @@ public class BackendUserTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new user
+     */
     public async Task<CommonMessage> Create(BackendUserCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendUserTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing user
+     */
     public async Task<CommonMessage> Delete(string userId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendUserTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific user
+     */
     public async Task<BackendUser> Get(string userId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendUserTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of users
+     */
     public async Task<BackendUserCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class BackendUserTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing user
+     */
     public async Task<CommonMessage> Update(string userId, BackendUserUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

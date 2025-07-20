@@ -19,6 +19,9 @@ public class SystemPaymentTag : TagAbstract {
     }
 
 
+    /**
+     * Payment webhook endpoint after successful purchase of a plan
+     */
     public async Task<CommonMessage> Webhook(string provider)
     {
         Dictionary<string, object> pathParams = new();

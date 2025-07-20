@@ -19,6 +19,9 @@ public class BackendScopeTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new scope
+     */
     public async Task<CommonMessage> Create(BackendScopeCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendScopeTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing scope
+     */
     public async Task<CommonMessage> Delete(string scopeId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendScopeTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific scope
+     */
     public async Task<BackendScope> Get(string scopeId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendScopeTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of scopes
+     */
     public async Task<BackendScopeCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -181,6 +193,9 @@ public class BackendScopeTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing scope
+     */
     public async Task<CommonMessage> Update(string scopeId, BackendScopeUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

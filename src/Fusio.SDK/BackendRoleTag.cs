@@ -19,6 +19,9 @@ public class BackendRoleTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new role
+     */
     public async Task<CommonMessage> Create(BackendRoleCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendRoleTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing role
+     */
     public async Task<CommonMessage> Delete(string roleId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendRoleTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific role
+     */
     public async Task<BackendRole> Get(string roleId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendRoleTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of roles
+     */
     public async Task<BackendRoleCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class BackendRoleTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing role
+     */
     public async Task<CommonMessage> Update(string roleId, BackendRoleUpdate payload)
     {
         Dictionary<string, object> pathParams = new();

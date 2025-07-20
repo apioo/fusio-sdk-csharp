@@ -19,6 +19,9 @@ public class ConsumerAccountTag : TagAbstract {
     }
 
 
+    /**
+     * Activates an previously registered account through a token which was provided to the user via email
+     */
     public async Task<CommonMessage> Activate(ConsumerUserActivate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class ConsumerAccountTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Authorizes the access of a specific app for the authenticated user
+     */
     public async Task<ConsumerAuthorizeResponse> Authorize(ConsumerAuthorizeRequest payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -85,6 +91,9 @@ public class ConsumerAccountTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Change the password for the authenticated user
+     */
     public async Task<CommonMessage> ChangePassword(BackendAccountChangePassword payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -118,6 +127,9 @@ public class ConsumerAccountTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Change the password after the password reset flow was started
+     */
     public async Task<CommonMessage> ExecutePasswordReset(ConsumerUserPasswordReset payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -151,6 +163,9 @@ public class ConsumerAccountTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a user data for the authenticated user
+     */
     public async Task<ConsumerUserAccount> Get()
     {
         Dictionary<string, object> pathParams = new();
@@ -182,11 +197,16 @@ public class ConsumerAccountTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
-    public async Task<ConsumerAuthorizeMeta> GetApp()
+    /**
+     * Returns information about a specific app to start the OAuth2 authorization code flow
+     */
+    public async Task<ConsumerAuthorizeMeta> GetApp(string clientId, string scope)
     {
         Dictionary<string, object> pathParams = new();
 
         Dictionary<string, object> queryParams = new();
+        queryParams.Add("client_id", clientId);
+        queryParams.Add("scope", scope);
 
         List<string> queryStructNames = new();
 
@@ -213,6 +233,9 @@ public class ConsumerAccountTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * User login by providing a username and password
+     */
     public async Task<ConsumerUserJWT> Login(ConsumerUserLogin payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -246,6 +269,9 @@ public class ConsumerAccountTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Refresh a previously obtained access token
+     */
     public async Task<ConsumerUserJWT> Refresh(ConsumerUserRefresh payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -279,6 +305,9 @@ public class ConsumerAccountTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Register a new user account
+     */
     public async Task<CommonMessage> Register(ConsumerUserRegister payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -312,6 +341,9 @@ public class ConsumerAccountTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Start the password reset flow
+     */
     public async Task<CommonMessage> RequestPasswordReset(ConsumerUserEmail payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -345,6 +377,9 @@ public class ConsumerAccountTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates user data for the authenticated user
+     */
     public async Task<CommonMessage> Update(ConsumerUserAccount payload)
     {
         Dictionary<string, object> pathParams = new();

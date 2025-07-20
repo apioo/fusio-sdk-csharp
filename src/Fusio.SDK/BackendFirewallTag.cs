@@ -19,6 +19,9 @@ public class BackendFirewallTag : TagAbstract {
     }
 
 
+    /**
+     * Creates a new firewall rule
+     */
     public async Task<CommonMessage> Create(BackendFirewallCreate payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -52,6 +55,9 @@ public class BackendFirewallTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Deletes an existing firewall rule
+     */
     public async Task<CommonMessage> Delete(string firewallId)
     {
         Dictionary<string, object> pathParams = new();
@@ -84,6 +90,9 @@ public class BackendFirewallTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific firewall rule
+     */
     public async Task<BackendFirewall> Get(string firewallId)
     {
         Dictionary<string, object> pathParams = new();
@@ -116,6 +125,9 @@ public class BackendFirewallTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a paginated list of firewall rules
+     */
     public async Task<BackendFirewallCollection> GetAll(int startIndex, int count, string search)
     {
         Dictionary<string, object> pathParams = new();
@@ -150,6 +162,9 @@ public class BackendFirewallTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Updates an existing firewall rule
+     */
     public async Task<CommonMessage> Update(string firewallId, BackendFirewallUpdate payload)
     {
         Dictionary<string, object> pathParams = new();
