@@ -139,6 +139,9 @@ public class BackendLogTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a specific error
+     */
     public async Task<BackendLogError> GetError(string errorId)
     {
         Dictionary<string, object> pathParams = new();

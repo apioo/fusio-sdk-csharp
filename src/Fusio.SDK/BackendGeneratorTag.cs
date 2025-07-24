@@ -19,6 +19,9 @@ public class BackendGeneratorTag : TagAbstract {
     }
 
 
+    /**
+     * Executes a generator with the provided config
+     */
     public async Task<CommonMessage> ExecuteProvider(string provider, BackendGeneratorProvider payload)
     {
         Dictionary<string, object> pathParams = new();
@@ -53,6 +56,9 @@ public class BackendGeneratorTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Generates a changelog of all potential changes if you execute this generator with the provided config
+     */
     public async Task<BackendGeneratorProviderChangelog> GetChangelog(string provider, BackendGeneratorProviderConfig payload)
     {
         Dictionary<string, object> pathParams = new();

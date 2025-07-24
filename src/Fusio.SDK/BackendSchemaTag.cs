@@ -162,6 +162,9 @@ public class BackendSchemaTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns a HTML preview of the provided schema
+     */
     public async Task<BackendSchemaPreviewResponse> GetPreview(string schemaId)
     {
         Dictionary<string, object> pathParams = new();

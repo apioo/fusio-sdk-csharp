@@ -162,6 +162,9 @@ public class BackendScopeTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Returns all available scopes grouped by category
+     */
     public async Task<BackendScopeCategories> GetCategories()
     {
         Dictionary<string, object> pathParams = new();
