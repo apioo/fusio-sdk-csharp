@@ -91,6 +91,9 @@ public class BackendMarketplaceAppTag : TagAbstract {
 
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
+    /**
+     * Installs an app from the marketplace
+     */
     public async Task<MarketplaceMessage> Install(MarketplaceInstall payload)
     {
         Dictionary<string, object> pathParams = new();
