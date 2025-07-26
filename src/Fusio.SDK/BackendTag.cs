@@ -114,6 +114,14 @@ public class BackendTag : TagAbstract {
         );
     }
 
+    public BackendFileTag File()
+    {
+        return new BackendFileTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public BackendFirewallTag Firewall()
     {
         return new BackendFirewallTag(
