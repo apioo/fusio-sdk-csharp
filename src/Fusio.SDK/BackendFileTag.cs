@@ -82,7 +82,7 @@ public class BackendFileTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/filesystem/:connection_id/:file_id", pathParams), Method.Delete);
+        RestRequest request = new(this.Parser.Url("/backend/file/:connection_id/:file_id", pathParams), Method.Delete);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
