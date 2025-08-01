@@ -18,6 +18,38 @@ public class BackendConnectionTag : TagAbstract {
     {
     }
 
+    public BackendConnectionDatabaseTag Database()
+    {
+        return new BackendConnectionDatabaseTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
+    public BackendConnectionFilesystemTag Filesystem()
+    {
+        return new BackendConnectionFilesystemTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
+    public BackendConnectionHttpTag Http()
+    {
+        return new BackendConnectionHttpTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
+    public BackendConnectionSdkTag Sdk()
+    {
+        return new BackendConnectionSdkTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
 
     /**
      * Creates a new connection
@@ -244,7 +276,7 @@ public class BackendConnectionTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/connection/$connection_id<[0-9]+|^~>/redirect", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/connection/:connection_id/redirect", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 

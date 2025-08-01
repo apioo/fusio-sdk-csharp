@@ -98,25 +98,9 @@ public class BackendTag : TagAbstract {
         );
     }
 
-    public BackendDatabaseTag Database()
-    {
-        return new BackendDatabaseTag(
-            this.HttpClient,
-            this.Parser
-        );
-    }
-
     public BackendEventTag Event()
     {
         return new BackendEventTag(
-            this.HttpClient,
-            this.Parser
-        );
-    }
-
-    public BackendFileTag File()
-    {
-        return new BackendFileTag(
             this.HttpClient,
             this.Parser
         );
