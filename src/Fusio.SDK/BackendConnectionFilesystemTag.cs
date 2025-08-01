@@ -108,7 +108,7 @@ public class BackendConnectionFilesystemTag : TagAbstract {
     /**
      * Returns the content of the provided file id on the filesystem connection
      */
-    public async void Get(string connectionId, string fileId)
+    public async Task<byte[]> Get(string connectionId, string fileId)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("connection_id", connectionId);
@@ -121,12 +121,15 @@ public class BackendConnectionFilesystemTag : TagAbstract {
         RestRequest request = new(this.Parser.Url("/backend/connection/:connection_id/filesystem/:file_id", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
+        request.AddOrUpdateHeader("Accept", "application/octet-stream");
 
         RestResponse response = await this.HttpClient.ExecuteAsync(request);
 
         if (response.IsSuccessful)
         {
-            return;
+            var data = response.RawBytes;
+
+            return data;
         }
 
         var statusCode = (int) response.StatusCode;
