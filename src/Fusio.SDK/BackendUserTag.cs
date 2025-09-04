@@ -163,6 +163,43 @@ public class BackendUserTag : TagAbstract {
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
     /**
+     * Resend the activation mail to the provided user
+     */
+    public async Task<CommonMessage> Resend(string userId, Passthru payload)
+    {
+        Dictionary<string, object> pathParams = new();
+        pathParams.Add("user_id", userId);
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/user/$user_id<[0-9]+|^~>/resend", pathParams), Method.Post);
+        this.Parser.Query(request, queryParams, queryStructNames);
+        request.AddJsonBody(JsonSerializer.Serialize(payload));
+
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    /**
      * Updates an existing user
      */
     public async Task<CommonMessage> Update(string userId, BackendUserUpdate payload)
