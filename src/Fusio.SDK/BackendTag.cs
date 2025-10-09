@@ -266,6 +266,14 @@ public class BackendTag : TagAbstract {
         );
     }
 
+    public BackendTriggerTag Trigger()
+    {
+        return new BackendTriggerTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public BackendUserTag User()
     {
         return new BackendUserTag(
