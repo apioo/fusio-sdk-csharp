@@ -452,6 +452,150 @@ public class BackendStatisticTag : TagAbstract {
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
     /**
+     * Returns a statistic containing the requests per ip
+     */
+    public async Task<BackendStatisticChart> GetRequestsPerIP(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
+    {
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+        queryParams.Add("startIndex", startIndex);
+        queryParams.Add("count", count);
+        queryParams.Add("search", search);
+        queryParams.Add("from", from);
+        queryParams.Add("to", to);
+        queryParams.Add("operationId", operationId);
+        queryParams.Add("appId", appId);
+        queryParams.Add("userId", userId);
+        queryParams.Add("ip", ip);
+        queryParams.Add("userAgent", userAgent);
+        queryParams.Add("method", method);
+        queryParams.Add("path", path);
+        queryParams.Add("header", header);
+        queryParams.Add("body", body);
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/statistic/requests_per_ip", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<BackendStatisticChart>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    /**
+     * Returns a statistic containing the requests per operation
+     */
+    public async Task<BackendStatisticChart> GetRequestsPerOperation(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
+    {
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+        queryParams.Add("startIndex", startIndex);
+        queryParams.Add("count", count);
+        queryParams.Add("search", search);
+        queryParams.Add("from", from);
+        queryParams.Add("to", to);
+        queryParams.Add("operationId", operationId);
+        queryParams.Add("appId", appId);
+        queryParams.Add("userId", userId);
+        queryParams.Add("ip", ip);
+        queryParams.Add("userAgent", userAgent);
+        queryParams.Add("method", method);
+        queryParams.Add("path", path);
+        queryParams.Add("header", header);
+        queryParams.Add("body", body);
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/statistic/requests_per_operation", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<BackendStatisticChart>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    /**
+     * Returns a statistic containing the requests per user
+     */
+    public async Task<BackendStatisticChart> GetRequestsPerUser(int startIndex, int count, string search, string from, string to, int operationId, int appId, int userId, string ip, string userAgent, string method, string path, string header, string body)
+    {
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+        queryParams.Add("startIndex", startIndex);
+        queryParams.Add("count", count);
+        queryParams.Add("search", search);
+        queryParams.Add("from", from);
+        queryParams.Add("to", to);
+        queryParams.Add("operationId", operationId);
+        queryParams.Add("appId", appId);
+        queryParams.Add("userId", userId);
+        queryParams.Add("ip", ip);
+        queryParams.Add("userAgent", userAgent);
+        queryParams.Add("method", method);
+        queryParams.Add("path", path);
+        queryParams.Add("header", header);
+        queryParams.Add("body", body);
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/statistic/requests_per_user", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<BackendStatisticChart>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    /**
      * Returns a statistic containing the test coverage
      */
     public async Task<BackendStatisticChart> GetTestCoverage()
