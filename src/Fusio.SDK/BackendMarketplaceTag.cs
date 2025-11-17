@@ -34,5 +34,13 @@ public class BackendMarketplaceTag : TagAbstract {
         );
     }
 
+    public BackendMarketplaceBundleTag Bundle()
+    {
+        return new BackendMarketplaceBundleTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
 
 }
