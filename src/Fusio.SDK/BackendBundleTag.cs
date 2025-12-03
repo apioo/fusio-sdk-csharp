@@ -165,7 +165,7 @@ public class BackendBundleTag : TagAbstract {
     /**
      * Updates an existing bundle
      */
-    public async Task<CommonMessage> Update(string bundleId, BackendEventUpdate payload)
+    public async Task<CommonMessage> Update(string bundleId, BackendBundleUpdate payload)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("bundle_id", bundleId);
