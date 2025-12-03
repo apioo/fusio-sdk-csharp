@@ -93,7 +93,7 @@ public class BackendBundleTag : TagAbstract {
     /**
      * Returns a specific bundle
      */
-    public async Task<BackendEvent> Get(string bundleId)
+    public async Task<BackendBundle> Get(string bundleId)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("bundle_id", bundleId);
@@ -110,7 +110,7 @@ public class BackendBundleTag : TagAbstract {
 
         if (response.IsSuccessful)
         {
-            var data = this.Parser.Parse<BackendEvent>(response.Content);
+            var data = this.Parser.Parse<BackendBundle>(response.Content);
 
             return data;
         }
