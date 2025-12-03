@@ -58,6 +58,14 @@ public class BackendTag : TagAbstract {
         );
     }
 
+    public BackendBundleTag Bundle()
+    {
+        return new BackendBundleTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public BackendCategoryTag Category()
     {
         return new BackendCategoryTag(
