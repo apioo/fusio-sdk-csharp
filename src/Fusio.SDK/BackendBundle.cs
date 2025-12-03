@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 namespace Fusio.SDK;
 
 /// <summary>
-/// This object represents a bundle which allows you to submit action, schema, event, cronjob and trigger configuration from you local instance to the Fusio marketplace
+/// This object represents a bundle which contains action, schema, event, cronjob and trigger configurations from you local instance
 /// </summary>
 public class BackendBundle
 {
