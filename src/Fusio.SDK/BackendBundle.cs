@@ -18,6 +18,21 @@ public class BackendBundle
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    [JsonPropertyName("version")]
+    public string? Version { get; set; }
+
+    [JsonPropertyName("icon")]
+    public string? Icon { get; set; }
+
+    [JsonPropertyName("summary")]
+    public string? Summary { get; set; }
+
+    [JsonPropertyName("description")]
+    public string? Description { get; set; }
+
+    [JsonPropertyName("cost")]
+    public int? Cost { get; set; }
+
     [JsonPropertyName("config")]
     public BackendBundleConfig? Config { get; set; }
 
