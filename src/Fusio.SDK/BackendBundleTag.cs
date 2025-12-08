@@ -163,6 +163,41 @@ public class BackendBundleTag : TagAbstract {
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
     /**
+     * Publish an existing bundle to the marketplace
+     */
+    public async Task<CommonMessage> Publish(string bundleId)
+    {
+        Dictionary<string, object> pathParams = new();
+        pathParams.Add("bundle_id", bundleId);
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/bundle/$bundle_id<[0-9]+|^~>/publish", pathParams), Method.Post);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    /**
      * Updates an existing bundle
      */
     public async Task<CommonMessage> Update(string bundleId, BackendBundleUpdate payload)
