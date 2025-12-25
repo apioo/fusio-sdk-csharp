@@ -15,5 +15,8 @@ public class MarketplaceMessage
     [JsonPropertyName("message")]
     public string? Message { get; set; }
 
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
+
 }
 
