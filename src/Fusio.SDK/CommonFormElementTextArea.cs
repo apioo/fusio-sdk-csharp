@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Form element which represents a textarea
+/// </summary>
 public class CommonFormElementTextArea : CommonFormElement
 {
     [JsonPropertyName("mode")]

@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Form base element
+/// </summary>
 [JsonPolymorphic(TypeDiscriminatorPropertyName = "type")]
 [JsonDerivedType(typeof(CommonFormElementInput), typeDiscriminator: "http://fusio-project.org/ns/2015/form/input")]
 [JsonDerivedType(typeof(CommonFormElementSelect), typeDiscriminator: "http://fusio-project.org/ns/2015/form/select")]
@@ -14,9 +17,6 @@ namespace Fusio.SDK;
 [JsonDerivedType(typeof(CommonFormElementTextArea), typeDiscriminator: "http://fusio-project.org/ns/2015/form/textarea")]
 public abstract class CommonFormElement
 {
-    [JsonPropertyName("type")]
-    public string? Type { get; set; }
-
     [JsonPropertyName("element")]
     public string? Element { get; set; }
 

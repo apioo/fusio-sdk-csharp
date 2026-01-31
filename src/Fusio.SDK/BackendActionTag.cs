@@ -91,7 +91,7 @@ public class BackendActionTag : TagAbstract {
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
     /**
-     * Executes a specific action
+     * Executes a specific action. This method should be used to test an action configuration
      */
     public async Task<BackendActionExecuteResponse> Execute(string actionId, BackendActionExecuteRequest payload)
     {

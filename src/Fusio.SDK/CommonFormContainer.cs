@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Represents a config form with a list of elements
+/// </summary>
 public class CommonFormContainer
 {
     [JsonPropertyName("element")]

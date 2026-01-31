@@ -7,7 +7,13 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Form element which represents an input element
+/// </summary>
 public class CommonFormElementInput : CommonFormElement
 {
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
+
 }
 

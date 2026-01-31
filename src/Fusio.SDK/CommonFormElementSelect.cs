@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Form element which represents a select element
+/// </summary>
 public class CommonFormElementSelect : CommonFormElement
 {
     [JsonPropertyName("options")]

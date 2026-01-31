@@ -18,6 +18,14 @@ public class BackendConnectionTag : TagAbstract {
     {
     }
 
+    public BackendConnectionAgentTag Agent()
+    {
+        return new BackendConnectionAgentTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public BackendConnectionDatabaseTag Database()
     {
         return new BackendConnectionDatabaseTag(

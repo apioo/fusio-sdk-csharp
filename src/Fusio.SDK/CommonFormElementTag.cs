@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Form element which represents an input tag editor to enter comma-separated values
+/// </summary>
 public class CommonFormElementTag : CommonFormElement
 {
 }
