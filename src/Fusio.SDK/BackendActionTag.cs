@@ -234,6 +234,44 @@ public class BackendActionTag : TagAbstract {
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
     /**
+     * Returns a paginated list of action commits
+     */
+    public async Task<BackendActionCommitCollection> GetCommits(string actionId, int startIndex, int count, string search)
+    {
+        Dictionary<string, object> pathParams = new();
+        pathParams.Add("action_id", actionId);
+
+        Dictionary<string, object> queryParams = new();
+        queryParams.Add("startIndex", startIndex);
+        queryParams.Add("count", count);
+        queryParams.Add("search", search);
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/action/$action_id<[0-9]+|^~>/commit", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<BackendActionCommitCollection>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    /**
      * Returns the action config form
      */
     public async Task<CommonFormContainer> GetForm(string _class)

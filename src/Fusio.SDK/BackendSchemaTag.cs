@@ -163,6 +163,44 @@ public class BackendSchemaTag : TagAbstract {
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
     /**
+     * Returns a paginated list of schema commits
+     */
+    public async Task<BackendSchemaCommitCollection> GetCommits(string schemaId, int startIndex, int count, string search)
+    {
+        Dictionary<string, object> pathParams = new();
+        pathParams.Add("schema_id", schemaId);
+
+        Dictionary<string, object> queryParams = new();
+        queryParams.Add("startIndex", startIndex);
+        queryParams.Add("count", count);
+        queryParams.Add("search", search);
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/schema/$schema_id<[0-9]+|^~>/commit", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<BackendSchemaCommitCollection>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    /**
      * Returns a HTML preview of the provided schema
      */
     public async Task<BackendSchemaPreviewResponse> GetPreview(string schemaId)
