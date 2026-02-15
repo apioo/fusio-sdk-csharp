@@ -128,7 +128,7 @@ public class BackendTriggerTag : TagAbstract {
     /**
      * Returns a paginated list of triggers
      */
-    public async Task<BackendTriggerCollection> GetAll(int startIndex, int count, string search)
+    public async Task<BackendTriggerCollection> GetAll(int startIndex, int count, string search, int taxonomy)
     {
         Dictionary<string, object> pathParams = new();
 
@@ -136,6 +136,7 @@ public class BackendTriggerTag : TagAbstract {
         queryParams.Add("startIndex", startIndex);
         queryParams.Add("count", count);
         queryParams.Add("search", search);
+        queryParams.Add("taxonomy", taxonomy);
 
         List<string> queryStructNames = new();
 

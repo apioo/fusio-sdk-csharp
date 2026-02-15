@@ -57,7 +57,7 @@ public class BackendTransactionTag : TagAbstract {
     /**
      * Returns a paginated list of transactions
      */
-    public async Task<BackendTransactionCollection> GetAll(int startIndex, int count, string search, string from, string to, int planId, int userId, int appId, string status, string provider)
+    public async Task<BackendTransactionCollection> GetAll(int startIndex, int count, string search, string from, string to, int planId, int userId, int appId, string status, string provider, int taxonomy)
     {
         Dictionary<string, object> pathParams = new();
 
@@ -72,6 +72,7 @@ public class BackendTransactionTag : TagAbstract {
         queryParams.Add("appId", appId);
         queryParams.Add("status", status);
         queryParams.Add("provider", provider);
+        queryParams.Add("taxonomy", taxonomy);
 
         List<string> queryStructNames = new();
 

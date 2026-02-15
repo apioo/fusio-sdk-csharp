@@ -234,6 +234,14 @@ public class BackendTag : TagAbstract {
         );
     }
 
+    public BackendTaxonomyTag Taxonomy()
+    {
+        return new BackendTaxonomyTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public BackendTenantTag Tenant()
     {
         return new BackendTenantTag(

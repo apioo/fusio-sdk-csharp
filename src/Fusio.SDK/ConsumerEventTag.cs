@@ -57,7 +57,7 @@ public class ConsumerEventTag : TagAbstract {
     /**
      * Returns a paginated list of apps which are assigned to the authenticated user
      */
-    public async Task<ConsumerEventCollection> GetAll(int startIndex, int count, string search)
+    public async Task<ConsumerEventCollection> GetAll(int startIndex, int count, string search, int taxonomy)
     {
         Dictionary<string, object> pathParams = new();
 
@@ -65,6 +65,7 @@ public class ConsumerEventTag : TagAbstract {
         queryParams.Add("startIndex", startIndex);
         queryParams.Add("count", count);
         queryParams.Add("search", search);
+        queryParams.Add("taxonomy", taxonomy);
 
         List<string> queryStructNames = new();
 
