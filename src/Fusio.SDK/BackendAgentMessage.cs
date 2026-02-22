@@ -8,18 +8,21 @@ using System.Text.Json.Serialization;
 namespace Fusio.SDK;
 
 /// <summary>
-/// Agent call result
+/// This object represents an agent message
 /// </summary>
-[JsonPolymorphic(TypeDiscriminatorPropertyName = "type")]
-[JsonDerivedType(typeof(BackendAgentMessageBinary), typeDiscriminator: "binary")]
-[JsonDerivedType(typeof(BackendAgentMessageChoice), typeDiscriminator: "choice")]
-[JsonDerivedType(typeof(BackendAgentMessageObject), typeDiscriminator: "object")]
-[JsonDerivedType(typeof(BackendAgentMessageText), typeDiscriminator: "text")]
-[JsonDerivedType(typeof(BackendAgentMessageToolCall), typeDiscriminator: "tool_call")]
-public abstract class BackendAgentMessage
+public class BackendAgentMessage
 {
-    [JsonPropertyName("metadata")]
-    public System.Collections.Generic.Dictionary<string, object>? Metadata { get; set; }
+    [JsonPropertyName("id")]
+    public int? Id { get; set; }
+
+    [JsonPropertyName("role")]
+    public string? Role { get; set; }
+
+    [JsonPropertyName("content")]
+    public BackendAgentContent? Content { get; set; }
+
+    [JsonPropertyName("insertDate")]
+    public System.DateTime? InsertDate { get; set; }
 
 }
 

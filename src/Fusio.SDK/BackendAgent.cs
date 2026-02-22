@@ -8,21 +8,42 @@ using System.Text.Json.Serialization;
 namespace Fusio.SDK;
 
 /// <summary>
-/// This object represents an agent message
+/// This object represents an agent
 /// </summary>
 public class BackendAgent
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
 
-    [JsonPropertyName("origin")]
-    public int? Origin { get; set; }
+    [JsonPropertyName("connection")]
+    public int? Connection { get; set; }
 
-    [JsonPropertyName("message")]
-    public BackendAgentMessage? Message { get; set; }
+    [JsonPropertyName("type")]
+    public int? Type { get; set; }
+
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
+
+    [JsonPropertyName("description")]
+    public string? Description { get; set; }
+
+    [JsonPropertyName("introduction")]
+    public string? Introduction { get; set; }
+
+    [JsonPropertyName("tools")]
+    public System.Collections.Generic.List<string>? Tools { get; set; }
+
+    [JsonPropertyName("outgoing")]
+    public string? Outgoing { get; set; }
+
+    [JsonPropertyName("action")]
+    public string? Action { get; set; }
 
     [JsonPropertyName("insertDate")]
     public System.DateTime? InsertDate { get; set; }
+
+    [JsonPropertyName("metadata")]
+    public CommonMetadata? Metadata { get; set; }
 
 }
 

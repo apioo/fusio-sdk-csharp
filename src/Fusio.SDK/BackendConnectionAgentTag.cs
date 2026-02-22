@@ -20,80 +20,9 @@ public class BackendConnectionAgentTag : TagAbstract {
 
 
     /**
-     * Returns all previous sent messages
-     */
-    public async Task<BackendAgentCollection> Get(string connectionId, string intent)
-    {
-        Dictionary<string, object> pathParams = new();
-        pathParams.Add("connection_id", connectionId);
-
-        Dictionary<string, object> queryParams = new();
-        queryParams.Add("intent", intent);
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/backend/connection/:connection_id/agent", pathParams), Method.Get);
-        this.Parser.Query(request, queryParams, queryStructNames);
-
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<BackendAgentCollection>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode >= 0 && statusCode <= 999)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
-    /**
-     * Resets all agent messages
-     */
-    public async Task<CommonMessage> Reset(string connectionId)
-    {
-        Dictionary<string, object> pathParams = new();
-        pathParams.Add("connection_id", connectionId);
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/backend/connection/:connection_id/agent", pathParams), Method.Delete);
-        this.Parser.Query(request, queryParams, queryStructNames);
-
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode >= 0 && statusCode <= 999)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
-    /**
      * Sends a message to an agent
      */
-    public async Task<BackendAgentResponse> Send(string connectionId, BackendAgentRequest payload)
+    public async Task<BackendAgentContent> Send(string connectionId, BackendAgentContent payload)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("connection_id", connectionId);
@@ -112,7 +41,7 @@ public class BackendConnectionAgentTag : TagAbstract {
 
         if (response.IsSuccessful)
         {
-            var data = this.Parser.Parse<BackendAgentResponse>(response.Content);
+            var data = this.Parser.Parse<BackendAgentContent>(response.Content);
 
             return data;
         }

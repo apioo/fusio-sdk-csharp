@@ -34,6 +34,14 @@ public class BackendTag : TagAbstract {
         );
     }
 
+    public BackendAgentTag Agent()
+    {
+        return new BackendAgentTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public BackendAppTag App()
     {
         return new BackendAppTag(
