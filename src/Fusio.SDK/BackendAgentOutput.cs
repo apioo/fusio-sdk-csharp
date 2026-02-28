@@ -12,6 +12,9 @@ namespace Fusio.SDK;
 /// </summary>
 public class BackendAgentOutput
 {
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
+
     [JsonPropertyName("output")]
     public BackendAgentContent? Output { get; set; }
 

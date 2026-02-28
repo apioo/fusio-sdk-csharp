@@ -58,7 +58,7 @@ public class BackendAgentMessageTag : TagAbstract {
     /**
      * Submits a new agent message
      */
-    public async Task<BackendAgentMessage> Submit(string agentId, BackendAgentContent payload)
+    public async Task<BackendAgentOutput> Submit(string agentId, BackendAgentInput payload)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("agent_id", agentId);
@@ -77,7 +77,7 @@ public class BackendAgentMessageTag : TagAbstract {
 
         if (response.IsSuccessful)
         {
-            var data = this.Parser.Parse<BackendAgentMessage>(response.Content);
+            var data = this.Parser.Parse<BackendAgentOutput>(response.Content);
 
             return data;
         }
