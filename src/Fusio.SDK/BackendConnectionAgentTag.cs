@@ -22,7 +22,7 @@ public class BackendConnectionAgentTag : TagAbstract {
     /**
      * Sends a message to an agent
      */
-    public async Task<BackendAgentContent> Send(string connectionId, BackendAgentContent payload)
+    public async Task<BackendAgentOutput> Send(string connectionId, BackendAgentInput payload)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("connection_id", connectionId);
@@ -41,7 +41,7 @@ public class BackendConnectionAgentTag : TagAbstract {
 
         if (response.IsSuccessful)
         {
-            var data = this.Parser.Parse<BackendAgentContent>(response.Content);
+            var data = this.Parser.Parse<BackendAgentOutput>(response.Content);
 
             return data;
         }
