@@ -18,6 +18,9 @@ public class BackendTaxonomyMove
     [JsonPropertyName("actions")]
     public System.Collections.Generic.List<int>? Actions { get; set; }
 
+    [JsonPropertyName("schemas")]
+    public System.Collections.Generic.List<int>? Schemas { get; set; }
+
     [JsonPropertyName("events")]
     public System.Collections.Generic.List<int>? Events { get; set; }
 
