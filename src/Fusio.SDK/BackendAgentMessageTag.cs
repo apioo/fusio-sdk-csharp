@@ -58,12 +58,13 @@ public class BackendAgentMessageTag : TagAbstract {
     /**
      * Submits a new agent message
      */
-    public async Task<BackendAgentOutput> Submit(string agentId, BackendAgentInput payload)
+    public async Task<BackendAgentOutput> Submit(string agentId, BackendAgentInput payload, int parent)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("agent_id", agentId);
 
         Dictionary<string, object> queryParams = new();
+        queryParams.Add("parent", parent);
 
         List<string> queryStructNames = new();
 
