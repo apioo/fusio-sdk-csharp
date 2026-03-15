@@ -11,11 +11,8 @@ namespace Fusio.SDK;
 /// Form base element
 /// </summary>
 [JsonPolymorphic(TypeDiscriminatorPropertyName = "type")]
-[JsonDerivedType(typeof(CommonFormElementAction), typeDiscriminator: "action")]
-[JsonDerivedType(typeof(CommonFormElementAgent), typeDiscriminator: "agent")]
 [JsonDerivedType(typeof(CommonFormElementCheckbox), typeDiscriminator: "checkbox")]
 [JsonDerivedType(typeof(CommonFormElementCollection), typeDiscriminator: "collection")]
-[JsonDerivedType(typeof(CommonFormElementConnection), typeDiscriminator: "connection")]
 [JsonDerivedType(typeof(CommonFormElementInput), typeDiscriminator: "input")]
 [JsonDerivedType(typeof(CommonFormElementMap), typeDiscriminator: "map")]
 [JsonDerivedType(typeof(CommonFormElementSelect), typeDiscriminator: "select")]
