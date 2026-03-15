@@ -11,10 +11,17 @@ namespace Fusio.SDK;
 /// Form base element
 /// </summary>
 [JsonPolymorphic(TypeDiscriminatorPropertyName = "type")]
-[JsonDerivedType(typeof(CommonFormElementInput), typeDiscriminator: "http://fusio-project.org/ns/2015/form/input")]
-[JsonDerivedType(typeof(CommonFormElementSelect), typeDiscriminator: "http://fusio-project.org/ns/2015/form/select")]
-[JsonDerivedType(typeof(CommonFormElementTag), typeDiscriminator: "http://fusio-project.org/ns/2015/form/tag")]
-[JsonDerivedType(typeof(CommonFormElementTextArea), typeDiscriminator: "http://fusio-project.org/ns/2015/form/textarea")]
+[JsonDerivedType(typeof(CommonFormElementAction), typeDiscriminator: "action")]
+[JsonDerivedType(typeof(CommonFormElementAgent), typeDiscriminator: "agent")]
+[JsonDerivedType(typeof(CommonFormElementCheckbox), typeDiscriminator: "checkbox")]
+[JsonDerivedType(typeof(CommonFormElementCollection), typeDiscriminator: "collection")]
+[JsonDerivedType(typeof(CommonFormElementConnection), typeDiscriminator: "connection")]
+[JsonDerivedType(typeof(CommonFormElementInput), typeDiscriminator: "input")]
+[JsonDerivedType(typeof(CommonFormElementMap), typeDiscriminator: "map")]
+[JsonDerivedType(typeof(CommonFormElementSelect), typeDiscriminator: "select")]
+[JsonDerivedType(typeof(CommonFormElementTextArea), typeDiscriminator: "textarea")]
+[JsonDerivedType(typeof(CommonFormElementTypeAPI), typeDiscriminator: "typeapi")]
+[JsonDerivedType(typeof(CommonFormElementTypeSchema), typeDiscriminator: "typeschema")]
 public abstract class CommonFormElement
 {
     [JsonPropertyName("element")]

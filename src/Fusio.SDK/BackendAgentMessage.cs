@@ -19,7 +19,7 @@ public class BackendAgentMessage
     public string? Role { get; set; }
 
     [JsonPropertyName("content")]
-    public BackendAgentContent? Content { get; set; }
+    public CommonAgentContent? Content { get; set; }
 
     [JsonPropertyName("insertDate")]
     public System.DateTime? InsertDate { get; set; }
