@@ -22,13 +22,13 @@ public class BackendAgentMessageTag : TagAbstract {
     /**
      * Returns a paginated list of agent messages
      */
-    public async Task<BackendAgentMessageCollection> GetAll(string agentId, int parent)
+    public async Task<BackendAgentMessageCollection> GetAll(string agentId, string chatId)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("agent_id", agentId);
 
         Dictionary<string, object> queryParams = new();
-        queryParams.Add("parent", parent);
+        queryParams.Add("chat_id", chatId);
 
         List<string> queryStructNames = new();
 
@@ -58,13 +58,12 @@ public class BackendAgentMessageTag : TagAbstract {
     /**
      * Submits a new agent message
      */
-    public async Task<CommonAgentOutput> Submit(string agentId, CommonAgentInput payload, int parent)
+    public async Task<CommonAgentOutput> Submit(string agentId, CommonAgentInput payload)
     {
         Dictionary<string, object> pathParams = new();
         pathParams.Add("agent_id", agentId);
 
         Dictionary<string, object> queryParams = new();
-        queryParams.Add("parent", parent);
 
         List<string> queryStructNames = new();
 
