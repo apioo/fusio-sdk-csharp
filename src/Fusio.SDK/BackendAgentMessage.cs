@@ -15,11 +15,14 @@ public class BackendAgentMessage
     [JsonPropertyName("id")]
     public int? Id { get; set; }
 
+    [JsonPropertyName("chatId")]
+    public string? ChatId { get; set; }
+
     [JsonPropertyName("role")]
     public string? Role { get; set; }
 
-    [JsonPropertyName("content")]
-    public CommonAgentContent? Content { get; set; }
+    [JsonPropertyName("item")]
+    public AgentItem? Item { get; set; }
 
     [JsonPropertyName("insertDate")]
     public System.DateTime? InsertDate { get; set; }
