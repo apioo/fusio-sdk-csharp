@@ -10,7 +10,10 @@ namespace Fusio.SDK;
 /// <summary>
 /// Form element which represents a collection element
 /// </summary>
-public class CommonFormElementCollection : CommonFormElementInput
+public class CommonFormElementCollection : CommonFormElement
 {
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
+
 }
 

@@ -10,7 +10,10 @@ namespace Fusio.SDK;
 /// <summary>
 /// Form element which represents a map element
 /// </summary>
-public class CommonFormElementMap : CommonFormElementInput
+public class CommonFormElementMap : CommonFormElement
 {
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
+
 }
 
