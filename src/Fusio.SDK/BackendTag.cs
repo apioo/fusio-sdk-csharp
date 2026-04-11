@@ -234,6 +234,14 @@ public class BackendTag : TagAbstract {
         );
     }
 
+    public BackendSpecificationTag Specification()
+    {
+        return new BackendSpecificationTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public BackendStatisticTag Statistic()
     {
         return new BackendStatisticTag(
