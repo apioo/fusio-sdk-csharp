@@ -26,6 +26,14 @@ public class ConsumerTag : TagAbstract {
         );
     }
 
+    public ConsumerAgentTag Agent()
+    {
+        return new ConsumerAgentTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public ConsumerAppTag App()
     {
         return new ConsumerAppTag(

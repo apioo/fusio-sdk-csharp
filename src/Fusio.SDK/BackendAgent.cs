@@ -21,6 +21,9 @@ public class BackendAgent
     [JsonPropertyName("type")]
     public int? Type { get; set; }
 
+    [JsonPropertyName("public")]
+    public bool? Public { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
