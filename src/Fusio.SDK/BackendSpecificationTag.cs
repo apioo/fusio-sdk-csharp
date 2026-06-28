@@ -54,6 +54,40 @@ public class BackendSpecificationTag : TagAbstract {
         throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
     }
     /**
+     * Returns the changelog between your current specification and the last tag
+     */
+    public async Task<BackendSpecificationChangelog> GetChangelog()
+    {
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/specification/changelog", pathParams), Method.Get);
+        this.Parser.Query(request, queryParams, queryStructNames);
+
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<BackendSpecificationChangelog>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    /**
      * Publish the specification
      */
     public async Task<CommonMessage> Publish(BackendSpecificationPublish payload)
@@ -65,6 +99,42 @@ public class BackendSpecificationTag : TagAbstract {
         List<string> queryStructNames = new();
 
         RestRequest request = new(this.Parser.Url("/backend/specification", pathParams), Method.Post);
+        this.Parser.Query(request, queryParams, queryStructNames);
+        request.AddJsonBody(JsonSerializer.Serialize(payload));
+
+        request.AddOrUpdateHeader("Content-Type", "application/json");
+
+        RestResponse response = await this.HttpClient.ExecuteAsync(request);
+
+        if (response.IsSuccessful)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            return data;
+        }
+
+        var statusCode = (int) response.StatusCode;
+        if (statusCode >= 0 && statusCode <= 999)
+        {
+            var data = this.Parser.Parse<CommonMessage>(response.Content);
+
+            throw new CommonMessageException(data);
+        }
+
+        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+    }
+    /**
+     * Creates a new tag of your specification
+     */
+    public async Task<CommonMessage> Tag(Passthru payload)
+    {
+        Dictionary<string, object> pathParams = new();
+
+        Dictionary<string, object> queryParams = new();
+
+        List<string> queryStructNames = new();
+
+        RestRequest request = new(this.Parser.Url("/backend/specification/tag", pathParams), Method.Post);
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 
