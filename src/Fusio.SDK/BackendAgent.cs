@@ -33,6 +33,9 @@ public class BackendAgent
     [JsonPropertyName("introduction")]
     public string? Introduction { get; set; }
 
+    [JsonPropertyName("temperature")]
+    public double? Temperature { get; set; }
+
     [JsonPropertyName("tools")]
     public System.Collections.Generic.List<string>? Tools { get; set; }
 
