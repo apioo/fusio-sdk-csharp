@@ -36,6 +36,9 @@ public class BackendAgent
     [JsonPropertyName("temperature")]
     public double? Temperature { get; set; }
 
+    [JsonPropertyName("costs")]
+    public int? Costs { get; set; }
+
     [JsonPropertyName("tools")]
     public System.Collections.Generic.List<string>? Tools { get; set; }
 
