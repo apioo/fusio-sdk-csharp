@@ -19,7 +19,7 @@ public class BackendSpecificationChangelog
     public string? Version { get; set; }
 
     [JsonPropertyName("changelog")]
-    public System.Collections.Generic.List<string>? Changelog { get; set; }
+    public string? Changelog { get; set; }
 
 }
 
