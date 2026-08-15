@@ -1,0 +1,12 @@
+{
+  "typehub_user": "fusio",
+  "typehub_document": "sdk",
+  "github_user": "apioo",
+  "github_repository": "fusio-sdk-csharp",
+
+  "namespace": "Fusio.SDK",
+  "company": "Apioo",
+  "description": "Fusio C# SDK managed by SDK Fabric",
+  "copyright": "Christoph Kappestein",
+  "website": "https://www.fusio-project.org"
+}
