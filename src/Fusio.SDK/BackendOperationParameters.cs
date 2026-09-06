@@ -8,6 +8,9 @@ using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Map of path or query parameters accepted by the operation
+/// </summary>
 public class BackendOperationParameters : Dictionary<string, BackendOperationSchema>
 {
 }

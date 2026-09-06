@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload defining target format and configuration for triggering an SDK generation run
+/// </summary>
 public class BackendSdkGenerate
 {
     [JsonPropertyName("format")]

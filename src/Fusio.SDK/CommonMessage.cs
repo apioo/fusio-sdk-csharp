@@ -12,6 +12,9 @@ namespace Fusio.SDK;
 /// </summary>
 public class CommonMessage
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("success")]
     public bool? Success { get; set; }
 

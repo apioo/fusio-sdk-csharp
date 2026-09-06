@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// List of available entity types that can be restored from the trash
+/// </summary>
 public class BackendTrashTypes
 {
     [JsonPropertyName("types")]

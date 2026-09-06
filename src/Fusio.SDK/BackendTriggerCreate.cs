@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Request payload to create a new trigger
+/// </summary>
 public class BackendTriggerCreate : BackendTrigger
 {
 }

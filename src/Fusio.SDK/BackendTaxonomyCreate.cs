@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload for creating a new taxonomy organization node
+/// </summary>
 public class BackendTaxonomyCreate : BackendTaxonomy
 {
 }

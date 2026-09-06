@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Collection of consumer applications
+/// </summary>
 public class ConsumerAppCollection : CommonCollection<ConsumerApp>
 {
 }

@@ -8,6 +8,9 @@ using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Map of HTTP error status codes to target schema names
+/// </summary>
 public class BackendOperationThrows : Dictionary<string, string>
 {
 }

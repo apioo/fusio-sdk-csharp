@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Credentials payload for user login
+/// </summary>
 public class ConsumerUserLogin
 {
     [JsonPropertyName("username")]

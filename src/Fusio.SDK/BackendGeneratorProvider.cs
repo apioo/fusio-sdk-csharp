@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Configuration object used to invoke a schema/operation generator
+/// </summary>
 public class BackendGeneratorProvider
 {
     [JsonPropertyName("path")]

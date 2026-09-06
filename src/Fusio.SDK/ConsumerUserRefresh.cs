@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload to request a refreshed authentication token
+/// </summary>
 public class ConsumerUserRefresh
 {
     [JsonPropertyName("refresh_token")]

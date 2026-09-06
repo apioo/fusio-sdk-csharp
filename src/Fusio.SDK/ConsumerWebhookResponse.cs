@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Recorded delivery log response for a webhook dispatch
+/// </summary>
 public class ConsumerWebhookResponse
 {
     [JsonPropertyName("status")]

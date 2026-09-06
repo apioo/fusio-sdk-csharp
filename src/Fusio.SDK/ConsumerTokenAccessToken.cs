@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// OAuth 2.0 access token response object
+/// </summary>
 public class ConsumerTokenAccessToken
 {
     [JsonPropertyName("access_token")]

@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Configuration parameters for executing a test run
+/// </summary>
 public class BackendTestConfig : BackendActionExecuteRequest
 {
 }

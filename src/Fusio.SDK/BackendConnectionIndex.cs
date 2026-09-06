@@ -12,6 +12,9 @@ namespace Fusio.SDK;
 /// </summary>
 public class BackendConnectionIndex
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("connections")]
     public System.Collections.Generic.List<BackendConnectionIndexEntry>? Connections { get; set; }
 

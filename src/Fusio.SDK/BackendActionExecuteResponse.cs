@@ -12,6 +12,9 @@ namespace Fusio.SDK;
 /// </summary>
 public class BackendActionExecuteResponse
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("statusCode")]
     public int? StatusCode { get; set; }
 

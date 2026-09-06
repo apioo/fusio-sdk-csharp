@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Collection of API permission scopes
+/// </summary>
 public class ConsumerScopeCollection : CommonCollection<ConsumerScope>
 {
 }

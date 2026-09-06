@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload for creating a new AI agent
+/// </summary>
 public class BackendAgentCreate : BackendAgent
 {
 }

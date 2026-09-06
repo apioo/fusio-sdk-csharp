@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Represents a preview changelog of entities created or updated by a generator run
+/// </summary>
 public class BackendGeneratorProviderChangelog
 {
     [JsonPropertyName("schemas")]

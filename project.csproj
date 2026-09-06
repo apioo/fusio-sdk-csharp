@@ -2,23 +2,23 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <PackageId>Fusio.SDK</PackageId>
-    <PackageVersion>0.0.0</PackageVersion>
-    <Authors>chriskapp</Authors>
+    <PackageVersion>0.1.0</PackageVersion>
+    <Authors>Christoph Kappestein</Authors>
     <Company>Apioo</Company>
-    <Description>SDK to talk to the Fusio REST API</Description>
+    <Description>Fusio C# SDK managed by SDK Fabric</Description>
     <Copyright>Christoph Kappestein</Copyright>
     <RepositoryUrl>https://github.com/apioo/fusio-sdk-csharp</RepositoryUrl>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyName>fusio-sdk</AssemblyName>
-    <PackageProjectUrl>https://www.fusio-project.org/</PackageProjectUrl>
+    <PackageProjectUrl>https://www.fusio-project.org</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/apioo/fusio-sdk-csharp/blob/main/LICENSE</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Sdkgen.Client" Version="2.0.1" />
+    <PackageReference Include="Sdkgen.Client" Version="2.0.3" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\logo.png">

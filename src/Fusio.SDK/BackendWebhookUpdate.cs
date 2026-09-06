@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Request payload to update an existing webhook subscription
+/// </summary>
 public class BackendWebhookUpdate : BackendWebhook
 {
 }

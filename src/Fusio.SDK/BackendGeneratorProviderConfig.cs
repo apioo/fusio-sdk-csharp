@@ -8,6 +8,9 @@ using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Arbitrary configuration map for the generator provider
+/// </summary>
 public class BackendGeneratorProviderConfig : Dictionary<string, object>
 {
 }

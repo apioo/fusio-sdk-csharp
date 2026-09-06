@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// JWT authentication response containing access credentials
+/// </summary>
 public class ConsumerUserJWT
 {
     [JsonPropertyName("token")]

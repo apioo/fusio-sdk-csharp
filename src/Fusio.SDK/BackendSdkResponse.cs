@@ -7,8 +7,14 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Container listing target SDK languages or formats available for generator execution
+/// </summary>
 public class BackendSdkResponse
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("types")]
     public BackendSdkTypes? Types { get; set; }
 

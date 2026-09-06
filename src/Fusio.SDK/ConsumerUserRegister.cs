@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload for registering a new user account
+/// </summary>
 public class ConsumerUserRegister
 {
     [JsonPropertyName("name")]

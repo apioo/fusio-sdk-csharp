@@ -8,6 +8,9 @@ using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Configuration settings and resource specs exported within the bundle
+/// </summary>
 public class BackendBundleConfig : Dictionary<string, object>
 {
 }

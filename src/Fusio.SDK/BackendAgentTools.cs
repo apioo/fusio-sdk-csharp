@@ -12,6 +12,9 @@ namespace Fusio.SDK;
 /// </summary>
 public class BackendAgentTools
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("tools")]
     public System.Collections.Generic.List<BackendAgentTool>? Tools { get; set; }
 

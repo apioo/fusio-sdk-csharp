@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload for issuing a new personal access token
+/// </summary>
 public class ConsumerTokenCreate
 {
     [JsonPropertyName("name")]

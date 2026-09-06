@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Collection of event definitions
+/// </summary>
 public class ConsumerEventCollection : CommonCollection<ConsumerEvent>
 {
 }

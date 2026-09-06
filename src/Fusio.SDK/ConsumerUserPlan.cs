@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Active plan summary associated with a user
+/// </summary>
 public class ConsumerUserPlan
 {
     [JsonPropertyName("id")]

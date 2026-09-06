@@ -12,6 +12,9 @@ namespace Fusio.SDK;
 /// </summary>
 public class BackendWebhook
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("id")]
     public int? Id { get; set; }
 

@@ -7,8 +7,14 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Grouped list of scope categories for user authorization forms
+/// </summary>
 public class ConsumerScopeCategories
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("categories")]
     public System.Collections.Generic.List<ConsumerScopeCategory>? Categories { get; set; }
 
