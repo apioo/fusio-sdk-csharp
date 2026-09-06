@@ -7,8 +7,14 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Represents user authorization granted to a consumer application
+/// </summary>
 public class ConsumerGrant
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("id")]
     public int? Id { get; set; }
 

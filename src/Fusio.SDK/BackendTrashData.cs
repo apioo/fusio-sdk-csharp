@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// This object represents a deleted item stored in the trash bin
+/// </summary>
 public class BackendTrashData
 {
     [JsonPropertyName("id")]

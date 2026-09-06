@@ -7,8 +7,14 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Permission scope defining access rights to API endpoints
+/// </summary>
 public class ConsumerScope
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("id")]
     public int? Id { get; set; }
 

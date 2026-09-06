@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Request payload to initiate a checkout flow for a plan
+/// </summary>
 public class ConsumerPaymentCheckoutRequest
 {
     [JsonPropertyName("planId")]

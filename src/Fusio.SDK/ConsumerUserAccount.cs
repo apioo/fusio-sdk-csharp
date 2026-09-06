@@ -7,8 +7,14 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// User profile and subscription status details
+/// </summary>
 public class ConsumerUserAccount
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("id")]
     public int? Id { get; set; }
 

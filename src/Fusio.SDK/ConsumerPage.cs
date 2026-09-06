@@ -7,8 +7,14 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Content page definition for developer portal documentation
+/// </summary>
 public class ConsumerPage
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("id")]
     public int? Id { get; set; }
 

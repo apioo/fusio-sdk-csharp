@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload used to initiate account recovery or email requests
+/// </summary>
 public class ConsumerUserEmail
 {
     [JsonPropertyName("email")]

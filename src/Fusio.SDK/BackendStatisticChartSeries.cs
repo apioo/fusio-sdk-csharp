@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// A single data line or bar series for a statistic chart
+/// </summary>
 public class BackendStatisticChartSeries
 {
     [JsonPropertyName("name")]

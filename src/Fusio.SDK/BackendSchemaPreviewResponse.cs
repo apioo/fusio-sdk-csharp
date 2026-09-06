@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Response container for a generated schema code preview
+/// </summary>
 public class BackendSchemaPreviewResponse
 {
     [JsonPropertyName("preview")]

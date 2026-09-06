@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload used to activate a user account via token
+/// </summary>
 public class ConsumerUserActivate
 {
     [JsonPropertyName("token")]

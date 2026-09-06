@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload for creating a new configuration bundle
+/// </summary>
 public class BackendBundleCreate : BackendBundle
 {
 }

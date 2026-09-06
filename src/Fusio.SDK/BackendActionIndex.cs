@@ -12,6 +12,9 @@ namespace Fusio.SDK;
 /// </summary>
 public class BackendActionIndex
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("actions")]
     public System.Collections.Generic.List<BackendActionIndexEntry>? Actions { get; set; }
 

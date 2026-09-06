@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload for updating an existing rate limit policy
+/// </summary>
 public class BackendRateUpdate : BackendRate
 {
 }

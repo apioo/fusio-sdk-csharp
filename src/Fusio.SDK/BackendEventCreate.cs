@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload for creating a new event entity
+/// </summary>
 public class BackendEventCreate : BackendEvent
 {
 }

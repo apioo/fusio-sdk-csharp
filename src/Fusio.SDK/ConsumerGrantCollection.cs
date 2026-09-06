@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Collection of user authorization grant records
+/// </summary>
 public class ConsumerGrantCollection : CommonCollection<ConsumerGrant>
 {
 }

@@ -9,6 +9,9 @@ namespace Fusio.SDK;
 
 public class SystemSchema
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("schema")]
     public SystemSchemaTypeSchema? Schema { get; set; }
 

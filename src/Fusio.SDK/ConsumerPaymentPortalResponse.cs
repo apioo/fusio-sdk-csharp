@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Response payload containing the customer portal portal link
+/// </summary>
 public class ConsumerPaymentPortalResponse
 {
     [JsonPropertyName("redirectUrl")]

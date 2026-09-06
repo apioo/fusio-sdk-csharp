@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Mapping defining access permissions for a specific operation within a scope
+/// </summary>
 public class BackendScopeOperation
 {
     [JsonPropertyName("operationId")]

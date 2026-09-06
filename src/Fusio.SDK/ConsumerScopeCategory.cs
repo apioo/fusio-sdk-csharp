@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Category grouping related API scopes together
+/// </summary>
 public class ConsumerScopeCategory
 {
     [JsonPropertyName("id")]

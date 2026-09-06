@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Request payload to restore an item from the trash bin
+/// </summary>
 public class BackendTrashRestore
 {
     [JsonPropertyName("id")]

@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload for updating an existing consumer application
+/// </summary>
 public class ConsumerAppUpdate
 {
     [JsonPropertyName("name")]

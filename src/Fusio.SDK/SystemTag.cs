@@ -18,6 +18,14 @@ public class SystemTag : TagAbstract {
     {
     }
 
+    public SystemCaptchaTag Captcha()
+    {
+        return new SystemCaptchaTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
     public SystemConnectionTag Connection()
     {
         return new SystemConnectionTag(

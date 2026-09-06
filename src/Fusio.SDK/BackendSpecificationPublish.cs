@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload defining configuration parameters for publishing an API specification export
+/// </summary>
 public class BackendSpecificationPublish
 {
     [JsonPropertyName("name")]

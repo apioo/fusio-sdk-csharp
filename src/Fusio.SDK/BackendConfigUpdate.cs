@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload for updating a system configuration entry
+/// </summary>
 public class BackendConfigUpdate : BackendConfig
 {
 }

@@ -12,6 +12,9 @@ namespace Fusio.SDK;
 /// </summary>
 public class BackendDashboard
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("errorsPerOperation")]
     public BackendStatisticChart? ErrorsPerOperation { get; set; }
 

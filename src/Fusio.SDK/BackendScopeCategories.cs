@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Container for grouping available scopes into logical categories
+/// </summary>
 public class BackendScopeCategories
 {
     [JsonPropertyName("categories")]

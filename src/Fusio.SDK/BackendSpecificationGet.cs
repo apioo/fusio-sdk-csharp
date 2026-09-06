@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Container delivering the compiled API specification schema object
+/// </summary>
 public class BackendSpecificationGet
 {
     [JsonPropertyName("spec")]

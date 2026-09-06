@@ -7,8 +7,14 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Response structure detailing the outcome of an SDK generation job
+/// </summary>
 public class BackendSdkMessage
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("success")]
     public bool? Success { get; set; }
 

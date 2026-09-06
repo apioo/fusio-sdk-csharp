@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Collection of access log records
+/// </summary>
 public class ConsumerLogCollection : CommonCollection<ConsumerLog>
 {
 }

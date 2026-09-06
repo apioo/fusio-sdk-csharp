@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload for completing a password reset
+/// </summary>
 public class ConsumerUserPasswordReset
 {
     [JsonPropertyName("token")]

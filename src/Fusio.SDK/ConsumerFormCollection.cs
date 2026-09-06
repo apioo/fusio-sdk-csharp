@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Collection of dynamic form definitions
+/// </summary>
 public class ConsumerFormCollection : CommonCollection<ConsumerForm>
 {
 }

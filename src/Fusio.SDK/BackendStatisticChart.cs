@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Represents dataset structures formatted for rendering statistic charts
+/// </summary>
 public class BackendStatisticChart
 {
     [JsonPropertyName("labels")]

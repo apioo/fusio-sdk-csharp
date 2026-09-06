@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload for registering a new webhook subscription
+/// </summary>
 public class ConsumerWebhookCreate
 {
     [JsonPropertyName("event")]

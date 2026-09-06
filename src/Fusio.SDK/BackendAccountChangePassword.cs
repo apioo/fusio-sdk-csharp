@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload required to update the current user's password
+/// </summary>
 public class BackendAccountChangePassword
 {
     [JsonPropertyName("oldPassword")]

@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Parameters sent to initiate an OAuth authorization decision
+/// </summary>
 public class ConsumerAuthorizeRequest
 {
     [JsonPropertyName("responseType")]

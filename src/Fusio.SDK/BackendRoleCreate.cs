@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Payload for creating a new user role entity
+/// </summary>
 public class BackendRoleCreate : BackendRole
 {
 }

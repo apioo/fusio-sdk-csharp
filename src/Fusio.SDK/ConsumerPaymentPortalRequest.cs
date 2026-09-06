@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Request payload to launch the billing management portal
+/// </summary>
 public class ConsumerPaymentPortalRequest
 {
     [JsonPropertyName("returnUrl")]

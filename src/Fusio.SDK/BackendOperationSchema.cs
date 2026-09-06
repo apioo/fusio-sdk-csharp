@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Defines primitive type constraints for parameter schema definitions
+/// </summary>
 public class BackendOperationSchema
 {
     [JsonPropertyName("description")]

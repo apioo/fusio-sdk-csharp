@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Log record representing an execution attempt and delivery response for a webhook target
+/// </summary>
 public class BackendWebhookResponse
 {
     [JsonPropertyName("id")]

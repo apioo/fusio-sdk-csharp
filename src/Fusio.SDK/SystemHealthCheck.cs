@@ -9,6 +9,9 @@ namespace Fusio.SDK;
 
 public class SystemHealthCheck
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("healthy")]
     public bool? Healthy { get; set; }
 

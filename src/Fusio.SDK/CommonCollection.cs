@@ -12,6 +12,9 @@ namespace Fusio.SDK;
 /// </summary>
 public class CommonCollection<T>
 {
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("totalResults")]
     public int? TotalResults { get; set; }
 

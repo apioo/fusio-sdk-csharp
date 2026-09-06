@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Represents structural changelog differences between specification versions
+/// </summary>
 public class BackendSpecificationChangelog
 {
     [JsonPropertyName("master")]

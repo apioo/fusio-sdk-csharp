@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Response payload containing the payment provider checkout URI
+/// </summary>
 public class ConsumerPaymentCheckoutResponse
 {
     [JsonPropertyName("approvalUrl")]

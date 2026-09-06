@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Metadata for an OAuth authorization request screen
+/// </summary>
 public class ConsumerAuthorizeMeta
 {
     [JsonPropertyName("name")]

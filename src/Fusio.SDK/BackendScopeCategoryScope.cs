@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Simplified scope representation within a category view
+/// </summary>
 public class BackendScopeCategoryScope
 {
     [JsonPropertyName("id")]

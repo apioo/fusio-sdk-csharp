@@ -8,6 +8,9 @@ using System.Collections.Generic;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Identity provider configuration containing key-value parameters
+/// </summary>
 public class BackendIdentityConfig : Dictionary<string, object>
 {
 }

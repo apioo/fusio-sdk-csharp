@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Collection of webhook subscriptions
+/// </summary>
 public class ConsumerWebhookCollection : CommonCollection<ConsumerWebhook>
 {
 }

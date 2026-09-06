@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Collection of third-party identity providers
+/// </summary>
 public class ConsumerIdentityCollection : CommonCollection<ConsumerIdentity>
 {
 }

@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Represents an aggregated count metric over a specific timeframe
+/// </summary>
 public class BackendStatisticCount
 {
     [JsonPropertyName("count")]

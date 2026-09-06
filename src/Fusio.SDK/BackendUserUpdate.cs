@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Request payload to update existing user account information
+/// </summary>
 public class BackendUserUpdate : BackendUser
 {
 }

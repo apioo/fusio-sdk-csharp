@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace Fusio.SDK;
 
+/// <summary>
+/// Request payload to register or create a new user account
+/// </summary>
 public class BackendUserCreate : BackendUser
 {
     [JsonPropertyName("password")]
