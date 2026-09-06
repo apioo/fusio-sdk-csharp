@@ -15,827 +15,827 @@ using Fusio.SDK.Client;
 Client client = Client.Build("[access_token]")
 
 // Returns user data of the current authenticated user.
-BackendUser response = client.Authorization().Getwhoami();
+Backend_User response = client.Authorization().getWhoami();
 
 // Revoke the access token of the current authenticated user.
-CommonMessage response = client.Authorization().Revoke();
+Common_Message response = client.Authorization().revoke();
 
 // Changes the password of the authenticated user.
-CommonMessage response = client.Backend().Account().Changepassword(new BackendAccountchangepassword());
+Common_Message response = client.Backend().Account().changePassword(new Backend_AccountChangePassword());
 
 // Returns user data of the authenticated user.
-BackendUser response = client.Backend().Account().Get();
+Backend_User response = client.Backend().Account().get();
 
 // Updates user data of the authenticated user.
-CommonMessage response = client.Backend().Account().Update(new BackendUserupdate());
+Common_Message response = client.Backend().Account().update(new Backend_UserUpdate());
 
 // Creates a new action.
-CommonMessage response = client.Backend().Action().Create(new BackendActioncreate());
+Common_Message response = client.Backend().Action().create(new Backend_ActionCreate());
 
 // Deletes an existing action.
-CommonMessage response = client.Backend().Action().Delete("action_id");
+Common_Message response = client.Backend().Action().delete("action_id");
 
 // Executes a specific action.
-BackendActionexecuteresponse response = client.Backend().Action().Execute("action_id", new BackendActionexecuterequest());
+Backend_ActionExecuteResponse response = client.Backend().Action().execute("action_id", new Backend_ActionExecuteRequest());
 
 // Returns a specific action.
-BackendAction response = client.Backend().Action().Get("action_id");
+Backend_Action response = client.Backend().Action().get("action_id");
 
 // Returns a paginated list of actions.
-BackendActioncollection response = client.Backend().Action().Getall(1, 1, "search");
+Backend_ActionCollection response = client.Backend().Action().getAll(1, 1, "search");
 
 // Returns all available action classes.
-BackendActionindex response = client.Backend().Action().Getclasses();
+Backend_ActionIndex response = client.Backend().Action().getClasses();
 
 // Returns a paginated list of action commits.
-BackendActioncommitcollection response = client.Backend().Action().Getcommits("action_id", 1, 1, "search");
+Backend_ActionCommitCollection response = client.Backend().Action().getCommits("action_id", 1, 1, "search");
 
 // Returns the action config form.
-CommonFormcontainer response = client.Backend().Action().Getform("class");
+Common_FormContainer response = client.Backend().Action().getForm("class");
 
 // Updates an existing action.
-CommonMessage response = client.Backend().Action().Update("action_id", new BackendActionupdate());
+Common_Message response = client.Backend().Action().update("action_id", new Backend_ActionUpdate());
 
 // Creates a new agent.
-CommonMessage response = client.Backend().Agent().Create(new BackendAgentcreate());
+Common_Message response = client.Backend().Agent().create(new Backend_AgentCreate());
 
 // Deletes an existing agent.
-CommonMessage response = client.Backend().Agent().Delete("agent_id");
+Common_Message response = client.Backend().Agent().delete("agent_id");
 
 // Returns a specific agent.
-BackendAgent response = client.Backend().Agent().Get("agent_id");
+Backend_Agent response = client.Backend().Agent().get("agent_id");
 
 // Returns a paginated list of agents.
-BackendAgentcollection response = client.Backend().Agent().Getall(1, 1, "search");
+Backend_AgentCollection response = client.Backend().Agent().getAll(1, 1, "search");
 
 // Returns available tools for an agent.
-BackendAgenttools response = client.Backend().Agent().Gettools();
+Backend_AgentTools response = client.Backend().Agent().getTools();
 
 // Returns a paginated list of agent messages.
-BackendAgentmessagecollection response = client.Backend().Agent().Message().Getall("agent_id", "chat_id");
+Backend_AgentMessageCollection response = client.Backend().Agent().Message().getAll("agent_id", "chat_id");
 
 // Submits a new agent message.
-AgentOutput response = client.Backend().Agent().Message().Submit("agent_id", new AgentInput());
+Agent_Output response = client.Backend().Agent().Message().submit("agent_id", new Agent_Input());
 
 // Updates an existing agent.
-CommonMessage response = client.Backend().Agent().Update("agent_id", new BackendAgentupdate());
+Common_Message response = client.Backend().Agent().update("agent_id", new Backend_AgentUpdate());
 
 // Creates a new app.
-CommonMessage response = client.Backend().App().Create(new BackendAppcreate());
+Common_Message response = client.Backend().App().create(new Backend_AppCreate());
 
 // Deletes an existing app.
-CommonMessage response = client.Backend().App().Delete("app_id");
+Common_Message response = client.Backend().App().delete("app_id");
 
 // Deletes an existing token from an app.
-CommonMessage response = client.Backend().App().Deletetoken("app_id", "token_id");
+Common_Message response = client.Backend().App().deleteToken("app_id", "token_id");
 
 // Returns a specific app.
-BackendApp response = client.Backend().App().Get("app_id");
+Backend_App response = client.Backend().App().get("app_id");
 
 // Returns a paginated list of apps.
-BackendAppcollection response = client.Backend().App().Getall(1, 1, "search");
+Backend_AppCollection response = client.Backend().App().getAll(1, 1, "search");
 
 // Updates an existing app.
-CommonMessage response = client.Backend().App().Update("app_id", new BackendAppupdate());
+Common_Message response = client.Backend().App().update("app_id", new Backend_AppUpdate());
 
 // Returns a specific audit.
-BackendAudit response = client.Backend().Audit().Get("audit_id");
+Backend_Audit response = client.Backend().Audit().get("audit_id");
 
 // Returns a paginated list of audits.
-BackendAuditcollection response = client.Backend().Audit().Getall(1, 1, "search", "from", "to", 1, 1, "event", "ip", "message");
+Backend_AuditCollection response = client.Backend().Audit().getAll(1, 1, "search", "from", "to", 1, 1, "event", "ip", "message");
 
 // Generates an backup of the current system.
-BackendBackupexport response = client.Backend().Backup().Export();
+Backend_BackupExport response = client.Backend().Backup().export();
 
 // Imports an backup to the current system.
-BackendBackupimportresult response = client.Backend().Backup().Import(new BackendBackupimport());
+Backend_BackupImportResult response = client.Backend().Backup().import(new Backend_BackupImport());
 
 // Creates a new bundle.
-CommonMessage response = client.Backend().Bundle().Create(new BackendBundlecreate());
+Common_Message response = client.Backend().Bundle().create(new Backend_BundleCreate());
 
 // Deletes an existing bundle.
-CommonMessage response = client.Backend().Bundle().Delete("bundle_id");
+Common_Message response = client.Backend().Bundle().delete("bundle_id");
 
 // Returns a specific bundle.
-BackendBundle response = client.Backend().Bundle().Get("bundle_id");
+Backend_Bundle response = client.Backend().Bundle().get("bundle_id");
 
 // Returns a paginated list of bundles.
-BackendBundlecollection response = client.Backend().Bundle().Getall(1, 1, "search");
+Backend_BundleCollection response = client.Backend().Bundle().getAll(1, 1, "search");
 
 // Publish an existing bundle to the marketplace.
-CommonMessage response = client.Backend().Bundle().Publish("bundle_id");
+Common_Message response = client.Backend().Bundle().publish("bundle_id");
 
 // Updates an existing bundle.
-CommonMessage response = client.Backend().Bundle().Update("bundle_id", new BackendBundleupdate());
+Common_Message response = client.Backend().Bundle().update("bundle_id", new Backend_BundleUpdate());
 
 // Creates a new category.
-CommonMessage response = client.Backend().Category().Create(new BackendCategorycreate());
+Common_Message response = client.Backend().Category().create(new Backend_CategoryCreate());
 
 // Deletes an existing category.
-CommonMessage response = client.Backend().Category().Delete("category_id");
+Common_Message response = client.Backend().Category().delete("category_id");
 
 // Returns a specific category.
-BackendCategory response = client.Backend().Category().Get("category_id");
+Backend_Category response = client.Backend().Category().get("category_id");
 
 // Returns a paginated list of categories.
-BackendCategorycollection response = client.Backend().Category().Getall(1, 1, "search");
+Backend_CategoryCollection response = client.Backend().Category().getAll(1, 1, "search");
 
 // Updates an existing category.
-CommonMessage response = client.Backend().Category().Update("category_id", new BackendCategoryupdate());
+Common_Message response = client.Backend().Category().update("category_id", new Backend_CategoryUpdate());
 
 // Returns a specific config.
-BackendConfig response = client.Backend().Config().Get("config_id");
+Backend_Config response = client.Backend().Config().get("config_id");
 
 // Returns a paginated list of configuration values.
-BackendConfigcollection response = client.Backend().Config().Getall(1, 1, "search");
+Backend_ConfigCollection response = client.Backend().Config().getAll(1, 1, "search");
 
 // Updates an existing config value.
-CommonMessage response = client.Backend().Config().Update("config_id", new BackendConfigupdate());
+Common_Message response = client.Backend().Config().update("config_id", new Backend_ConfigUpdate());
 
 // Sends a message to an agent.
-AgentOutput response = client.Backend().Connection().Agent().Send("connection_id", new AgentInput());
+Agent_Output response = client.Backend().Connection().Agent().send("connection_id", new Agent_Input());
 
 // Creates a new connection.
-CommonMessage response = client.Backend().Connection().Create(new BackendConnectioncreate());
+Common_Message response = client.Backend().Connection().create(new Backend_ConnectionCreate());
 
 // Creates a new row at a table on a database.
-CommonMessage response = client.Backend().Connection().Database().Createrow("connection_id", "table_name", new BackendDatabaserow());
+Common_Message response = client.Backend().Connection().Database().createRow("connection_id", "table_name", new Backend_DatabaseRow());
 
 // Creates a new table on a database.
-CommonMessage response = client.Backend().Connection().Database().Createtable("connection_id", new BackendDatabasetable());
+Common_Message response = client.Backend().Connection().Database().createTable("connection_id", new Backend_DatabaseTable());
 
 // Deletes an existing row at a table on a database.
-CommonMessage response = client.Backend().Connection().Database().Deleterow("connection_id", "table_name", "id");
+Common_Message response = client.Backend().Connection().Database().deleteRow("connection_id", "table_name", "id");
 
 // Deletes an existing table on a database.
-CommonMessage response = client.Backend().Connection().Database().Deletetable("connection_id", "table_name");
+Common_Message response = client.Backend().Connection().Database().deleteTable("connection_id", "table_name");
 
 // Returns a specific row at a table on a database.
-BackendDatabaserow response = client.Backend().Connection().Database().Getrow("connection_id", "table_name", "id");
+Backend_DatabaseRow response = client.Backend().Connection().Database().getRow("connection_id", "table_name", "id");
 
 // Returns paginated rows at a table on a database.
-BackendDatabaserowcollection response = client.Backend().Connection().Database().Getrows("connection_id", "table_name", 1, 1, "filterBy", "filterOp", "filterValue", "sortBy", "sortOrder", "columns");
+Backend_DatabaseRowCollection response = client.Backend().Connection().Database().getRows("connection_id", "table_name", 1, 1, "filterBy", "filterOp", "filterValue", "sortBy", "sortOrder", "columns");
 
 // Returns the schema of a specific table on a database.
-BackendDatabasetable response = client.Backend().Connection().Database().Gettable("connection_id", "table_name");
+Backend_DatabaseTable response = client.Backend().Connection().Database().getTable("connection_id", "table_name");
 
 // Returns all available tables on a database.
-BackendDatabasetablecollection response = client.Backend().Connection().Database().Gettables("connection_id", 1, 1);
+Backend_DatabaseTableCollection response = client.Backend().Connection().Database().getTables("connection_id", 1, 1);
 
 // Updates an existing row at a table on a database.
-CommonMessage response = client.Backend().Connection().Database().Updaterow("connection_id", "table_name", "id", new BackendDatabaserow());
+Common_Message response = client.Backend().Connection().Database().updateRow("connection_id", "table_name", "id", new Backend_DatabaseRow());
 
 // Updates an existing table on a database.
-CommonMessage response = client.Backend().Connection().Database().Updatetable("connection_id", "table_name", new BackendDatabasetable());
+Common_Message response = client.Backend().Connection().Database().updateTable("connection_id", "table_name", new Backend_DatabaseTable());
 
 // Deletes an existing connection.
-CommonMessage response = client.Backend().Connection().Delete("connection_id");
+Common_Message response = client.Backend().Connection().delete("connection_id");
 
 // Uploads one or more files on the filesystem connection.
-CommonMessage response = client.Backend().Connection().Filesystem().Create("connection_id", new object());
+Common_Message response = client.Backend().Connection().Filesystem().create("connection_id", new object());
 
 // Deletes an existing file on the filesystem connection.
-CommonMessage response = client.Backend().Connection().Filesystem().Delete("connection_id", "file_id");
+Common_Message response = client.Backend().Connection().Filesystem().delete("connection_id", "file_id");
 
 // Returns the content of the provided file id on the filesystem connection.
-client.Backend().Connection().Filesystem().Get("connection_id", "file_id");
+client.Backend().Connection().Filesystem().get("connection_id", "file_id");
 
 // Returns all available files on the filesystem connection.
-BackendFilecollection response = client.Backend().Connection().Filesystem().Getall("connection_id", 1, 1);
+Backend_FileCollection response = client.Backend().Connection().Filesystem().getAll("connection_id", 1, 1);
 
 // Updates an existing file on the filesystem connection.
-CommonMessage response = client.Backend().Connection().Filesystem().Update("connection_id", "file_id", new object());
+Common_Message response = client.Backend().Connection().Filesystem().update("connection_id", "file_id", new object());
 
 // Returns a specific connection.
-BackendConnection response = client.Backend().Connection().Get("connection_id");
+Backend_Connection response = client.Backend().Connection().get("connection_id");
 
 // Returns a paginated list of connections.
-BackendConnectioncollection response = client.Backend().Connection().Getall(1, 1, "search", "class");
+Backend_ConnectionCollection response = client.Backend().Connection().getAll(1, 1, "search", "class");
 
 // Returns all available connection classes.
-BackendConnectionindex response = client.Backend().Connection().Getclasses();
+Backend_ConnectionIndex response = client.Backend().Connection().getClasses();
 
 // Returns the connection config form.
-CommonFormcontainer response = client.Backend().Connection().Getform("class");
+Common_FormContainer response = client.Backend().Connection().getForm("class");
 
 // Returns a redirect url to start the OAuth2 authorization flow for the given connection.
-BackendConnectionredirectresponse response = client.Backend().Connection().Getredirect("connection_id");
+Backend_ConnectionRedirectResponse response = client.Backend().Connection().getRedirect("connection_id");
 
 // Sends an arbitrary HTTP request to the connection.
-BackendHttpresponse response = client.Backend().Connection().Http().Execute("connection_id", new BackendHttprequest());
+Backend_HttpResponse response = client.Backend().Connection().Http().execute("connection_id", new Backend_HttpRequest());
 
 // Returns the SDK specification.
-Passthru response = client.Backend().Connection().Sdk().Get("connection_id");
+Passthru response = client.Backend().Connection().Sdk().get("connection_id");
 
 // Updates an existing connection.
-CommonMessage response = client.Backend().Connection().Update("connection_id", new BackendConnectionupdate());
+Common_Message response = client.Backend().Connection().update("connection_id", new Backend_ConnectionUpdate());
 
 // Creates a new cronjob.
-CommonMessage response = client.Backend().Cronjob().Create(new BackendCronjobcreate());
+Common_Message response = client.Backend().Cronjob().create(new Backend_CronjobCreate());
 
 // Deletes an existing cronjob.
-CommonMessage response = client.Backend().Cronjob().Delete("cronjob_id");
+Common_Message response = client.Backend().Cronjob().delete("cronjob_id");
 
 // Returns a specific cronjob.
-BackendCronjob response = client.Backend().Cronjob().Get("cronjob_id");
+Backend_Cronjob response = client.Backend().Cronjob().get("cronjob_id");
 
 // Returns a paginated list of cronjobs.
-BackendCronjobcollection response = client.Backend().Cronjob().Getall(1, 1, "search", 1);
+Backend_CronjobCollection response = client.Backend().Cronjob().getAll(1, 1, "search", 1);
 
 // Updates an existing cronjob.
-CommonMessage response = client.Backend().Cronjob().Update("cronjob_id", new BackendCronjobupdate());
+Common_Message response = client.Backend().Cronjob().update("cronjob_id", new Backend_CronjobUpdate());
 
 // Returns all available dashboard widgets.
-BackendDashboard response = client.Backend().Dashboard().Getall();
+Backend_Dashboard response = client.Backend().Dashboard().getAll();
 
 // Creates a new event.
-CommonMessage response = client.Backend().Event().Create(new BackendEventcreate());
+Common_Message response = client.Backend().Event().create(new Backend_EventCreate());
 
 // Deletes an existing event.
-CommonMessage response = client.Backend().Event().Delete("event_id");
+Common_Message response = client.Backend().Event().delete("event_id");
 
 // Returns a specific event.
-BackendEvent response = client.Backend().Event().Get("event_id");
+Backend_Event response = client.Backend().Event().get("event_id");
 
 // Returns a paginated list of events.
-BackendEventcollection response = client.Backend().Event().Getall(1, 1, "search", 1);
+Backend_EventCollection response = client.Backend().Event().getAll(1, 1, "search", 1);
 
 // Updates an existing event.
-CommonMessage response = client.Backend().Event().Update("event_id", new BackendEventupdate());
+Common_Message response = client.Backend().Event().update("event_id", new Backend_EventUpdate());
 
 // Creates a new firewall rule.
-CommonMessage response = client.Backend().Firewall().Create(new BackendFirewallcreate());
+Common_Message response = client.Backend().Firewall().create(new Backend_FirewallCreate());
 
 // Deletes an existing firewall rule.
-CommonMessage response = client.Backend().Firewall().Delete("firewall_id");
+Common_Message response = client.Backend().Firewall().delete("firewall_id");
 
 // Returns a specific firewall rule.
-BackendFirewall response = client.Backend().Firewall().Get("firewall_id");
+Backend_Firewall response = client.Backend().Firewall().get("firewall_id");
 
 // Returns a paginated list of firewall rules.
-BackendFirewallcollection response = client.Backend().Firewall().Getall(1, 1, "search");
+Backend_FirewallCollection response = client.Backend().Firewall().getAll(1, 1, "search");
 
 // Updates an existing firewall rule.
-CommonMessage response = client.Backend().Firewall().Update("firewall_id", new BackendFirewallupdate());
+Common_Message response = client.Backend().Firewall().update("firewall_id", new Backend_FirewallUpdate());
 
 // Creates a new form.
-CommonMessage response = client.Backend().Form().Create(new BackendFormcreate());
+Common_Message response = client.Backend().Form().create(new Backend_FormCreate());
 
 // Deletes an existing form.
-CommonMessage response = client.Backend().Form().Delete("form_id");
+Common_Message response = client.Backend().Form().delete("form_id");
 
 // Returns a specific form.
-BackendForm response = client.Backend().Form().Get("form_id");
+Backend_Form response = client.Backend().Form().get("form_id");
 
 // Returns a paginated list of forms.
-BackendFormcollection response = client.Backend().Form().Getall(1, 1, "search");
+Backend_FormCollection response = client.Backend().Form().getAll(1, 1, "search");
 
 // Updates an existing form.
-CommonMessage response = client.Backend().Form().Update("form_id", new BackendFormupdate());
+Common_Message response = client.Backend().Form().update("form_id", new Backend_FormUpdate());
 
 // Executes a generator with the provided config.
-CommonMessage response = client.Backend().Generator().Executeprovider("provider", new BackendGeneratorprovider());
+Common_Message response = client.Backend().Generator().executeProvider("provider", new Backend_GeneratorProvider());
 
 // Generates a changelog of all potential changes if you execute this generator with the provided config.
-BackendGeneratorproviderchangelog response = client.Backend().Generator().Getchangelog("provider", new BackendGeneratorproviderconfig());
+Backend_GeneratorProviderChangelog response = client.Backend().Generator().getChangelog("provider", new Backend_GeneratorProviderConfig());
 
 // Returns all available generator classes.
-BackendGeneratorindexproviders response = client.Backend().Generator().Getclasses();
+Backend_GeneratorIndexProviders response = client.Backend().Generator().getClasses();
 
 // Returns the generator config form.
-CommonFormcontainer response = client.Backend().Generator().Getform("provider");
+Common_FormContainer response = client.Backend().Generator().getForm("provider");
 
 // Creates a new identity.
-CommonMessage response = client.Backend().Identity().Create(new BackendIdentitycreate());
+Common_Message response = client.Backend().Identity().create(new Backend_IdentityCreate());
 
 // Deletes an existing identity.
-CommonMessage response = client.Backend().Identity().Delete("identity_id");
+Common_Message response = client.Backend().Identity().delete("identity_id");
 
 // Returns a specific identity.
-BackendIdentity response = client.Backend().Identity().Get("identity_id");
+Backend_Identity response = client.Backend().Identity().get("identity_id");
 
 // Returns a paginated list of identities.
-BackendIdentitycollection response = client.Backend().Identity().Getall(1, 1, "search");
+Backend_IdentityCollection response = client.Backend().Identity().getAll(1, 1, "search");
 
 // Returns all available identity classes.
-BackendIdentityindex response = client.Backend().Identity().Getclasses();
+Backend_IdentityIndex response = client.Backend().Identity().getClasses();
 
 // Returns the identity config form.
-CommonFormcontainer response = client.Backend().Identity().Getform("class");
+Common_FormContainer response = client.Backend().Identity().getForm("class");
 
 // Updates an existing identity.
-CommonMessage response = client.Backend().Identity().Update("identity_id", new BackendIdentityupdate());
+Common_Message response = client.Backend().Identity().update("identity_id", new Backend_IdentityUpdate());
 
 // Returns a specific log.
-BackendLog response = client.Backend().Log().Get("log_id");
+Backend_Log response = client.Backend().Log().get("log_id");
 
 // Returns a paginated list of logs.
-BackendLogcollection response = client.Backend().Log().Getall(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_LogCollection response = client.Backend().Log().getAll(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a paginated list of log errors.
-BackendLogerrorcollection response = client.Backend().Log().Getallerrors(1, 1, "search");
+Backend_LogErrorCollection response = client.Backend().Log().getAllErrors(1, 1, "search");
 
 // Returns a specific error.
-BackendLogerror response = client.Backend().Log().Geterror("error_id");
+Backend_LogError response = client.Backend().Log().getError("error_id");
 
 // Returns a specific marketplace action.
-Marketplaceaction response = client.Backend().Marketplace().Action().Get("user", "name");
+MarketplaceAction response = client.Backend().Marketplace().Action().get("user", "name");
 
 // Returns a paginated list of marketplace actions.
-Marketplaceactioncollection response = client.Backend().Marketplace().Action().Getall(1, "query");
+MarketplaceActionCollection response = client.Backend().Marketplace().Action().getAll(1, "query");
 
 // Installs an action from the marketplace.
-Marketplacemessage response = client.Backend().Marketplace().Action().Install(new Marketplaceinstall());
+MarketplaceMessage response = client.Backend().Marketplace().Action().install(new MarketplaceInstall());
 
 // Upgrades an action from the marketplace.
-CommonMessage response = client.Backend().Marketplace().Action().Upgrade("user", "name");
+Common_Message response = client.Backend().Marketplace().Action().upgrade("user", "name");
 
 // Returns a specific marketplace app.
-Marketplaceapp response = client.Backend().Marketplace().App().Get("user", "name");
+MarketplaceApp response = client.Backend().Marketplace().App().get("user", "name");
 
 // Returns a paginated list of marketplace apps.
-Marketplaceappcollection response = client.Backend().Marketplace().App().Getall(1, "query");
+MarketplaceAppCollection response = client.Backend().Marketplace().App().getAll(1, "query");
 
 // Installs an app from the marketplace.
-Marketplacemessage response = client.Backend().Marketplace().App().Install(new Marketplaceinstall());
+MarketplaceMessage response = client.Backend().Marketplace().App().install(new MarketplaceInstall());
 
 // Upgrades an app from the marketplace.
-Marketplacemessage response = client.Backend().Marketplace().App().Upgrade("user", "name");
+MarketplaceMessage response = client.Backend().Marketplace().App().upgrade("user", "name");
 
 // Returns a specific marketplace bundle.
-Marketplacebundle response = client.Backend().Marketplace().Bundle().Get("user", "name");
+MarketplaceBundle response = client.Backend().Marketplace().Bundle().get("user", "name");
 
 // Returns a paginated list of marketplace bundles.
-Marketplacebundlecollection response = client.Backend().Marketplace().Bundle().Getall(1, "query");
+MarketplaceBundleCollection response = client.Backend().Marketplace().Bundle().getAll(1, "query");
 
 // Installs an bundle from the marketplace.
-Marketplacemessage response = client.Backend().Marketplace().Bundle().Install(new Marketplaceinstall());
+MarketplaceMessage response = client.Backend().Marketplace().Bundle().install(new MarketplaceInstall());
 
 // Upgrades an bundle from the marketplace.
-Marketplacemessage response = client.Backend().Marketplace().Bundle().Upgrade("user", "name");
+MarketplaceMessage response = client.Backend().Marketplace().Bundle().upgrade("user", "name");
 
 // Creates a new operation.
-CommonMessage response = client.Backend().Operation().Create(new BackendOperationcreate());
+Common_Message response = client.Backend().Operation().create(new Backend_OperationCreate());
 
 // Deletes an existing operation.
-CommonMessage response = client.Backend().Operation().Delete("operation_id");
+Common_Message response = client.Backend().Operation().delete("operation_id");
 
 // Returns a specific operation.
-BackendOperation response = client.Backend().Operation().Get("operation_id");
+Backend_Operation response = client.Backend().Operation().get("operation_id");
 
 // Returns a paginated list of operations.
-BackendOperationcollection response = client.Backend().Operation().Getall(1, 1, "search", 1);
+Backend_OperationCollection response = client.Backend().Operation().getAll(1, 1, "search", 1);
 
 // Updates an existing operation.
-CommonMessage response = client.Backend().Operation().Update("operation_id", new BackendOperationupdate());
+Common_Message response = client.Backend().Operation().update("operation_id", new Backend_OperationUpdate());
 
 // Creates a new page.
-CommonMessage response = client.Backend().Page().Create(new BackendPagecreate());
+Common_Message response = client.Backend().Page().create(new Backend_PageCreate());
 
 // Deletes an existing page.
-CommonMessage response = client.Backend().Page().Delete("page_id");
+Common_Message response = client.Backend().Page().delete("page_id");
 
 // Returns a specific page.
-BackendPage response = client.Backend().Page().Get("page_id");
+Backend_Page response = client.Backend().Page().get("page_id");
 
 // Returns a paginated list of pages.
-BackendPagecollection response = client.Backend().Page().Getall(1, 1, "search");
+Backend_PageCollection response = client.Backend().Page().getAll(1, 1, "search");
 
 // Updates an existing page.
-CommonMessage response = client.Backend().Page().Update("page_id", new BackendPageupdate());
+Common_Message response = client.Backend().Page().update("page_id", new Backend_PageUpdate());
 
 // Creates a new plan.
-CommonMessage response = client.Backend().Plan().Create(new BackendPlancreate());
+Common_Message response = client.Backend().Plan().create(new Backend_PlanCreate());
 
 // Deletes an existing plan.
-CommonMessage response = client.Backend().Plan().Delete("plan_id");
+Common_Message response = client.Backend().Plan().delete("plan_id");
 
 // Returns a specific plan.
-BackendPlan response = client.Backend().Plan().Get("plan_id");
+Backend_Plan response = client.Backend().Plan().get("plan_id");
 
 // Returns a paginated list of plans.
-BackendPlancollection response = client.Backend().Plan().Getall(1, 1, "search");
+Backend_PlanCollection response = client.Backend().Plan().getAll(1, 1, "search");
 
 // Updates an existing plan.
-CommonMessage response = client.Backend().Plan().Update("plan_id", new BackendPlanupdate());
+Common_Message response = client.Backend().Plan().update("plan_id", new Backend_PlanUpdate());
 
 // Creates a new rate limitation.
-CommonMessage response = client.Backend().Rate().Create(new BackendRatecreate());
+Common_Message response = client.Backend().Rate().create(new Backend_RateCreate());
 
 // Deletes an existing rate.
-CommonMessage response = client.Backend().Rate().Delete("rate_id");
+Common_Message response = client.Backend().Rate().delete("rate_id");
 
 // Returns a specific rate.
-BackendRate response = client.Backend().Rate().Get("rate_id");
+Backend_Rate response = client.Backend().Rate().get("rate_id");
 
 // Returns a paginated list of rate limitations.
-BackendRatecollection response = client.Backend().Rate().Getall(1, 1, "search");
+Backend_RateCollection response = client.Backend().Rate().getAll(1, 1, "search");
 
 // Updates an existing rate.
-CommonMessage response = client.Backend().Rate().Update("rate_id", new BackendRateupdate());
+Common_Message response = client.Backend().Rate().update("rate_id", new Backend_RateUpdate());
 
 // Creates a new role.
-CommonMessage response = client.Backend().Role().Create(new BackendRolecreate());
+Common_Message response = client.Backend().Role().create(new Backend_RoleCreate());
 
 // Deletes an existing role.
-CommonMessage response = client.Backend().Role().Delete("role_id");
+Common_Message response = client.Backend().Role().delete("role_id");
 
 // Returns a specific role.
-BackendRole response = client.Backend().Role().Get("role_id");
+Backend_Role response = client.Backend().Role().get("role_id");
 
 // Returns a paginated list of roles.
-BackendRolecollection response = client.Backend().Role().Getall(1, 1, "search");
+Backend_RoleCollection response = client.Backend().Role().getAll(1, 1, "search");
 
 // Updates an existing role.
-CommonMessage response = client.Backend().Role().Update("role_id", new BackendRoleupdate());
+Common_Message response = client.Backend().Role().update("role_id", new Backend_RoleUpdate());
 
 // Creates a new schema.
-CommonMessage response = client.Backend().Schema().Create(new BackendSchemacreate());
+Common_Message response = client.Backend().Schema().create(new Backend_SchemaCreate());
 
 // Deletes an existing schema.
-CommonMessage response = client.Backend().Schema().Delete("schema_id");
+Common_Message response = client.Backend().Schema().delete("schema_id");
 
 // Returns a specific schema.
-BackendSchema response = client.Backend().Schema().Get("schema_id");
+Backend_Schema response = client.Backend().Schema().get("schema_id");
 
 // Returns a paginated list of schemas.
-BackendSchemacollection response = client.Backend().Schema().Getall(1, 1, "search", 1);
+Backend_SchemaCollection response = client.Backend().Schema().getAll(1, 1, "search", 1);
 
 // Returns a paginated list of schema commits.
-BackendSchemacommitcollection response = client.Backend().Schema().Getcommits("schema_id", 1, 1, "search");
+Backend_SchemaCommitCollection response = client.Backend().Schema().getCommits("schema_id", 1, 1, "search");
 
 // Returns a HTML preview of the provided schema.
-BackendSchemapreviewresponse response = client.Backend().Schema().Getpreview("schema_id");
+Backend_SchemaPreviewResponse response = client.Backend().Schema().getPreview("schema_id");
 
 // Updates an existing schema.
-CommonMessage response = client.Backend().Schema().Update("schema_id", new BackendSchemaupdate());
+Common_Message response = client.Backend().Schema().update("schema_id", new Backend_SchemaUpdate());
 
 // Creates a new scope.
-CommonMessage response = client.Backend().Scope().Create(new BackendScopecreate());
+Common_Message response = client.Backend().Scope().create(new Backend_ScopeCreate());
 
 // Deletes an existing scope.
-CommonMessage response = client.Backend().Scope().Delete("scope_id");
+Common_Message response = client.Backend().Scope().delete("scope_id");
 
 // Returns a specific scope.
-BackendScope response = client.Backend().Scope().Get("scope_id");
+Backend_Scope response = client.Backend().Scope().get("scope_id");
 
 // Returns a paginated list of scopes.
-BackendScopecollection response = client.Backend().Scope().Getall(1, 1, "search");
+Backend_ScopeCollection response = client.Backend().Scope().getAll(1, 1, "search");
 
 // Returns all available scopes grouped by category.
-BackendScopecategories response = client.Backend().Scope().Getcategories();
+Backend_ScopeCategories response = client.Backend().Scope().getCategories();
 
 // Updates an existing scope.
-CommonMessage response = client.Backend().Scope().Update("scope_id", new BackendScopeupdate());
+Common_Message response = client.Backend().Scope().update("scope_id", new Backend_ScopeUpdate());
 
 // Generates a specific SDK.
-BackendSdkmessage response = client.Backend().Sdk().Generate(new BackendSdkgenerate());
+Backend_SdkMessage response = client.Backend().Sdk().generate(new Backend_SdkGenerate());
 
 // Returns a paginated list of SDKs.
-BackendSdkresponse response = client.Backend().Sdk().Getall();
+Backend_SdkResponse response = client.Backend().Sdk().getAll();
 
 // Returns the TypeHub specification.
-BackendSpecificationget response = client.Backend().Specification().Get();
+Backend_SpecificationGet response = client.Backend().Specification().get();
 
 // Returns the changelog between your current specification and the last tag.
-BackendSpecificationchangelog response = client.Backend().Specification().Getchangelog();
+Backend_SpecificationChangelog response = client.Backend().Specification().getChangelog();
 
 // Publish the specification.
-CommonMessage response = client.Backend().Specification().Publish(new BackendSpecificationpublish());
+Common_Message response = client.Backend().Specification().publish(new Backend_SpecificationPublish());
 
 // Creates a new tag of your specification.
-CommonMessage response = client.Backend().Specification().Tag(new Passthru());
+Common_Message response = client.Backend().Specification().tag(new Passthru());
 
 // Returns a statistic containing the activities per user.
-BackendStatisticchart response = client.Backend().Statistic().Getactivitiesperuser(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getActivitiesPerUser(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the request count.
-BackendStatisticcount response = client.Backend().Statistic().Getcountrequests(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticCount response = client.Backend().Statistic().getCountRequests(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the errors per operation.
-BackendStatisticchart response = client.Backend().Statistic().Geterrorsperoperation(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getErrorsPerOperation(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the incoming requests.
-BackendStatisticchart response = client.Backend().Statistic().Getincomingrequests(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getIncomingRequests(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the incoming transactions.
-BackendStatisticchart response = client.Backend().Statistic().Getincomingtransactions(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getIncomingTransactions(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the issues tokens.
-BackendStatisticchart response = client.Backend().Statistic().Getissuedtokens(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getIssuedTokens(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the most used activities.
-BackendStatisticchart response = client.Backend().Statistic().Getmostusedactivities(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getMostUsedActivities(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the most used apps.
-BackendStatisticchart response = client.Backend().Statistic().Getmostusedapps(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getMostUsedApps(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the most used operations.
-BackendStatisticchart response = client.Backend().Statistic().Getmostusedoperations(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getMostUsedOperations(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the requests per ip.
-BackendStatisticchart response = client.Backend().Statistic().Getrequestsperip(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getRequestsPerIP(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the requests per operation.
-BackendStatisticchart response = client.Backend().Statistic().Getrequestsperoperation(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getRequestsPerOperation(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the requests per user.
-BackendStatisticchart response = client.Backend().Statistic().Getrequestsperuser(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getRequestsPerUser(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the test coverage.
-BackendStatisticchart response = client.Backend().Statistic().Gettestcoverage();
+Backend_StatisticChart response = client.Backend().Statistic().getTestCoverage();
 
 // Returns a statistic containing the time average.
-BackendStatisticchart response = client.Backend().Statistic().Gettimeaverage(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getTimeAverage(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the time per operation.
-BackendStatisticchart response = client.Backend().Statistic().Gettimeperoperation(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getTimePerOperation(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the used points.
-BackendStatisticchart response = client.Backend().Statistic().Getusedpoints(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getUsedPoints(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the user registrations.
-BackendStatisticchart response = client.Backend().Statistic().Getuserregistrations(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+Backend_StatisticChart response = client.Backend().Statistic().getUserRegistrations(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Creates a new taxonomy.
-CommonMessage response = client.Backend().Taxonomy().Create(new BackendTaxonomycreate());
+Common_Message response = client.Backend().Taxonomy().create(new Backend_TaxonomyCreate());
 
 // Deletes an existing taxonomy.
-CommonMessage response = client.Backend().Taxonomy().Delete("taxonomy_id");
+Common_Message response = client.Backend().Taxonomy().delete("taxonomy_id");
 
 // Returns a specific taxonomy.
-BackendTaxonomy response = client.Backend().Taxonomy().Get("taxonomy_id");
+Backend_Taxonomy response = client.Backend().Taxonomy().get("taxonomy_id");
 
 // Returns a paginated list of taxonomies.
-BackendTaxonomycollection response = client.Backend().Taxonomy().Getall(1, 1, "search");
+Backend_TaxonomyCollection response = client.Backend().Taxonomy().getAll(1, 1, "search");
 
 // Moves the provided ids to the taxonomy.
-CommonMessage response = client.Backend().Taxonomy().Move("taxonomy_id", new BackendTaxonomymove());
+Common_Message response = client.Backend().Taxonomy().move("taxonomy_id", new Backend_TaxonomyMove());
 
 // Updates an existing taxonomy.
-CommonMessage response = client.Backend().Taxonomy().Update("taxonomy_id", new BackendTaxonomyupdate());
+Common_Message response = client.Backend().Taxonomy().update("taxonomy_id", new Backend_TaxonomyUpdate());
 
 // Removes an existing tenant.
-CommonMessage response = client.Backend().Tenant().Remove("tenant_id");
+Common_Message response = client.Backend().Tenant().remove("tenant_id");
 
 // Setup a new tenant.
-CommonMessage response = client.Backend().Tenant().Setup("tenant_id");
+Common_Message response = client.Backend().Tenant().setup("tenant_id");
 
 // Returns a specific test.
-BackendTest response = client.Backend().Test().Get("test_id");
+Backend_Test response = client.Backend().Test().get("test_id");
 
 // Returns a paginated list of tests.
-BackendTestcollection response = client.Backend().Test().Getall(1, 1, "search");
+Backend_TestCollection response = client.Backend().Test().getAll(1, 1, "search");
 
 // Refresh all tests.
-CommonMessage response = client.Backend().Test().Refresh();
+Common_Message response = client.Backend().Test().refresh();
 
 // Run all tests.
-CommonMessage response = client.Backend().Test().Run();
+Common_Message response = client.Backend().Test().run();
 
 // Updates an existing test.
-CommonMessage response = client.Backend().Test().Update("test_id", new BackendTest());
+Common_Message response = client.Backend().Test().update("test_id", new Backend_Test());
 
 // Returns a specific token.
-BackendToken response = client.Backend().Token().Get("token_id");
+Backend_Token response = client.Backend().Token().get("token_id");
 
 // Returns a paginated list of tokens.
-BackendTokencollection response = client.Backend().Token().Getall(1, 1, "search", "from", "to", 1, 1, 1, "scope", "ip");
+Backend_TokenCollection response = client.Backend().Token().getAll(1, 1, "search", "from", "to", 1, 1, 1, "scope", "ip");
 
 // Returns a specific transaction.
-BackendTransaction response = client.Backend().Transaction().Get("transaction_id");
+Backend_Transaction response = client.Backend().Transaction().get("transaction_id");
 
 // Returns a paginated list of transactions.
-BackendTransactioncollection response = client.Backend().Transaction().Getall(1, 1, "search", "from", "to", 1, 1, 1, "status", "provider", 1);
+Backend_TransactionCollection response = client.Backend().Transaction().getAll(1, 1, "search", "from", "to", 1, 1, 1, "status", "provider", 1);
 
 // Returns all deleted records by trash type.
-BackendTrashdatacollection response = client.Backend().Trash().Getallbytype("type", 1, 1, "search");
+Backend_TrashDataCollection response = client.Backend().Trash().getAllByType("type", 1, 1, "search");
 
 // Returns all trash types.
-BackendTrashtypes response = client.Backend().Trash().Gettypes();
+Backend_TrashTypes response = client.Backend().Trash().getTypes();
 
 // Restores a previously deleted record.
-CommonMessage response = client.Backend().Trash().Restore("type", new BackendTrashrestore());
+Common_Message response = client.Backend().Trash().restore("type", new Backend_TrashRestore());
 
 // Creates a new trigger.
-CommonMessage response = client.Backend().Trigger().Create(new BackendTriggercreate());
+Common_Message response = client.Backend().Trigger().create(new Backend_TriggerCreate());
 
 // Deletes an existing trigger.
-CommonMessage response = client.Backend().Trigger().Delete("trigger_id");
+Common_Message response = client.Backend().Trigger().delete("trigger_id");
 
 // Returns a specific trigger.
-BackendTrigger response = client.Backend().Trigger().Get("trigger_id");
+Backend_Trigger response = client.Backend().Trigger().get("trigger_id");
 
 // Returns a paginated list of triggers.
-BackendTriggercollection response = client.Backend().Trigger().Getall(1, 1, "search", 1);
+Backend_TriggerCollection response = client.Backend().Trigger().getAll(1, 1, "search", 1);
 
 // Updates an existing trigger.
-CommonMessage response = client.Backend().Trigger().Update("trigger_id", new BackendTriggerupdate());
+Common_Message response = client.Backend().Trigger().update("trigger_id", new Backend_TriggerUpdate());
 
 // Creates a new user.
-CommonMessage response = client.Backend().User().Create(new BackendUsercreate());
+Common_Message response = client.Backend().User().create(new Backend_UserCreate());
 
 // Deletes an existing user.
-CommonMessage response = client.Backend().User().Delete("user_id");
+Common_Message response = client.Backend().User().delete("user_id");
 
 // Returns a specific user.
-BackendUser response = client.Backend().User().Get("user_id");
+Backend_User response = client.Backend().User().get("user_id");
 
 // Returns a paginated list of users.
-BackendUsercollection response = client.Backend().User().Getall(1, 1, "search");
+Backend_UserCollection response = client.Backend().User().getAll(1, 1, "search");
 
 // Resend the activation mail to the provided user.
-CommonMessage response = client.Backend().User().Resend("user_id", new Passthru());
+Common_Message response = client.Backend().User().resend("user_id", new Passthru());
 
 // Updates an existing user.
-CommonMessage response = client.Backend().User().Update("user_id", new BackendUserupdate());
+Common_Message response = client.Backend().User().update("user_id", new Backend_UserUpdate());
 
 // Creates a new webhook.
-CommonMessage response = client.Backend().Webhook().Create(new BackendWebhookcreate());
+Common_Message response = client.Backend().Webhook().create(new Backend_WebhookCreate());
 
 // Deletes an existing webhook.
-CommonMessage response = client.Backend().Webhook().Delete("webhook_id");
+Common_Message response = client.Backend().Webhook().delete("webhook_id");
 
 // Returns a specific webhook.
-BackendWebhook response = client.Backend().Webhook().Get("webhook_id");
+Backend_Webhook response = client.Backend().Webhook().get("webhook_id");
 
 // Returns a paginated list of webhooks.
-BackendWebhookcollection response = client.Backend().Webhook().Getall(1, 1, "search");
+Backend_WebhookCollection response = client.Backend().Webhook().getAll(1, 1, "search");
 
 // Updates an existing webhook.
-CommonMessage response = client.Backend().Webhook().Update("webhook_id", new BackendWebhookupdate());
+Common_Message response = client.Backend().Webhook().update("webhook_id", new Backend_WebhookUpdate());
 
 // Activates an previously registered account through a token which was provided to the user via email.
-CommonMessage response = client.Consumer().Account().Activate(new ConsumerUseractivate());
+Common_Message response = client.Consumer().Account().activate(new Consumer_UserActivate());
 
 // Authorizes the access of a specific app for the authenticated user.
-ConsumerAuthorizeresponse response = client.Consumer().Account().Authorize(new ConsumerAuthorizerequest());
+Consumer_AuthorizeResponse response = client.Consumer().Account().authorize(new Consumer_AuthorizeRequest());
 
 // Change the password for the authenticated user.
-CommonMessage response = client.Consumer().Account().Changepassword(new BackendAccountchangepassword());
+Common_Message response = client.Consumer().Account().changePassword(new Backend_AccountChangePassword());
 
 // Change the password after the password reset flow was started.
-CommonMessage response = client.Consumer().Account().Executepasswordreset(new ConsumerUserpasswordreset());
+Common_Message response = client.Consumer().Account().executePasswordReset(new Consumer_UserPasswordReset());
 
 // Returns a user data for the authenticated user.
-ConsumerUseraccount response = client.Consumer().Account().Get();
+Consumer_UserAccount response = client.Consumer().Account().get();
 
 // Returns information about a specific app to start the OAuth2 authorization code flow.
-ConsumerAuthorizemeta response = client.Consumer().Account().Getapp("client_id", "scope");
+Consumer_AuthorizeMeta response = client.Consumer().Account().getApp("client_id", "scope");
 
 // User login by providing a username and password.
-ConsumerUserjwt response = client.Consumer().Account().Login(new ConsumerUserlogin());
+Consumer_UserJWT response = client.Consumer().Account().login(new Consumer_UserLogin());
 
 // Refresh a previously obtained access token.
-ConsumerUserjwt response = client.Consumer().Account().Refresh(new ConsumerUserrefresh());
+Consumer_UserJWT response = client.Consumer().Account().refresh(new Consumer_UserRefresh());
 
 // Register a new user account.
-CommonMessage response = client.Consumer().Account().Register(new ConsumerUserregister());
+Common_Message response = client.Consumer().Account().register(new Consumer_UserRegister());
 
 // Start the password reset flow.
-CommonMessage response = client.Consumer().Account().Requestpasswordreset(new ConsumerUseremail());
+Common_Message response = client.Consumer().Account().requestPasswordReset(new Consumer_UserEmail());
 
 // Updates user data for the authenticated user.
-CommonMessage response = client.Consumer().Account().Update(new ConsumerUseraccount());
+Common_Message response = client.Consumer().Account().update(new Consumer_UserAccount());
 
 // Returns a specific agent.
-ConsumerAgent response = client.Consumer().Agent().Get("agent_id");
+Consumer_Agent response = client.Consumer().Agent().get("agent_id");
 
 // Returns a paginated list of agents.
-ConsumerAgentcollection response = client.Consumer().Agent().Getall(1, 1, "search");
+Consumer_AgentCollection response = client.Consumer().Agent().getAll(1, 1, "search");
 
 // Returns a paginated list of agent messages.
-ConsumerAgentmessagecollection response = client.Consumer().Agent().Message().Getall("agent_id", "chat_id");
+Consumer_AgentMessageCollection response = client.Consumer().Agent().Message().getAll("agent_id", "chat_id");
 
 // Submits a new agent message.
-AgentOutput response = client.Consumer().Agent().Message().Submit("agent_id", new AgentInput());
+Agent_Output response = client.Consumer().Agent().Message().submit("agent_id", new Agent_Input());
 
 // Creates a new app for the authenticated user.
-CommonMessage response = client.Consumer().App().Create(new ConsumerAppcreate());
+Common_Message response = client.Consumer().App().create(new Consumer_AppCreate());
 
 // Deletes an existing app for the authenticated user.
-CommonMessage response = client.Consumer().App().Delete("app_id");
+Common_Message response = client.Consumer().App().delete("app_id");
 
 // Returns a specific app for the authenticated user.
-ConsumerApp response = client.Consumer().App().Get("app_id");
+Consumer_App response = client.Consumer().App().get("app_id");
 
 // Returns a paginated list of apps which are assigned to the authenticated user.
-ConsumerAppcollection response = client.Consumer().App().Getall(1, 1, "search");
+Consumer_AppCollection response = client.Consumer().App().getAll(1, 1, "search");
 
 // Updates an existing app for the authenticated user.
-CommonMessage response = client.Consumer().App().Update("app_id", new ConsumerAppupdate());
+Common_Message response = client.Consumer().App().update("app_id", new Consumer_AppUpdate());
 
 // Returns a specific event for the authenticated user.
-ConsumerEvent response = client.Consumer().Event().Get("event_id");
+Consumer_Event response = client.Consumer().Event().get("event_id");
 
 // Returns a paginated list of apps which are assigned to the authenticated user.
-ConsumerEventcollection response = client.Consumer().Event().Getall(1, 1, "search");
+Consumer_EventCollection response = client.Consumer().Event().getAll(1, 1, "search");
 
 // Returns a specific form for the authenticated user.
-ConsumerForm response = client.Consumer().Form().Get("form_id");
+Consumer_Form response = client.Consumer().Form().get("form_id");
 
 // Returns a paginated list of forms which are relevant to the authenticated user.
-ConsumerFormcollection response = client.Consumer().Form().Getall(1, 1, "search");
+Consumer_FormCollection response = client.Consumer().Form().getAll(1, 1, "search");
 
 // Deletes an existing grant for an app which was created by the authenticated user.
-CommonMessage response = client.Consumer().Grant().Delete("grant_id");
+Common_Message response = client.Consumer().Grant().delete("grant_id");
 
 // Returns a paginated list of grants which are assigned to the authenticated user.
-ConsumerGrantcollection response = client.Consumer().Grant().Getall(1, 1, "search");
+Consumer_GrantCollection response = client.Consumer().Grant().getAll(1, 1, "search");
 
 // Identity callback endpoint to exchange an access token.
-Passthru response = client.Consumer().Identity().Exchange("identity");
+Passthru response = client.Consumer().Identity().exchange("identity");
 
 // Returns a paginated list of identities which are relevant to the authenticated user.
-ConsumerIdentitycollection response = client.Consumer().Identity().Getall(1, "appKey");
+Consumer_IdentityCollection response = client.Consumer().Identity().getAll(1, "appKey");
 
 // Redirect the user to the configured identity provider.
-Passthru response = client.Consumer().Identity().Redirect("identity");
+Passthru response = client.Consumer().Identity().redirect("identity");
 
 // Returns a specific log for the authenticated user.
-ConsumerLog response = client.Consumer().Log().Get("log_id");
+Consumer_Log response = client.Consumer().Log().get("log_id");
 
 // Returns a paginated list of logs which are assigned to the authenticated user.
-ConsumerLogcollection response = client.Consumer().Log().Getall(1, 1, "search");
+Consumer_LogCollection response = client.Consumer().Log().getAll(1, 1, "search");
 
 // Returns a specific page for the authenticated user.
-ConsumerPage response = client.Consumer().Page().Get("page_id");
+Consumer_Page response = client.Consumer().Page().get("page_id");
 
 // Returns a paginated list of pages which are relevant to the authenticated user.
-ConsumerPagecollection response = client.Consumer().Page().Getall(1, 1, "search");
+Consumer_PageCollection response = client.Consumer().Page().getAll(1, 1, "search");
 
 // Start the checkout process for a specific plan.
-ConsumerPaymentcheckoutresponse response = client.Consumer().Payment().Checkout("provider", new ConsumerPaymentcheckoutrequest());
+Consumer_PaymentCheckoutResponse response = client.Consumer().Payment().checkout("provider", new Consumer_PaymentCheckoutRequest());
 
 // Generates a payment portal link for the authenticated user.
-ConsumerPaymentportalresponse response = client.Consumer().Payment().Portal("provider", new ConsumerPaymentportalrequest());
+Consumer_PaymentPortalResponse response = client.Consumer().Payment().portal("provider", new Consumer_PaymentPortalRequest());
 
 // Returns a specific plan for the authenticated user.
-ConsumerPlan response = client.Consumer().Plan().Get("plan_id");
+Consumer_Plan response = client.Consumer().Plan().get("plan_id");
 
 // Returns a paginated list of plans which are relevant to the authenticated user.
-ConsumerPlancollection response = client.Consumer().Plan().Getall(1, 1, "search");
+Consumer_PlanCollection response = client.Consumer().Plan().getAll(1, 1, "search");
 
 // Returns a paginated list of scopes which are assigned to the authenticated user.
-ConsumerScopecollection response = client.Consumer().Scope().Getall(1, 1, "search");
+Consumer_ScopeCollection response = client.Consumer().Scope().getAll(1, 1, "search");
 
 // Returns all scopes by category.
-ConsumerScopecategories response = client.Consumer().Scope().Getcategories();
+Consumer_ScopeCategories response = client.Consumer().Scope().getCategories();
 
 // Creates a new token for the authenticated user.
-ConsumerTokenaccesstoken response = client.Consumer().Token().Create(new ConsumerTokencreate());
+Consumer_TokenAccessToken response = client.Consumer().Token().create(new Consumer_TokenCreate());
 
 // Deletes an existing token for the authenticated user.
-CommonMessage response = client.Consumer().Token().Delete("token_id");
+Common_Message response = client.Consumer().Token().delete("token_id");
 
 // Returns a specific token for the authenticated user.
-ConsumerToken response = client.Consumer().Token().Get("token_id");
+Consumer_Token response = client.Consumer().Token().get("token_id");
 
 // Returns a paginated list of tokens which are assigned to the authenticated user.
-ConsumerTokencollection response = client.Consumer().Token().Getall(1, 1, "search");
+Consumer_TokenCollection response = client.Consumer().Token().getAll(1, 1, "search");
 
 // Updates an existing token for the authenticated user.
-ConsumerTokenaccesstoken response = client.Consumer().Token().Update("token_id", new ConsumerTokenupdate());
+Consumer_TokenAccessToken response = client.Consumer().Token().update("token_id", new Consumer_TokenUpdate());
 
 // Returns a specific transaction for the authenticated user.
-ConsumerTransaction response = client.Consumer().Transaction().Get("transaction_id");
+Consumer_Transaction response = client.Consumer().Transaction().get("transaction_id");
 
 // Returns a paginated list of transactions which are assigned to the authenticated user.
-ConsumerTransactioncollection response = client.Consumer().Transaction().Getall(1, 1, "search");
+Consumer_TransactionCollection response = client.Consumer().Transaction().getAll(1, 1, "search");
 
 // Creates a new webhook for the authenticated user.
-CommonMessage response = client.Consumer().Webhook().Create(new ConsumerWebhookcreate());
+Common_Message response = client.Consumer().Webhook().create(new Consumer_WebhookCreate());
 
 // Deletes an existing webhook for the authenticated user.
-CommonMessage response = client.Consumer().Webhook().Delete("webhook_id");
+Common_Message response = client.Consumer().Webhook().delete("webhook_id");
 
 // Returns a specific webhook for the authenticated user.
-ConsumerWebhook response = client.Consumer().Webhook().Get("webhook_id");
+Consumer_Webhook response = client.Consumer().Webhook().get("webhook_id");
 
 // Returns a paginated list of webhooks which are assigned to the authenticated user.
-ConsumerWebhookcollection response = client.Consumer().Webhook().Getall(1, 1, "search");
+Consumer_WebhookCollection response = client.Consumer().Webhook().getAll(1, 1, "search");
 
 // Updates an existing webhook for the authenticated user.
-CommonMessage response = client.Consumer().Webhook().Update("webhook_id", new ConsumerWebhookupdate());
+Common_Message response = client.Consumer().Webhook().update("webhook_id", new Consumer_WebhookUpdate());
 
 // Connection OAuth2 callback to authorize a connection.
-CommonMessage response = client.System().Connection().Callback("name");
+Common_Message response = client.System().Connection().callback("name");
 
 // Returns meta information and links about the current installed Fusio version.
-SystemAbout response = client.System().Meta().Getabout();
+System_About response = client.System().Meta().getAbout();
 
 // Debug endpoint which returns the provided data.
-Passthru response = client.System().Meta().Getdebug(new Passthru());
+Passthru response = client.System().Meta().getDebug(new Passthru());
 
 // Health check endpoint which returns information about the health status of the system.
-SystemHealthcheck response = client.System().Meta().Gethealth();
+System_HealthCheck response = client.System().Meta().getHealth();
 
 // Returns all available routes.
-SystemRoute response = client.System().Meta().Getroutes();
+System_Route response = client.System().Meta().getRoutes();
 
 // Returns details of a specific schema.
-SystemSchema response = client.System().Meta().Getschema("name");
+System_Schema response = client.System().Meta().getSchema("name");
 
 // Payment webhook endpoint after successful purchase of a plan.
-CommonMessage response = client.System().Payment().Webhook("provider");
+Common_Message response = client.System().Payment().webhook("provider");
 ```
