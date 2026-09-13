@@ -818,6 +818,9 @@ Consumer_WebhookCollection response = client.Consumer().Webhook().getAll(1, 1, "
 // Updates an existing webhook for the authenticated user.
 Common_Message response = client.Consumer().Webhook().update("webhook_id", new Consumer_WebhookUpdate());
 
+// Endpoint to generate a captcha challenge.
+System_CaptchaChallenge response = client.System().Captcha().challenge();
+
 // Connection OAuth2 callback to authorize a connection.
 Common_Message response = client.System().Connection().callback("name");
 
