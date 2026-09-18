@@ -36,6 +36,9 @@ public class BackendAgent
     [JsonPropertyName("introduction")]
     public string? Introduction { get; set; }
 
+    [JsonPropertyName("introductionAction")]
+    public string? IntroductionAction { get; set; }
+
     [JsonPropertyName("temperature")]
     public double? Temperature { get; set; }
 
