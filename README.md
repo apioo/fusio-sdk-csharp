@@ -72,10 +72,10 @@ Backend_AgentCollection response = client.Backend().Agent().getAll(1, 1, "search
 Backend_AgentTools response = client.Backend().Agent().getTools();
 
 // Returns a paginated list of agent messages.
-Backend_AgentMessageCollection response = client.Backend().Agent().Message().getAll("agent_id", "chat_id");
+Backend_AgentMessageCollection response = client.Backend().Agent().Message().getAll("agent_id", 1, "chat_id");
 
 // Submits a new agent message.
-Agent_Output response = client.Backend().Agent().Message().submit("agent_id", new Agent_Input());
+Agent_Output response = client.Backend().Agent().Message().submit("agent_id", 1, new Agent_Input());
 
 // Updates an existing agent.
 Common_Message response = client.Backend().Agent().update("agent_id", new Backend_AgentUpdate());
@@ -705,10 +705,10 @@ Consumer_Agent response = client.Consumer().Agent().get("agent_id");
 Consumer_AgentCollection response = client.Consumer().Agent().getAll(1, 1, "search");
 
 // Returns a paginated list of agent messages.
-Consumer_AgentMessageCollection response = client.Consumer().Agent().Message().getAll("agent_id", "chat_id");
+Consumer_AgentMessageCollection response = client.Consumer().Agent().Message().getAll("agent_id", 1, "chat_id");
 
 // Submits a new agent message.
-Agent_Output response = client.Consumer().Agent().Message().submit("agent_id", new Agent_Input());
+Agent_Output response = client.Consumer().Agent().Message().submit("agent_id", 1, new Agent_Input());
 
 // Creates a new app for the authenticated user.
 Common_Message response = client.Consumer().App().create(new Consumer_AppCreate());
