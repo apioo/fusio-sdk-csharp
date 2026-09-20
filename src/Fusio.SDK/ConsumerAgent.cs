@@ -18,6 +18,9 @@ public class ConsumerAgent
     [JsonPropertyName("id")]
     public int? Id { get; set; }
 
+    [JsonPropertyName("type")]
+    public int? Type { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
