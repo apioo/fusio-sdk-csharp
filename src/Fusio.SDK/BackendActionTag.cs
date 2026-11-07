@@ -202,11 +202,14 @@ public class BackendActionTag : TagAbstract {
     /**
      * Returns all available action classes
      */
-    public async Task<BackendActionIndex> GetClasses()
+    public async Task<BackendActionIndex> GetClasses(bool marketplace, int startIndex, string search)
     {
         Dictionary<string, object> pathParams = new();
 
         Dictionary<string, object> queryParams = new();
+        queryParams.Add("marketplace", marketplace);
+        queryParams.Add("startIndex", startIndex);
+        queryParams.Add("search", search);
 
         List<string> queryStructNames = new();
 
