@@ -45,7 +45,7 @@ Backend_Action response = client.Backend().Action().get("action_id");
 Backend_ActionCollection response = client.Backend().Action().getAll(1, 1, "search");
 
 // Returns all available action classes.
-Backend_ActionIndex response = client.Backend().Action().getClasses();
+Backend_ActionIndex response = client.Backend().Action().getClasses(true, 1, "search");
 
 // Returns a paginated list of action commits.
 Backend_ActionCommitCollection response = client.Backend().Action().getCommits("action_id", 1, 1, "search");
