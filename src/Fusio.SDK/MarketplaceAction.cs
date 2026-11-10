@@ -12,6 +12,9 @@ public class MarketplaceAction : MarketplaceObject
     [JsonPropertyName("class")]
     public string? Class { get; set; }
 
+    [JsonPropertyName("form")]
+    public System.Collections.Generic.List<FormElement>? Form { get; set; }
+
     [JsonPropertyName("config")]
     public MarketplaceActionConfig? Config { get; set; }
 

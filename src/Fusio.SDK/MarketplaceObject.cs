@@ -15,6 +15,9 @@ public class MarketplaceObject
     [JsonPropertyName("id")]
     public int? Id { get; set; }
 
+    [JsonPropertyName("visibility")]
+    public int? Visibility { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
