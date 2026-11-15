@@ -26,6 +26,14 @@ public class BackendAgentTag : TagAbstract {
         );
     }
 
+    public BackendAgentTaskTag Task()
+    {
+        return new BackendAgentTaskTag(
+            this.HttpClient,
+            this.Parser
+        );
+    }
+
 
     /**
      * Creates a new agent
