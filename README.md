@@ -77,6 +77,18 @@ Backend_AgentMessageCollection response = client.Backend().Agent().Message().get
 // Submits a new agent message.
 Agent_Output response = client.Backend().Agent().Message().submit("agent_id", 1, new Agent_Input());
 
+// Cancels a pending or running agent task.
+Common_Message response = client.Backend().Agent().Task().cancel("agent_id", "task_id");
+
+// Creates a new agent task which executes the action of the agent in the background, the optional connection is passed to the action i.
+Common_Message response = client.Backend().Agent().Task().create("agent_id", "connection", new Backend_AgentTaskCreate());
+
+// Returns a specific agent task including all executed steps.
+Backend_AgentTask response = client.Backend().Agent().Task().get("agent_id", "task_id");
+
+// Returns a paginated list of agent tasks of the current user.
+Backend_AgentTaskCollection response = client.Backend().Agent().Task().getAll("agent_id", 1, 1);
+
 // Updates an existing agent.
 Common_Message response = client.Backend().Agent().update("agent_id", new Backend_AgentUpdate());
 
