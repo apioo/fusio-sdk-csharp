@@ -67,7 +67,7 @@ public class BackendSchemaTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/schema/$schema_id<[0-9]+|^~>", pathParams), Method.Delete);
+        RestRequest request = new(this.Parser.Url("/backend/schema/:schema_id", pathParams), Method.Delete);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -102,7 +102,7 @@ public class BackendSchemaTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/schema/$schema_id<[0-9]+|^~>", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/schema/:schema_id", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -178,7 +178,7 @@ public class BackendSchemaTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/schema/$schema_id<[0-9]+|^~>/commit", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/schema/:schema_id/commit", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -213,7 +213,7 @@ public class BackendSchemaTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/schema/preview/:schema_id", pathParams), Method.Post);
+        RestRequest request = new(this.Parser.Url("/backend/schema/:schema_id/preview", pathParams), Method.Post);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -248,7 +248,7 @@ public class BackendSchemaTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/schema/$schema_id<[0-9]+|^~>", pathParams), Method.Put);
+        RestRequest request = new(this.Parser.Url("/backend/schema/:schema_id", pathParams), Method.Put);
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 

@@ -39,7 +39,7 @@ public class ConsumerAgentTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/consumer/agent/$agent_id<[0-9]+|^~>", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/consumer/agent/:agent_id", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 

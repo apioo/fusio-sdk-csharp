@@ -32,7 +32,7 @@ public class BackendAgentTaskTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/agent/$agent_id<[0-9]+|^~>/task/:task_id", pathParams), Method.Delete);
+        RestRequest request = new(this.Parser.Url("/backend/agent/:agent_id/task/:task_id", pathParams), Method.Delete);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -68,7 +68,7 @@ public class BackendAgentTaskTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/agent/$agent_id<[0-9]+|^~>/task", pathParams), Method.Post);
+        RestRequest request = new(this.Parser.Url("/backend/agent/:agent_id/task", pathParams), Method.Post);
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 
@@ -106,7 +106,7 @@ public class BackendAgentTaskTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/agent/$agent_id<[0-9]+|^~>/task/:task_id", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/agent/:agent_id/task/:task_id", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -143,7 +143,7 @@ public class BackendAgentTaskTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/agent/$agent_id<[0-9]+|^~>/task", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/agent/:agent_id/task", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 

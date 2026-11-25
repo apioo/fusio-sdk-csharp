@@ -31,7 +31,7 @@ public class ConsumerLogTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/consumer/log/$log_id<[0-9]+>", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/consumer/log/:log_id", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 

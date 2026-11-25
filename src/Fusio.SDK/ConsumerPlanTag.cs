@@ -31,7 +31,7 @@ public class ConsumerPlanTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/consumer/plan/$plan_id<[0-9]+|^~>", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/consumer/plan/:plan_id", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 

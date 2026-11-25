@@ -67,7 +67,7 @@ public class BackendIdentityTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/identity/$identity_id<[0-9]+|^~>", pathParams), Method.Delete);
+        RestRequest request = new(this.Parser.Url("/backend/identity/:identity_id", pathParams), Method.Delete);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -102,7 +102,7 @@ public class BackendIdentityTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/identity/$identity_id<[0-9]+|^~>", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/identity/:identity_id", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -173,7 +173,7 @@ public class BackendIdentityTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/identity/list", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/capability/identity/list", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -208,7 +208,7 @@ public class BackendIdentityTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/identity/form", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/capability/identity/form", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -243,7 +243,7 @@ public class BackendIdentityTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/identity/$identity_id<[0-9]+|^~>", pathParams), Method.Put);
+        RestRequest request = new(this.Parser.Url("/backend/identity/:identity_id", pathParams), Method.Put);
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 

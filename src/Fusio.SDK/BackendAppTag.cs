@@ -67,7 +67,7 @@ public class BackendAppTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/app/$app_id<[0-9]+|^~>", pathParams), Method.Delete);
+        RestRequest request = new(this.Parser.Url("/backend/app/:app_id", pathParams), Method.Delete);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -103,7 +103,7 @@ public class BackendAppTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/app/$app_id<[0-9]+>/token/:token_id", pathParams), Method.Delete);
+        RestRequest request = new(this.Parser.Url("/backend/app/:app_id/token/:token_id", pathParams), Method.Delete);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -138,7 +138,7 @@ public class BackendAppTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/app/$app_id<[0-9]+|^~>", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/app/:app_id", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -210,7 +210,7 @@ public class BackendAppTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/app/$app_id<[0-9]+|^~>", pathParams), Method.Put);
+        RestRequest request = new(this.Parser.Url("/backend/app/:app_id", pathParams), Method.Put);
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 

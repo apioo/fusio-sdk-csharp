@@ -31,7 +31,7 @@ public class BackendTestTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/test/$test_id<[0-9]+>", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/test/:test_id", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -171,7 +171,7 @@ public class BackendTestTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/test/$test_id<[0-9]+>", pathParams), Method.Put);
+        RestRequest request = new(this.Parser.Url("/backend/test/:test_id", pathParams), Method.Put);
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 

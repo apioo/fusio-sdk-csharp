@@ -67,7 +67,7 @@ public class BackendActionTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/action/$action_id<[0-9]+|^~>", pathParams), Method.Delete);
+        RestRequest request = new(this.Parser.Url("/backend/action/:action_id", pathParams), Method.Delete);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -102,7 +102,7 @@ public class BackendActionTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/action/execute/:action_id", pathParams), Method.Post);
+        RestRequest request = new(this.Parser.Url("/backend/action/:action_id/execute", pathParams), Method.Post);
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 
@@ -139,7 +139,7 @@ public class BackendActionTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/action/$action_id<[0-9]+|^~>", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/action/:action_id", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -213,7 +213,7 @@ public class BackendActionTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/action/list", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/capability/action/list", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -251,7 +251,7 @@ public class BackendActionTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/action/$action_id<[0-9]+|^~>/commit", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/action/:action_id/commit", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -286,7 +286,7 @@ public class BackendActionTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/action/form", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/capability/action/form", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -321,7 +321,7 @@ public class BackendActionTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/action/$action_id<[0-9]+|^~>", pathParams), Method.Put);
+        RestRequest request = new(this.Parser.Url("/backend/action/:action_id", pathParams), Method.Put);
         this.Parser.Query(request, queryParams, queryStructNames);
         request.AddJsonBody(JsonSerializer.Serialize(payload));
 

@@ -31,7 +31,7 @@ public class BackendLogTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/log/$log_id<[0-9]+>", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/log/:log_id", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
@@ -88,78 +88,6 @@ public class BackendLogTag : TagAbstract {
         if (response.IsSuccessful)
         {
             var data = this.Parser.Parse<BackendLogCollection>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode >= 0 && statusCode <= 999)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
-    /**
-     * Returns a paginated list of log errors
-     */
-    public async Task<BackendLogErrorCollection> GetAllErrors(int startIndex, int count, string search)
-    {
-        Dictionary<string, object> pathParams = new();
-
-        Dictionary<string, object> queryParams = new();
-        queryParams.Add("startIndex", startIndex);
-        queryParams.Add("count", count);
-        queryParams.Add("search", search);
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/backend/log/error", pathParams), Method.Get);
-        this.Parser.Query(request, queryParams, queryStructNames);
-
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<BackendLogErrorCollection>(response.Content);
-
-            return data;
-        }
-
-        var statusCode = (int) response.StatusCode;
-        if (statusCode >= 0 && statusCode <= 999)
-        {
-            var data = this.Parser.Parse<CommonMessage>(response.Content);
-
-            throw new CommonMessageException(data);
-        }
-
-        throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-    }
-    /**
-     * Returns a specific error
-     */
-    public async Task<BackendLogError> GetError(string errorId)
-    {
-        Dictionary<string, object> pathParams = new();
-        pathParams.Add("error_id", errorId);
-
-        Dictionary<string, object> queryParams = new();
-
-        List<string> queryStructNames = new();
-
-        RestRequest request = new(this.Parser.Url("/backend/log/error/$error_id<[0-9]+>", pathParams), Method.Get);
-        this.Parser.Query(request, queryParams, queryStructNames);
-
-
-        RestResponse response = await this.HttpClient.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-            var data = this.Parser.Parse<BackendLogError>(response.Content);
 
             return data;
         }

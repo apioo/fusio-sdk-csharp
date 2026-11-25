@@ -31,7 +31,7 @@ public class BackendTokenTag : TagAbstract {
 
         List<string> queryStructNames = new();
 
-        RestRequest request = new(this.Parser.Url("/backend/token/$token_id<[0-9]+>", pathParams), Method.Get);
+        RestRequest request = new(this.Parser.Url("/backend/token/:token_id", pathParams), Method.Get);
         this.Parser.Query(request, queryParams, queryStructNames);
 
 
