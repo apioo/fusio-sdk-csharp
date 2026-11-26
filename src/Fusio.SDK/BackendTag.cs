@@ -114,14 +114,6 @@ public class BackendTag : TagAbstract {
         );
     }
 
-    public BackendErrorTag Error()
-    {
-        return new BackendErrorTag(
-            this.HttpClient,
-            this.Parser
-        );
-    }
-
     public BackendEventTag Event()
     {
         return new BackendEventTag(
